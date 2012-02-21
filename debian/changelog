@@ -1,3 +1,9 @@
+arco-tools (0.20120222-1) unstable; urgency=low
+
+  * arco-pfc migrated to https://bitbucket.org/arco_group/arco-pfc
+
+ -- David Villa Alises <David.Villa@uclm.es>  Tue, 21 Feb 2012 20:42:40 +0100
+
 arco-tools (0.20120221-1) unstable; urgency=low
 
   * Bug in make/odp2pdf
