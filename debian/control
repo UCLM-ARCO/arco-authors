@@ -25,13 +25,6 @@ Depends: ${misc:Depends}, texlive-binaries, texlive-latex-extra,
 Description: ARCO authors tools
  LaTeX and DocBook utilities and styles for ARCO authors.
 
-Package: arco-pfc
-Architecture: all
-Depends:  ${misc:Depends}, arco-authors (= ${source:Version})
-Description: LaTeX class and utilities for PFC typesetting.
- This package provides the arco-pfc LaTeX class created specifically to simplify
- PFC typesetting.
-
 Package: arco-devel
 Replaces: arco-make, arco-debian, arco-bashrc
 Conflicts: arco-make, arco-debian, arco-bashrc

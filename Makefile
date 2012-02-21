@@ -11,7 +11,6 @@ MK=$(DESTDIR)/usr/include/arco
 LATEXSITE=$(DESTDIR)/usr/share/texmf-texlive/tex/latex
 BIBDIR=$(DESTDIR)/usr/share/texmf-texlive/bibtex/bst/es-bib
 FIGURES=$(DESTDIR)/usr/share/arco-tools/figures
-SAMPLES=$(DESTDIR)/usr/share/doc/arco-tools/samples
 DOCDIR=$(DESTDIR)/usr/share/doc
 
 WGET=wget --no-check-certificate -nv
@@ -57,14 +56,8 @@ install:
 	@$(WGET) $(LOGOS)/arco-white.pdf     -O $(FIGURES)/arco-white.pdf
 	@$(WGET) $(LOGOS)/arco-watermark.pdf -O $(FIGURES)/arco-watermark.pdf
 
-#	install -vd $(SAMPLES)
-#	cp -a samples/* $(SAMPLES)
-
 	install -vd $(DOCDIR)/arco-authors
 	tar cvfz $(DOCDIR)/arco-authors/samples.tgz --exclude \.svn --directory samples latex docbook
-
-	install -vd $(DOCDIR)/arco-pfc
-	tar cvfz $(DOCDIR)/arco-pfc/sample.tgz --exclude \.svn --directory samples pfc
 
 	install -vd $(DOCDIR)/arco-devel
 	tar cvfz $(DOCDIR)/arco-devel/sample.tgz --exclude \.svn --directory samples make
