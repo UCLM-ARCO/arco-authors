@@ -52,6 +52,7 @@ install:
 	install -v -m 755 bin.share/* $(BASE)/
 
 	install -vd $(DESTDIR)/usr/share/arco-tools/figures
+	@$(WGET) $(LOGOS)/uclm.pdf           -O $(FIGURES)/uclm.pdf
 	@$(WGET) $(LOGOS)/uclm-A4.pdf        -O $(FIGURES)/uclm-A4.pdf
 	@$(WGET) $(LOGOS)/arco-white.pdf     -O $(FIGURES)/arco-white.pdf
 	@$(WGET) $(LOGOS)/arco-watermark.pdf -O $(FIGURES)/arco-watermark.pdf

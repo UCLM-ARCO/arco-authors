@@ -1,8 +1,7 @@
 usr/share/arco-tools/figures
 usr/share/arco-tools/*figures.sh
 usr/share/arco-tools/*parts.sh
-usr/share/texmf-texlive/tex/latex/arco/arco-book.cls
-usr/share/texmf-texlive/tex/latex/arco/arco-report.cls
+usr/share/texmf-texlive/tex/latex/arco/*.cls
 usr/share/texmf-texlive/tex/latex/arco/*.sty
 usr/share/texmf-texlive/bibtex/bst/es-bib
 usr/include/arco/noweb.mk
