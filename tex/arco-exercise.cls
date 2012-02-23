@@ -66,7 +66,7 @@
     \begin{picture}(0,0)
       \put(-55,-820){
         \UCLMbgcolor{\includegraphics[width=1.1\textwidth]{%
-            /usr/share/arco-tools/figures/uclm.pdf}}}
+            /usr/share/arco-tools/figures/uclm-logo-bw-mp.pdf}}}
     \end{picture}}}
 
 %% -- Variables del estilo ------------------------------------
