@@ -60,6 +60,9 @@
 
 \RequirePackage[sf,bf,compact,clearempty]{titlesec}
 
+\RequirePackage{atbeginend}
+\BeforeEnd{document}{\label{arco:lastpage}}
+
 \RequirePackage{color}
 \definecolor{gray25}{gray}{0.25}
 \definecolor{uclm-light}{cmyk}{0,.05,.05,0}
@@ -81,7 +84,7 @@
           {\graycolor{\@arcoCourse}}
   \setfoot{\graycolor{\today}} %
           {} %
-          {\graycolor{\thepage/\pageref*{lastpage}}}
+          {\graycolor{\thepage/\pageref*{arco:lastpage}}}
   \headrule
   \footrule
 }
@@ -94,9 +97,9 @@
     \leavevmode
     {\sffamily\bfseries \LARGE \@title\par}%
     \smallskip
-    {\Large \@author\par}%
+    {\large \@author\par}%
     \smallskip
-    {\large \@date\par}%
+    {\@date\par}%
   \end{center}%
   \null
 }
