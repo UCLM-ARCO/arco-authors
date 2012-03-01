@@ -107,7 +107,7 @@ main() {
 
 
 # Check required programs
-for i in `seq 0 $((${#REQUIRED[@]} - 1))` ; do
+for i in $(seq 0 $((${#REQUIRED[@]} - 1))) ; do
     if ! type -t "${REQUIRED[$i]}" > /dev/null ; then
 	echo "Missing required command '${REQUIRED[$i]}'" 1>&2
 	exit 1

@@ -8,6 +8,11 @@
 % Initial template taken from:
 %   http://stackoverflow.com/questions/581916/how-do-you-extend-article-document-class-in-latex
 
+%% -- Variables de la clase ------------------------------------
+\gdef\@arcoTopic{<asignatura>}
+\def\arcoTopic#1{\gdef\@arcoTopic{#1}}
+\gdef\@arcoCourse{<curso>}
+\def\arcoCourse#1{\gdef\@arcoCourse{#1}}
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{arco-exercise}[2012/02/22 class for student exercises]
@@ -33,10 +38,6 @@
 \RequirePackage{enumitem}
 \setlist{topsep=0pt}
 
-\RequirePackage{color}
-\definecolor{gray25}{gray}{0.25}
-\definecolor{uclm-light}{cmyk}{0,0.1,0.1,0}
-
 \RequirePackage[%
   colorlinks=true,
   linkcolor=black,
@@ -59,25 +60,28 @@
 
 \RequirePackage[sf,bf,compact,clearempty]{titlesec}
 
-\newcommand{\UCLMbgcolor}[1]{\textcolor{uclm-light}{#1}}
+\RequirePackage{color}
+\definecolor{gray25}{gray}{0.25}
+\definecolor{uclm-light}{cmyk}{0,.05,.05,0}
+\def\graycolor#1{\textcolor{gray25}{#1}}
+\def\uclmcolor#1{\textcolor{uclm-light}{#1}}
+
 \newcommand{\ifcolor}[1]{#1}
 \newcommand{\UCLMbglogo}{%
   \ifcolor{%
     \begin{picture}(0,0)
       \put(-55,-820){
-        \UCLMbgcolor{\includegraphics[width=1.1\textwidth]{%
+        \uclmcolor{\includegraphics[width=1.1\textwidth]{%
             /usr/share/arco-tools/figures/uclm-logo-bw-mp.pdf}}}
     \end{picture}}}
 
-%% -- Variables del estilo ------------------------------------
-\gdef\@arcoTopic{<asignatura>}
-\def\arcoTopic#1{\gdef\@arcoTopic{#1}}
-\gdef\@arcoCourse{<curso>}
-\def\arcoCourse#1{\gdef\@arcoCourse{#1}}
-
 \newpagestyle{arcoStyle}[\scriptsize\sffamily]{
-  \sethead{\textcolor{gray25}{\@arcoTopic}}{\UCLMbglogo}{\textcolor{gray25}{\@arcoCourse}}
-  \setfoot{\textcolor{gray25}{\today}}{}{\textcolor{gray25}{\thepage/\pageref*{lastpage}}}
+  \sethead{\graycolor{\@arcoTopic}} %
+          {\UCLMbglogo} %
+          {\graycolor{\@arcoCourse}}
+  \setfoot{\graycolor{\today}} %
+          {} %
+          {\graycolor{\thepage/\pageref*{lastpage}}}
   \headrule
   \footrule
 }

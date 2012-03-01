@@ -3,8 +3,6 @@
 
 DESTDIR?=~
 
-LOGOS=http://arco.esi.uclm.es/svn/public/doc/logos/
-
 BASE=$(DESTDIR)/usr/share/arco-tools
 EMACS=$(DESTDIR)/usr/share/arco-tools/emacs
 MK=$(DESTDIR)/usr/include/arco
@@ -13,6 +11,7 @@ BIBDIR=$(DESTDIR)/usr/share/texmf-texlive/bibtex/bst/es-bib
 FIGURES=$(DESTDIR)/usr/share/arco-tools/figures
 DOCDIR=$(DESTDIR)/usr/share/doc
 
+LOGOS=http://arco.esi.uclm.es/svn/public/doc/logos/
 WGET=wget --no-check-certificate -nv
 
 all:
@@ -51,7 +50,7 @@ install:
 
 	install -v -m 755 bin.share/* $(BASE)/
 
-	install -vd $(DESTDIR)/usr/share/arco-tools/figures
+	install -vd $(FIGURES)
 	@$(WGET) $(LOGOS)/uclm_logo_bw.mp.pdf -O $(FIGURES)/uclm-logo-bw-mp.pdf
 	@$(WGET) $(LOGOS)/uclm-A4.pdf         -O $(FIGURES)/uclm-A4.pdf
 	@$(WGET) $(LOGOS)/arco-white.pdf      -O $(FIGURES)/arco-white.pdf

@@ -22,10 +22,21 @@ dav-show: dav-mount
 	nautilus $(DAV-URI)
 
 dav-copy:
-	gvfs-copy $(DAV-FILES) $(DAV-URI)
+	@for i in $$(seq 5); do \
+	  if gvfs-copy $(DAV-FILES) $(DAV-URI); then \
+	    success=yes; \
+	    break; \
+	  fi \
+	done; \
+	if [ x = x$$success ]; then \
+	  echo "-> Error: DAV-copy FAILED!!"; \
+	else \
+	  echo "-> DAV-copy OK"; \
+	fi
+
 
 dav-rm:
-	gvfs-rm $(addprefix $(DAV)/, $(DAV-FILES))
+	gvfs-rm $(addprefix $(DAV-URI)/, $(DAV-FILES))
 
 install: dav-mount dav-copy
 

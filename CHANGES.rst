@@ -1,3 +1,10 @@
+0.20120223
+==========
+
+* make/dav-deploy.mk fixed
+* new tex/arco-exercise.cls
+* new tex/arco-listings.sty
+
 0.20120213
 ==========
 
