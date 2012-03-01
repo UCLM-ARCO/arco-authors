@@ -83,12 +83,26 @@
 }
 \pagestyle{arcoStyle}
 
-\let\oldmaketitle=\maketitle
+\def\mymaketitle{%
+  \null
+  \normalfont
+  \begin{center}
+    \leavevmode
+    {\sffamily \LARGE \@title\par}%
+    \smallskip
+    {\Large \@author\par}%
+    \smallskip
+    {\large \@date\par}%
+  \end{center}%
+  \null
+}
+
 \renewcommand\maketitle{%
   \let\footnotesize\small%
   \let\footnoterule\relax%
 
-  \oldmaketitle
+  \mymaketitle
+
   \thispagestyle{arcoStyle}
 
   \global\let\maketitle\relax
