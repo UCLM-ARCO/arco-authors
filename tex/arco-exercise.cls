@@ -88,7 +88,7 @@
   \normalfont
   \begin{center}
     \leavevmode
-    {\sffamily \LARGE \@title\par}%
+    {\sffamily\bfseries \LARGE \@title\par}%
     \smallskip
     {\Large \@author\par}%
     \smallskip
