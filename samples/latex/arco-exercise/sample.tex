@@ -1,0 +1,61 @@
+\documentclass{arco-exercise}
+\usepackage{arco-listings}
+
+\setlist[list]{noitemsep}
+
+\arcoTopic{Diseño y Gestión de Redes}
+\arcoCourse{Curso 2012/2012}
+
+\title{Ejercicios de captura y\\
+  análisis básico de tráfico}
+\author{Juan.Nadie@uclm.es}
+\date{}
+
+\begin{document}
+\maketitle
+
+A continuación se propone una lista de pequeñas herramientas de captura que pueden ser
+utilizadas para análisis, monitorización y validación de tráfico, y detección de
+anomalías. Aunque pueden implementarse en el lenguaje de programación que el alumno desee
+se propone el uso de Python. Los programas resultantes deberían funcionar correctamente al
+menos en una plataforma GNU/Linux.
+
+\begin{enumerate}
+\item Para una red Ethernet, escriba un programa que cuente el número de tramas que
+  aparecen en el enlace con la granularidad temporal indicada como parámetro (en
+  minutos). Ejemplo de uso:
+\begin{console}
+$ ./frame-count.py 2
+Slot size: 2 min
+18:02:  12
+18:04:  14
+18:06: 150
+Capture time: 341.2s
+\end{console} %$
+
+\item Para una red Ethernet, escriba un programa que cuente el número de paquetes de cada
+  protocolo (níveles red y transporte) durante el tiempo que esté en ejecución. Ejemplo de
+  uso:
+\begin{console}
+$ ./package-type-count.py
+Capture time: 123.4s
+ARP:  50
+IP:  500
+UDP:  80
+TCP: 420
+\end{console} %$
+
+\end{enumerate}
+
+\end{document}
+
+% Local Variables:
+%   coding: utf-8
+%   fill-column: 90
+%   mode: flyspell
+%   ispell-local-dictionary: "castellano8"
+%   mode: latex
+%   TeX-master: "main"
+% End:
+
+%  LocalWords:  Fermín
