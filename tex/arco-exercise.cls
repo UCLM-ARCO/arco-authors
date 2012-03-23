@@ -84,7 +84,7 @@
           {\graycolor{\@arcoCourse}}
   \setfoot{\graycolor{\today}} %
           {} %
-          {\graycolor{\thepage/\pageref*{arco:lastpage}}}
+          {\graycolor{\thepage/\pageref{arco:lastpage}}}
   \headrule
   \footrule
 }
