@@ -6,7 +6,10 @@
 \definecolor{gray45}{gray}{.45}
 
 \usepackage{listings}
+\renewcommand{\lstlistingname}{Listado}
+
 \lstset{
+  % frame
   frame=Ltb,
   framerule=0pt,
   aboveskip=0.5cm,
@@ -15,20 +18,25 @@
   framexleftmargin=0.4cm,
   framesep=0pt,
   rulesep=.4pt,
-  backgroundcolor=\color{gray97},
   rulesepcolor=\color{black},
-  %
+  backgroundcolor=\color{gray97},
+  % caption
+  caption=\lstname,
+  belowcaptionskip=5pt,
+  % text style
   stringstyle=\ttfamily,
-  showstringspaces = false,
-  basicstyle=\small\ttfamily,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
   commentstyle=\color{gray45},
   keywordstyle=\bfseries,
-  %
-%  numbers=left,
+  % numbers
+  numbers=left,
   numbersep=15pt,
   numberstyle=\tiny,
-  numberfirstline = false,
+  numberfirstline=false,
+  %
   breaklines=true,
+  emptylines=1,     % several empty lines are shown as one
 }
 
 \lstnewenvironment{listing}[1][]
@@ -37,8 +45,14 @@
 \lstdefinestyle{consoleStyle}{
   basicstyle=\scriptsize\bf\ttfamily,
   backgroundcolor=\color{gray75},
+  numbers=none,
 }
 
 \lstnewenvironment{console}[1][]
    {\lstset{#1,style=consoleStyle}\pagebreak[0]}
    {\pagebreak[0]}
+
+
+% Local Variables:
+% flyspell-mode: nil
+% End:

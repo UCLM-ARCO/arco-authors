@@ -18,9 +18,6 @@ all:
 	sed s/CLASS/book/g tex/arco.cls.tmpl > tex/arco-book.cls
 	sed s/CLASS/report/g tex/arco.cls.tmpl > tex/arco-report.cls
 
-	find emacs/config -name "*.cfg.el" | awk '{print "(byte-compile-file \"" $$1 "\")";}' > compile.el
-	/usr/bin/emacs -batch -l compile.el -kill
-
 clean:
 	$(RM) $(shell find -name *~)
 	find . -name "*.elc" -delete
@@ -58,7 +55,7 @@ install:
 	@$(WGET) $(LOGOS)/arco-watermark.pdf  -O $(FIGURES)/arco-watermark.pdf
 
 	install -vd $(DOCDIR)/arco-authors
-	tar cvfz $(DOCDIR)/arco-authors/samples.tgz --exclude \.svn --directory samples latex docbook
+	tar cvfz $(DOCDIR)/arco-authors/samples.tgz --directory samples latex docbook
 
 	install -vd $(DOCDIR)/arco-devel
-	tar cvfz $(DOCDIR)/arco-devel/sample.tgz --exclude \.svn --directory samples make
+	tar cvfz $(DOCDIR)/arco-devel/sample.tgz --directory samples make

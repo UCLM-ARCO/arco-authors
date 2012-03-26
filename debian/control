@@ -4,7 +4,7 @@ Priority: extra
 Maintainer: ARCO Research Group <sysadm@arco.esi.uclm.es>
 Uploaders: David Villa Alises <David.Villa@uclm.es>
 Build-Depends: debhelper (>= 7.0.50~), yasnippet, emacs-goodies-el
-Standards-Version: 3.9.2
+Standards-Version: 3.9.3
 Homepage: https://bitbucket.org/arco_group/arco-tools
 
 Package: arco-tools
@@ -21,7 +21,7 @@ Conflicts: arco-latex, arco-make
 Architecture: all
 Depends: ${misc:Depends}, texlive-binaries, texlive-latex-extra,
  texlive-lang-spanish, texlive-latex-recommended, cm-super, inkscape, dblatex,
- rubber, netpbm, dia, aspell-en
+ rubber, netpbm, dia, aspell-en, pdfjam
 Description: ARCO authors tools
  LaTeX and DocBook utilities and styles for ARCO authors.
 

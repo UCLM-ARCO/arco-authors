@@ -1,6 +1,7 @@
 arco-tools (0.20120326-1) unstable; urgency=low
 
   * New release
+  * Standards-Version: 3.9.3
 
  -- David Villa Alises <David.Villa@uclm.es>  Mon, 26 Mar 2012 19:26:38 +0200
 
