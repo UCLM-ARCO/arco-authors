@@ -3,15 +3,15 @@
 
 DESTDIR?=~
 
-BASE=$(DESTDIR)/usr/share/arco-tools
-EMACS=$(DESTDIR)/usr/share/arco-tools/emacs
+FINAL=/usr/share/arco
+BASE=$(DESTDIR)$(FINAL)
 MK=$(DESTDIR)/usr/include/arco
 LATEXSITE=$(DESTDIR)/usr/share/texmf-texlive/tex/latex
 BIBDIR=$(DESTDIR)/usr/share/texmf-texlive/bibtex/bst/es-bib
-FIGURES=$(DESTDIR)/usr/share/arco-tools/figures
+FIGURES=$(DESTDIR)/$(FINAL)/figures
 DOCDIR=$(DESTDIR)/usr/share/doc
 
-LOGOS=http://arco.esi.uclm.es/svn/public/doc/logos/
+LOGOS=http://arco.esi.uclm.es/svn/public/doc/logos
 WGET=wget --no-check-certificate -nv
 
 all:

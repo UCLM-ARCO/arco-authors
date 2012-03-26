@@ -21,7 +21,7 @@
 \RequirePackage{times}
 \RequirePackage[%
   colorlinks=true,
-  linkcolor=blue,
+  linkcolor=black,
   citecolor=blue,
   urlcolor=blue]{hyperref}
 
@@ -41,8 +41,13 @@
 \RequirePackage{checkend}
 \RequirePackage{rotating}
 \RequirePackage[inline,marginclue,draft]{fixme}
+\RequirePackage{relsize}  % tamaños relativos para el texto
 
-\usepackage[clearempty]{titlesec}
+\RequirePackage[printonlyused]{acronym}
+\newcommand{\Acro}[2]{\acro{#1}{#2}\acused{#1}}
+\newcommand{\initials}[1]{\textsc{\textscale{.85}{#1}}}
+
+\RequirePackage[clearempty]{titlesec}
 \titleformat{\chapter}{\normalfont\huge\bfseries}{\thechapter. }{0pt}{}
 
 \usepackage{enumitem}
@@ -63,14 +68,14 @@
 \RequirePackage{ifthen}
 \newboolean{watermarkdefined}
 
-\def\uclmLogo{/usr/share/arco-tools/figures/uclm-A4.pdf}
+\def\uclmLogo{/usr/share/arco/figures/uclm-A4.pdf}
 
 %% -- Variables del estilo ------------------------------------
 \gdef\@entityAcro{ARCO}
 \def\entityAcro#1{\gdef\@entityAcro{#1}}
 \gdef\@entityName{Grupo de Arquitectura y Redes de Computadores}
 \def\entityName#1{\gdef\@entityName{#1}}
-\gdef\@entityLogo{/usr/share/arco-tools/figures/arco-white.pdf}
+\gdef\@entityLogo{/usr/share/arco/figures/arco-white.pdf}
 \def\entityWatermark#1{%
   \gdef\@entityWatermark{#1}
   \setboolean{watermarkdefined}{true}

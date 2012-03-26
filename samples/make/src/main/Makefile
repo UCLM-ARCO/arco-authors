@@ -1,5 +1,5 @@
 
-ARCO_MK ?= /usr/share/arco-tools
+ARCO_MK ?= arco
 
 LDFLAGS += -la -lb -ld
 include $(ARCO_MK)/build.mk
@@ -7,6 +7,3 @@ include $(ARCO_MK)/install.mk
 
 BIN_TARGET = main
 include $(ARCO_MK)/bin.mk
-
-
-

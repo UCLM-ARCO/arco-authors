@@ -16,16 +16,17 @@
 #-- inkscape -----------------------------------------------
 
 PNGPPP?=150
+DPI?=$(PNGPPP)
 # If you want other quality put next in your Makefile:
 #
 # include figures.mk
-# PNGPPP = <your quality>
+# DPI = <your quality>
 
 %.pdf: %.dia
 	inkscape -A $@ --export-text-to-path $<
 
 %.png: %.svg
-	inkscape -d $(PNGPPP) -e $@ $<
+	inkscape -d $(DPI) -e $@ $<
 
 %.300.png: %.svg
 	inkscape -d 300 -e $@ $<
@@ -39,6 +40,9 @@ PNGPPP?=150
 	unoconv -f html $<
 	mv $*_html_*.jpg $@
 	rm $*.html
+
+%.pdf: %.odg
+	unoconv $<
 
 #-- gimp -------------------------------------------------------
 

@@ -4,7 +4,7 @@ DEFAULT_SUBDIRS = $(filter $(foreach d,$(shell find . -maxdepth 1 -type d),$(not
 
 SUBDIRS ?= $(filter $(patsubst ./%/,%,$(dir $(shell find . -maxdepth 2 -name Makefile))),$(DEFAULT_SUBDIRS))
 
-ARCO_MK ?= /usr/share/arco-tools
+ARCO_MK ?= /usr/share/arco
 
 include $(ARCO_MK)/subdirs.mk
 include $(ARCO_MK)/config.mk

@@ -1,3 +1,10 @@
+0.20120326
+==========
+
+* /usr/share/arco-tools -> /usr/share/arco
+* acronym and other improvements in arco.cls.tmpl
+* odg->pdf in figures.mk
+
 0.20120223
 ==========
 

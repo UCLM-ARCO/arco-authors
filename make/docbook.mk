@@ -1,4 +1,4 @@
-TOOLDIR=/usr/share/arco-tools
+TOOLDIR=/usr/share/arco
 FIGDIR=figures
 
 MAIN  ?= main.xml

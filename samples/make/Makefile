@@ -1,6 +1,5 @@
 
-
-ARCO_MK ?= /usr/share/arco-tools
+ARCO_MK ?= arco
 include $(ARCO_MK)/main.mk
 
 clean::

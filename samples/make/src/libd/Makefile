@@ -1,4 +1,4 @@
-ARCO_MK ?= /usr/share/arco-tools
+ARCO_MK ?= arco
 include $(ARCO_MK)/build.mk
 include $(ARCO_MK)/install.mk
 
