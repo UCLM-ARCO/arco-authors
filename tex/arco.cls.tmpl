@@ -86,8 +86,15 @@
 }
 \gdef\@entityWatermark{}
 \def\entityLogo#1{\gdef\@entityLogo{#1}}
-\gdef\@docid{}
-\def\docid#1{\gdef\@docid{#1}}
+\gdef\@reportCode{}
+\gdef\@sequentialGroup{}
+\def\ISRN#1#2{%
+  \gdef\@reportCode{#1}
+  \gdef\@sequentialGroup{#2}
+}
+\def\docid#1{%
+  \gdef\@sequentialGroup{#1}}
+
 
 %\allsectionsfont{\sffamily}
 %\sectionfont{\mdseries\itshape}
@@ -122,7 +129,7 @@
       \colorbox[rgb]{.72,.70,.68}{\includegraphics[width=3cm]{\@entityLogo}}}
 
     \put(12,-267){%
-      \rotatebox{90}{\scriptsize ISRN \@entityAcro/\@docid}
+      \rotatebox{90}{\scriptsize \putISRN}
     }
 
 %    \put(0,-100){\makebox(0,0)[l]{\textsf{\entityName}}}
@@ -154,6 +161,9 @@
     }
   }{}
 }
+
+\newcommand{\putISRN}{ISRN \@entityAcro/\@reportCode-{}-\the\year/\@sequentialGroup}
+
 
 \renewcommand\maketitle{%
   \begin{titlepage}
