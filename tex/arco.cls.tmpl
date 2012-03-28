@@ -40,8 +40,13 @@
 \RequirePackage{sectsty}
 \RequirePackage{checkend}
 \RequirePackage{rotating}
-\RequirePackage[inline,marginclue,draft]{fixme}
 \RequirePackage{relsize}  % tamaños relativos para el texto
+
+\RequirePackage[inline,marginclue,draft]{fixme}
+% \renewcommand\FXMargin[2]{%
+%   \marginpar[\vspace{.4cm}\footnotesize\raggedleft\emph{#2}]{%
+%     \vspace{.4cm}\footnotesize\raggedright\emph{#2}}}
+\newcommand{\FIXME}[1]{\fixme{#1}}
 
 \RequirePackage[printonlyused]{acronym}
 \newcommand{\Acro}[2]{\acro{#1}{#2}\acused{#1}}
@@ -102,11 +107,6 @@
 \parskip=0.2cm
 \reversemarginpar
 \marginparwidth=3cm
-
-% \renewcommand\FXMargin[2]{%
-%   \marginpar[\vspace{.4cm}\footnotesize\raggedleft\emph{#2}]{%
-%     \vspace{.4cm}\footnotesize\raggedright\emph{#2}}}
-
 
 \definecolor{uclmred}{rgb}{.60,.08,.15}   % PANTONE 7427
 \definecolor{uclmgray}{rgb}{.72,.70,.68}  % Cool Gray
