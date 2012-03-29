@@ -21,6 +21,9 @@ $(PDF): $(TEX_SOURCE) $(TEX_FIGURES)
 	$(RUBBER) --pdf $<
 	-@ ! grep Citation $(<:.tex=.log)
 
+%.html: %.tex
+	latex2html -split 0 -html_version 4.0,latin1,unicode $<
+
 help:
 	@echo "- The name for the master TeX file should be: 'main.tex'"
 	@echo "  But you can changed defining: 'MAIN = your_master.tex' in your Makefile"
