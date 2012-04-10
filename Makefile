@@ -6,8 +6,8 @@ DESTDIR?=~
 FINAL=/usr/share/arco
 BASE=$(DESTDIR)$(FINAL)
 MK=$(DESTDIR)/usr/include/arco
-LATEXSITE=$(DESTDIR)/usr/share/texmf-texlive/tex/latex
-BIBDIR=$(DESTDIR)/usr/share/texmf-texlive/bibtex/bst/es-bib
+LATEXSITE=$(DESTDIR)/usr/share/texmf/tex/latex/arco
+BIBDIR=$(DESTDIR)/usr/share/texmf/bibtex/bst/es-bib
 FIGURES=$(DESTDIR)/$(FINAL)/figures
 DOCDIR=$(DESTDIR)/usr/share/doc
 
@@ -22,6 +22,7 @@ clean:
 	$(RM) $(shell find -name *~)
 	find . -name "*.elc" -delete
 	$(RM) compile.el tex/arco-book.cls tex/arco-report.cls
+	$(MAKE) -C samples clean
 
 install:
 	install -vd $(BASE)
@@ -36,9 +37,9 @@ install:
 	    echo  "\$$(warning Deprecation warning: '$$i' is now at /usr/include/arco. See samples and update your Makefiles)\ninclude arco/$$i" > $(BASE)/$$i; \
 	done
 
-	install -vd $(LATEXSITE)/arco
-	install -v -m 444 tex/*.cls $(LATEXSITE)/arco
-	install -v -m 444 tex/*.sty $(LATEXSITE)/arco
+	install -vd $(LATEXSITE)
+	install -v -m 444 tex/*.cls $(LATEXSITE)
+	install -v -m 444 tex/*.sty $(LATEXSITE)
 	install -vd $(BIBDIR)
 	install -v -m 444 tex/*.bst $(BIBDIR)
 

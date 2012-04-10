@@ -11,17 +11,21 @@ Package: arco-tools
 Architecture: all
 Depends: ${misc:Depends}, arco-authors (= ${source:Version}), arco-devel (= ${source:Version}), arco-user (= ${source:Version})
 Description: ARCO tools
- Metapackage for development, documenting and administrative tools for Arco members,
- and others.
+ Metapackage for development, documenting and administrative tools for Arco
+ members, and others.
 
 Package: arco-authors
 Replaces: arco-latex
 Recommends: unoconv
 Conflicts: arco-latex, arco-make
 Architecture: all
-Depends: ${misc:Depends}, texlive-binaries, texlive-latex-extra,
- texlive-lang-spanish, texlive-latex-recommended, cm-super, inkscape, dblatex,
- rubber, netpbm, dia, aspell-en, texlive-extra-utils
+Depends: ${misc:Depends},
+	 texlive-binaries (>> 2011.2012~),
+	 texlive-latex-extra,
+ 	 texlive-lang-spanish,
+	 texlive-latex-recommended,
+	 texlive-extra-utils,
+ 	 cm-super, inkscape, dblatex, rubber, netpbm, dia, aspell-en
 Description: ARCO authors tools
  LaTeX and DocBook utilities and styles for ARCO authors.
 

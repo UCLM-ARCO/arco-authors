@@ -1,9 +1,9 @@
 usr/share/arco/figures
 usr/share/arco/*figures.sh
 usr/share/arco/*parts.sh
-usr/share/texmf-texlive/tex/latex/arco/*.cls
-usr/share/texmf-texlive/tex/latex/arco/*.sty
-usr/share/texmf-texlive/bibtex/bst/es-bib
+usr/share/texmf/tex/latex/arco/*.cls
+usr/share/texmf/tex/latex/arco/*.sty
+usr/share/texmf/bibtex/bst/es-bib
 usr/include/arco/noweb.mk
 usr/include/arco/latex.mk
 usr/include/arco/figures.mk
