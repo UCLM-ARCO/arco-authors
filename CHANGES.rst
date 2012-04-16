@@ -1,7 +1,12 @@
-0.20120413
+0.20120416
 ==========
 
 * odp2pdf put aux file on /tmp
+* odp2pdf may be used recursively and store .pdf file in the same directory as sources.
+
+0.20120412
+==========
+
 * arco.cls.tmpl -> arco.cls.in
 
 0.20120326
