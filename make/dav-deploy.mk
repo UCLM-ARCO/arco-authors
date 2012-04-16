@@ -26,7 +26,8 @@ dav-copy:
 	  if gvfs-copy $(DAV-FILES) $(DAV-URI); then \
 	    success=yes; \
 	    break; \
-	  fi \
+	  fi; \
+	  echo "retrying..."; \
 	done; \
 	if [ x = x$$success ]; then \
 	  echo "-> Error: DAV-copy FAILED!!"; \
