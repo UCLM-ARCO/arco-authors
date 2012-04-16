@@ -9,14 +9,14 @@
 %   http://stackoverflow.com/questions/581916/how-do-you-extend-article-document-class-in-latex
 
 
-\def\command#1{$\backslash$#1}
+\RequirePackage{arco-internal}
 
 %% -- Variables de la clase ------------------------------------
-\gdef\@arcoTopic{\command{arcoTopic}}
+\gdef\@arcoTopic{\arcoCommandHelp{arcoTopic}}
 \def\arcoTopic#1{\gdef\@arcoTopic{#1}}
-\gdef\@arcoExamDesc{\command{arcoExamDesc}}
+\gdef\@arcoExamDesc{\arcoCommandHelp{arcoExamDesc}}
 \def\arcoExamDesc#1{\gdef\@arcoExamDesc{#1}}
-\gdef\@arcoExamDate{\command{arcoExamDate}}
+\gdef\@arcoExamDate{\arcoCommandHelp{arcoExamDate}}
 \def\arcoExamDate#1{\gdef\@arcoExamDate{#1}}
 
 \NeedsTeXFormat{LaTeX2e}

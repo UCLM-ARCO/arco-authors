@@ -12,7 +12,7 @@
 \ProcessOptions\relax
 \LoadClass{CLASS}
 
-\RequirePackage[left=35.4mm,right=25.4mm,top=25.4mm,bottom=25.4mm]{geometry}
+\RequirePackage[left=28mm,right=22.8mm,top=25.4mm,bottom=25.4mm]{geometry}
 
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[T1]{fontenc}
