@@ -6,6 +6,8 @@
 
 .INTERMEDIATE: *.first.pdf *.2x2.pdf
 
+TMP = /tmp/odp2pdf
+
 ODP ?= $(filter-out $(ODP-IGNORE), $(wildcard *.odp))
 
 PDF1 = $(patsubst %.odp,%.pdf, $(ODP))
@@ -29,9 +31,10 @@ all:  $(PDF)
 	pdfnup --paper a4paper --delta "0.8cm 0.8cm" --frame true --nup 2x2 $< 2- --outfile $@
 
 %.2x4.pdf: %.first.pdf %.2x2.pdf
-	pdftk $^ cat output aux-$@
-	pdfnup --no-landscape --nup 1x2 --paper a4paper --scale 0.9 --delta "0.45cm 0.45cm" aux-$@ --outfile $@
-	$(RM) aux-$@
+	mkdir -p $(TMP)
+	pdftk $^ cat output $(TMP)/$(notdir $@)
+	pdfnup --no-landscape --nup 1x2 --paper a4paper --scale 0.9 --delta "0.45cm 0.45cm" $(TMP)/$(notdir $@) --outfile $@
+	$(RM) $(TMP)/$(notdir $@)
 
 clean:
 	$(RM) temp *~ $(PDF)

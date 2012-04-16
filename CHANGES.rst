@@ -1,6 +1,7 @@
-0.20120412
+0.20120413
 ==========
 
+* odp2pdf put aux file on /tmp
 * arco.cls.tmpl -> arco.cls.in
 
 0.20120326
