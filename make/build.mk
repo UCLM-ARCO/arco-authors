@@ -1,20 +1,17 @@
 
-SHELL=/bin/bash
-PROJECT_DIR = $(shell \
-	function get_root_dir() { \
-		test -f $$1/config.mk && echo $$1 && return 0; \
-		[ "$$1" == "/" ] && return 1; \
-		get_root_dir "$$(dirname $$1)"; \
-	}; \
-	get_root_dir $$(pwd))
+SHELL = /bin/bash
+
+PARENT := $(dir $(lastword $(MAKEFILE_LIST)))
+PROJECT_DIR = $(shell $(PARENT)/../bin/arco-get-project-dir.sh)
 
 PROJECT_LIBDIR := $(PROJECT_DIR)/lib
 PROJECT_BINDIR := $(PROJECT_DIR)/bin
 PROJECT_INCLUDEDIR := $(PROJECT_DIR)/include
 
-CC ?= gcc
-
 LDFLAGS    += -L$(PROJECT_LIBDIR)
 CXXFLAGS   += -I$(PROJECT_INCLUDEDIR)
 CFLAGS     += -I$(PROJECT_INCLUDEDIR)
 
+
+all:
+	echo $(PROJECT_DIR)

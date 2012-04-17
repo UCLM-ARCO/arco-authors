@@ -1,0 +1,2 @@
+
+include subdirs.mk

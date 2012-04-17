@@ -1,57 +1,41 @@
-# -*- coding:utf-8; mode:make -*-
 
-SHELL=/bin/bash
-SLICE_DIR = $(shell \
-	function get_root_dir() { \
-		test -d $$1/slice && echo $$1/slice && return 0; \
-		[ "$$1" == "/" ] && return 1; \
-		get_root_dir "$$(dirname $$1)"; \
-	}; \
-	get_root_dir $$(pwd))
+include build.mk
 
-SLICE_LIB  = lib$(SLICE_LIB_NAME).la
+PROJECT_NAME = $(PROJECT_DIR)
+TARGETS_DIR = $(PROJECT_NAME)
+LIB_FULLNAME = $(TARGETS_DIR)/lib$(PROJECT_NAME).la
 
-SLICES      ?= $(wildcard *.ice)
-SLICE_FLAGS ?= -I /usr/share/Ice/slice -I $(SLICE_DIR)
-SLICE_INCLUDEDIR ?= $(notdir $(CURDIR))
-SLICE_HEADERS = $(SLICES:%.ice=%.h)
-SLICE_HEADERS_DIR = $(PROJECT_INCLUDEDIR)/$(SLICE_INCLUDEDIR)
-SLICE_TARGETS ?= $(addprefix $(SLICE_HEADERS_DIR)/,$(SLICE_HEADERS)) $(PROJECT_LIBDIR)/$(SLICE_LIB)
+SLICES ?= $(wildcard *.ice)
+SLICE_GEN = $(SLICES:%.ice=%.cpp)
+SLICE_OBJ = $(addprefix $(TARGETS_DIR)/,$(SLICES:%.ice=%.o))
 
-CXX = g++
+CC = $(CXX)
+CXXFLAGS ?= -I. -I$(TARGETS_DIR)
 
-all: check $(PROJECT_LIBDIR) $(SLICE_HEADERS_DIR) $(SLICE_TARGETS)
+SLICE_FLAGS = -I /usr/share/Ice/slice --output-dir=$(TARGETS_DIR)
 
-check:
-ifndef SLICE_LIB_NAME
-	$(error "Variable 'SLICE_LIB_NAME' not defined")
-endif
+all: $(TARGETS_DIR) $(LIB_FULLNAME) 
 
-$(PROJECT_LIBDIR):
-	@mkdir -p $(PROJECT_LIBDIR)
+$(TARGETS_DIR):
+	mkdir -p $@
 
-$(SLICE_HEADERS_DIR):
-	@mkdir -p $(SLICE_HEADERS_DIR)
-
-$(PROJECT_LIBDIR)/$(SLICE_LIB): $(SLICES:%.ice=$(SLICE_HEADERS_DIR)/%.o)
+$(LIB_FULLNAME): $(SLICE_OBJ) 
 	ld -Ur -o $@ $^
 
-$(SLICE_HEADERS_DIR)/%.h $(SLICE_HEADERS_DIR)/%.cpp: %.ice
-	slice2cpp $(SLICE_FLAGS) -I $(SLICE_DIR) --include-dir=$(SLICE_INCLUDEDIR) --output-dir=$(SLICE_HEADERS_DIR) $^
+$(TARGETS_DIR)/%.cpp: %.ice
+	slice2cpp $(SLICE_FLAGS) $<
 
-install:: all
+.PHONY: clean
+clean:
+	$(RM) -rf $(TARGETS_DIR) 
+
+install: all
 	install -dv $(DESTDIR)/usr/lib/
-	install -dv $(DESTDIR)/usr/include/$(SLICE_INCLUDEDIR)
-	install -m 644 $(PROJECT_LIBDIR)/$(SLICE_LIB) $(DESTDIR)/usr/lib/
-	install -vm 644 $(SLICE_HEADERS_DIR)/*.h $(DESTDIR)/usr/include/$(SLICE_INCLUDEDIR)
+	install -dv $(DESTDIR)/usr/include/$(PROJECT_NAME)
+	install -m 644 $(LIB_FULLNAME) $(DESTDIR)/usr/lib/
+	install -vm 644 $(TARGETS_DIR)/*.h $(DESTDIR)/usr/include/$(PROJECT_NAME)
 
 
-uninstall::
-	$(RM) $(addprefix $(DESTDIR)/usr/include/, $(SLICE_HEADERS))
-	$(RM) $(DESTDIR)/usr/lib/$(SLICE_LIB)
 
-clean::
-	$(RM) *~ *.o *.cpp *.h $(PROJECT_LIBDIR)/$(SLICE_LIB)
-	$(RM) $(shell find $(SLICE_HEADERS_DIR) -name "*.o")
-	$(RM) $(shell find $(SLICE_HEADERS_DIR) -name "*.cpp")
-	$(RM) $(addprefix $(SLICE_HEADERS_DIR)/, $(SLICE_HEADERS))
+
+
