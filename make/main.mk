@@ -7,7 +7,7 @@ SUBDIRS ?= $(filter $(patsubst ./%/,%,$(dir $(shell find . -maxdepth 2 -name Mak
 ARCO_MK ?= /usr/share/arco
 
 include $(ARCO_MK)/subdirs.mk
-include $(ARCO_MK)/config.mk
+include $(ARCO_MK)/project.mk
 
 distclean:: clean
 	$(RM) -r lib bin include

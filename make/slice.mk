@@ -1,8 +1,8 @@
 
 include build.mk
 
-PROJECT_NAME = $(PROJECT_DIR)
-TARGETS_DIR = $(PROJECT_NAME)
+PROJECT_NAME = $(notdir $(PROJECT_DIR))
+TARGETS_DIR = $(PROJECT_DIR)/slice/$(PROJECT_NAME)
 LIB_FULLNAME = $(TARGETS_DIR)/lib$(PROJECT_NAME).la
 
 SLICES ?= $(wildcard *.ice)
@@ -10,7 +10,7 @@ SLICE_GEN = $(SLICES:%.ice=%.cpp)
 SLICE_OBJ = $(addprefix $(TARGETS_DIR)/,$(SLICES:%.ice=%.o))
 
 CC = $(CXX)
-CXXFLAGS ?= -I. -I$(TARGETS_DIR)
+CXXFLAGS += -I. -I$(TARGETS_DIR)
 
 SLICE_FLAGS = -I /usr/share/Ice/slice --output-dir=$(TARGETS_DIR)
 

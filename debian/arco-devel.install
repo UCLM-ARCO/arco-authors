@@ -3,7 +3,7 @@ usr/include/arco/install.mk
 usr/include/arco/build.mk
 usr/include/arco/subdirs.mk
 usr/include/arco/main.mk
-usr/include/arco/config.mk
+usr/include/arco/project.mk
 usr/include/arco/lib.mk
 usr/include/arco/bin.mk
 usr/include/arco/slice.mk
@@ -12,7 +12,7 @@ usr/share/arco/install.mk
 usr/share/arco/build.mk
 usr/share/arco/subdirs.mk
 usr/share/arco/main.mk
-usr/share/arco/config.mk
+usr/share/arco/project.mk
 usr/share/arco/lib.mk
 usr/share/arco/bin.mk
 usr/share/arco/slice.mk
