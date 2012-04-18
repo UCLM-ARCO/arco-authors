@@ -8,12 +8,12 @@ def addprefix(prefix, names):
 
 
 Test(desc = "Compile slices lib", 
-     cmd = "make -I $fullbasedir/make -C $testdir/slice", 
+     cmd = "make -I $fullbasedir -C $testdir/slice", 
      shell = True,
      gen = addprefix("$testdir/slice/Sample",
                      ["Hello.h", "Hello.o",
                       "Bye.h",   "Bye.o",
-                      "libSample.la"]))
+                      "libSampleSlice.la"]))
 
 Test(desc = "Compile a client using slice lib",
      cmd = "make -C $testdir/src",
@@ -22,9 +22,9 @@ Test(desc = "Compile a client using slice lib",
 
 Test(desc = "Install lib and headers",
      env = {"DESTDIR": "/tmp/slice-mk"},
-     cmd = "make -I $fullbasedir/make -C $testdir/slice install",
+     cmd = "make -I $fullbasedir -C $testdir/slice install",
      gen = addprefix("/tmp/slice-mk/usr", 
-                     ["lib/libSample.la",
+                     ["lib/libSampleSlice.la",
                       "include/Sample/Hello.h",
                       "include/Sample/Bye.h"]))
 
