@@ -1,7 +1,7 @@
 
 include arco/build.mk
 
-PROJECT_NAME = $(notdir $(PROJECT_DIR))
+PROJECT_NAME ?= $(notdir $(PROJECT_DIR))
 TARGETS_DIR = $(PROJECT_DIR)/slice/$(PROJECT_NAME)
 LIB_FULLNAME = $(TARGETS_DIR)/lib$(PROJECT_NAME)Slice.la
 
