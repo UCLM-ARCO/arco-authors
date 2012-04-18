@@ -28,11 +28,11 @@ install:
 	install -vd $(BASE)
 	install -v -m 555 tex/*.sh  $(BASE)/
 	install -v -m 555 docbook/*.sh $(BASE)/
-#	install -v -m 444 bash/*.sh  $(BASE)/
+	install -v -m 444 bash/*.sh  $(BASE)/
 
 	install -vd $(MK)/bin
 	install -v -m 444 make/*.mk $(MK)/
-	install -v -m 444 make/bin/*.sh $(MK)/bin
+	install -v -m 444 make/bin/* $(MK)/bin/
 
 	for i in $$(ls make); do \
 	    echo  "\$$(warning Deprecation warning: '$$i' is now at /usr/include/arco. See samples and update your Makefiles)\ninclude arco/$$i" > $(BASE)/$$i; \
