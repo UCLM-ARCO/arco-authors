@@ -17,4 +17,5 @@ usr/share/arco/project.mk
 usr/share/arco/lib.mk
 usr/share/arco/bin.mk
 usr/share/arco/slice.mk
+usr/share/arco/ian-functions.sh
 usr/share/doc/arco-devel/sample.tgz
