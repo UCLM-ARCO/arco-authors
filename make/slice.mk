@@ -14,7 +14,7 @@ CXXFLAGS += -I. -I$(TARGETS_DIR)
 
 SLICE_FLAGS = -I /usr/share/Ice/slice --output-dir=$(TARGETS_DIR)
 
-all: $(TARGETS_DIR) $(LIB_FULLNAME) 
+all:: $(TARGETS_DIR) $(LIB_FULLNAME) 
 
 $(TARGETS_DIR):
 	mkdir -p $@
@@ -34,8 +34,4 @@ install: all
 	install -dv $(DESTDIR)/usr/include/$(PROJECT_NAME)
 	install -m 644 $(LIB_FULLNAME) $(DESTDIR)/usr/lib/
 	install -vm 644 $(TARGETS_DIR)/*.h $(DESTDIR)/usr/include/$(PROJECT_NAME)
-
-
-
-
 

@@ -8,7 +8,6 @@ function get_root_dir() {
     fi
     
     if [ "$1" == "/" ]; then
-		echo "ERROR: You must create a project.mk file in the root of your project!!"
 		return 1; 
     fi
     
