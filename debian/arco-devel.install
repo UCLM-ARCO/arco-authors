@@ -7,6 +7,7 @@ usr/include/arco/project.mk
 usr/include/arco/lib.mk
 usr/include/arco/bin.mk
 usr/include/arco/slice.mk
+usr/include/arco/bin/arco-get-project-dir.sh
 usr/share/arco/flymake-c.mk
 usr/share/arco/install.mk
 usr/share/arco/build.mk

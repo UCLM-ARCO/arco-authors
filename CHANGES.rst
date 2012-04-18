@@ -1,3 +1,9 @@
+0.20120418
+==========
+
+* new (simpler) slice.mk
+* config.mk -> project.mk
+
 0.20120416
 ==========
 
