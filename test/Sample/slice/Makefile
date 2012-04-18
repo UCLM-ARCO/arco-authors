@@ -1,3 +1,0 @@
-
-include arco/slice.mk
-

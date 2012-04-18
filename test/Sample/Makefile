@@ -1,3 +1,0 @@
-
-include arco/subdirs.mk
-
