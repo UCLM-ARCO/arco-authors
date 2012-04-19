@@ -26,28 +26,20 @@ clean:
 
 install:
 	install -vd $(BASE)
-	install -v -m 555 tex/*.sh  $(BASE)/
-	install -v -m 555 docbook/*.sh $(BASE)/
-	install -v -m 444 bash/*.sh  $(BASE)/
+	install -v -m 555 scripts/*  $(BASE)/
 
-	install -vd $(MK)/bin
+	install -vd $(MK)
 	install -v -m 444 make/*.mk $(MK)/
-	install -v -m 444 make/bin/* $(MK)/bin/
-
-	for i in $$(ls make); do \
-	    echo  "\$$(warning Deprecation warning: '$$i' is now at /usr/include/arco. See samples and update your Makefiles)\ninclude arco/$$i" > $(BASE)/$$i; \
-	done
 
 	install -vd $(LATEXSITE)
 	install -v -m 444 tex/*.cls $(LATEXSITE)
 	install -v -m 444 tex/*.sty $(LATEXSITE)
+
 	install -vd $(BIBDIR)
 	install -v -m 444 tex/*.bst $(BIBDIR)
 
 	install -vd $(DESTDIR)/usr/bin
-	install -v -m 755 bin/* $(DESTDIR)/usr/bin/
-
-	install -v -m 755 bin.share/* $(BASE)/
+	install -v -m 555 bin/* $(DESTDIR)/usr/bin/
 
 	install -vd $(FIGURES)
 	@$(WGET) $(LOGOS)/uclm.pdf            -O $(FIGURES)/uclm.pdf
@@ -58,6 +50,3 @@ install:
 
 	install -vd $(DOCDIR)/arco-authors
 	tar cvfz $(DOCDIR)/arco-authors/samples.tgz --directory samples latex docbook
-
-	install -vd $(DOCDIR)/arco-devel
-	tar cvfz $(DOCDIR)/arco-devel/sample.tgz --directory samples make

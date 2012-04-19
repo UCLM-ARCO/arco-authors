@@ -5,19 +5,10 @@ Maintainer: ARCO Research Group <sysadm@arco.esi.uclm.es>
 Uploaders: David Villa Alises <David.Villa@uclm.es>
 Build-Depends: debhelper (>= 7.0.50~)
 Standards-Version: 3.9.3
-Homepage: https://bitbucket.org/arco_group/arco-tools
-
-Package: arco-tools
-Architecture: all
-Depends: ${misc:Depends}, arco-authors (= ${source:Version}), arco-devel (= ${source:Version}), arco-user (= ${source:Version})
-Description: ARCO tools
- Metapackage for development, documenting and administrative tools for Arco
- members, and others.
+Homepage: https://bitbucket.org/arco_group/arco-authors
 
 Package: arco-authors
-Replaces: arco-latex
 Recommends: unoconv
-Conflicts: arco-latex, arco-make
 Architecture: all
 Depends: ${misc:Depends},
 	 texlive-binaries (>> 2011.2012~),
@@ -26,21 +17,5 @@ Depends: ${misc:Depends},
 	 texlive-latex-recommended,
 	 texlive-extra-utils,
  	 cm-super, inkscape, dblatex, rubber, netpbm, dia, aspell-en
-Description: ARCO authors tools
- LaTeX and DocBook utilities and styles for ARCO authors.
-
-Package: arco-devel
-Replaces: arco-make, arco-debian, arco-bashrc
-Conflicts: arco-make, arco-debian, arco-bashrc
-Architecture: all
-Depends: ${misc:Depends}, arco-emacs, devscripts-el, aexec
-Description: ARCO devel tools
- Development tools for ARCO staff.
-
-Package: arco-user
-Replaces: arco-bin
-Conflicts: arco-bin
-Architecture: all
-Depends: ${misc:Depends}, libimage-exiftool-perl
-Description: ARCO user and staff tools
- Tools for ARCO user and staff.
+Description: ARCO authors tools, styles and templates
+ LaTeX and DocBook utilities and styles for Arco authors.
