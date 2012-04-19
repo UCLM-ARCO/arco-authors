@@ -1,9 +1,18 @@
 \ProvidesPackage{arco-listings}
 
-\usepackage{color}
-\definecolor{gray97}{gray}{.97}
-\definecolor{gray75}{gray}{.75}
-\definecolor{gray45}{gray}{.45}
+%| Customization
+%| =============
+%|
+%| Change listing font size
+%| ------------------------
+%|
+%| Define basicstyle keyval:
+%|
+%|     basicstyle=\scriptsize\ttfamily
+%|
+%| May be set locally for a listing or globally with \lstset command
+
+\usepackage{arco-color}
 
 \usepackage{listings}
 \renewcommand{\lstlistingname}{Listado}
@@ -21,17 +30,17 @@
   rulesep            = .4pt,
   rulesepcolor       = \color{black},
   backgroundcolor    = \color{gray97},
-  %
+  %--
   % caption
   belowcaptionskip   = 5pt,
-  %
+  %--
   % text style
   stringstyle        = \ttfamily,
   showstringspaces   = false,
-  basicstyle         = \footnotesize\lstfont,
+  basicstyle         = \scriptsize\lstfont,
   commentstyle       = \color{gray45},
   keywordstyle       = \bfseries,
-  %
+  %--
   % numbers
   numbers            = left,
   numbersep          = 15pt,
@@ -54,8 +63,3 @@
 \lstnewenvironment{console}[1][]
    {\lstset{#1,style=consoleStyle}\pagebreak[0]}
    {\pagebreak[0]}
-
-
-% Local Variables:
-% flyspell-mode: nil
-% End:
