@@ -1,4 +1,4 @@
-Source: arco-tools
+Source: arco-authors
 Section: shells
 Priority: extra
 Maintainer: ARCO Research Group <sysadm@arco.esi.uclm.es>
@@ -11,7 +11,7 @@ Package: arco-authors
 Recommends: unoconv
 Architecture: all
 Depends: ${misc:Depends},
-	 texlive-binaries (>> 2011.2012~),
+	 texlive-binaries,
 	 texlive-latex-extra,
  	 texlive-lang-spanish,
 	 texlive-latex-recommended,
