@@ -23,16 +23,16 @@ dav-show: dav-mount
 
 dav-copy:
 	@for i in $$(seq 5); do \
-	  if gvfs-copy $(DAV-FILES) $(DAV-URI); then \
+	  if gvfs-copy $(DAV-FILES) $(DAV-URI) > /dev/null; then \
 	    success=yes; \
 	    break; \
 	  fi; \
-	  echo "retrying..."; \
+	  echo "-- retrying..."; \
 	done; \
 	if [ x = x$$success ]; then \
-	  echo "-> Error: DAV-copy FAILED!!"; \
+	  echo "-- Error: DAV-copy FAILED!!"; \
 	else \
-	  echo "-> DAV-copy OK"; \
+	  echo "-- DAV-copy OK"; \
 	fi
 
 

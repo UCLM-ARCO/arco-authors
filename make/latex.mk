@@ -39,6 +39,7 @@ clean::
 	        $(addprefix $(basename $(notdir $(tex))), .blg .bbl))
 
 vclean:: clean
+	$(RM) auto/*.el
 	$(RM) $(strip $(foreach figure, \
 		$(TEX_FIGURES), \
 		$(shell test "1" != `ls $(basename $(figure)).* | wc -l` && echo $(figure))))
