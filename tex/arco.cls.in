@@ -28,7 +28,7 @@
 \RequirePackage{graphicx}
 \graphicspath{{figures/}}
 
-\RequirePackage{color}
+\RequirePackage{arco-color}
 %\RequirePackage{transparent}
 \RequirePackage[%
 % colorgrid,
@@ -108,8 +108,7 @@
 \reversemarginpar
 \marginparwidth=3cm
 
-\definecolor{uclmred}{rgb}{.60,.08,.15}   % PANTONE 7427
-\definecolor{uclmgray}{rgb}{.72,.70,.68}  % Cool Gray
+\RequirePackage{arco-color}
 
 \newcommand{\maketitlepage}{%
   \null\pagestyle{empty}
