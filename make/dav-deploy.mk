@@ -23,7 +23,7 @@ dav-show: dav-mount
 
 dav-copy:
 	@for i in $$(seq 5); do \
-	  if gvfs-copy $(DAV-FILES) $(DAV-URI) > /dev/null; then \
+	  if gvfs-copy --progress $(DAV-FILES) $(DAV-URI) > /dev/null; then \
 	    success=yes; \
 	    break; \
 	  fi; \
