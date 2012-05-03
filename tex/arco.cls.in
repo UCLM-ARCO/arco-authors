@@ -18,12 +18,8 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage[spanish]{babel}
 
-\RequirePackage{times}
-\RequirePackage[%
-  colorlinks=true,
-  linkcolor=black,
-  citecolor=blue,
-  urlcolor=blue]{hyperref}
+\RequirePackage{arco-fonts}
+\RequirePackage{arco-basics}
 
 \RequirePackage{graphicx}
 \graphicspath{{figures/}}

@@ -1,0 +1,35 @@
+\usepackage{arco-color}
+
+\newcommand{\admonition}[2]{
+  \vspace{3mm}
+  \begin{center}
+  {\small
+    \fboxrule=0.5pt
+    \fboxsep=5mm
+    \par
+    \noindent
+
+    \fcolorbox{gray20}{gray90}{
+      \parbox{1.3cm}{\resizebox{1cm}{!}{\includegraphics{/usr/share/texmf/tex/latex/dblatex/contrib/db2latex/graphics/#1.pdf}}}
+      \parbox{0.8\textwidth}{#2}
+    }
+  }
+  \end{center}
+  \vspace{3mm}
+}
+
+
+\newcommand{\note}[1]{
+  \admonition{note}{#1}}
+
+\newcommand{\tip}[1]{
+  \admonition{tip}{#1}}
+
+\newcommand{\important}[1]{
+  \admonition{important}{#1}}
+
+\newcommand{\warning}[1]{
+  \admonition{warning}{#1}}
+
+\newcommand{\caution}[1]{
+  \admonition{caution}{#1}}

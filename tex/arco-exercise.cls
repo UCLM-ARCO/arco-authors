@@ -26,10 +26,11 @@
 \reversemarginpar
 \marginparwidth=3cm
 
-\RequirePackage[T1]{fontenc}
 \RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
 \RequirePackage[spanish]{babel}
-\RequirePackage{times}
+
+\RequirePackage{arco-fonts}
 
 \RequirePackage[margin=3cm]{geometry}
 
@@ -39,11 +40,7 @@
 \RequirePackage{enumitem}
 \setlist{noitemsep, topsep=0pt}
 
-\RequirePackage[%
-  colorlinks=true,
-  linkcolor=black,
-  citecolor=blue,
-  urlcolor=blue]{hyperref}
+\RequirePackage{arco-basics}
 
 \RequirePackage[%
 % colorgrid,
@@ -80,14 +77,15 @@
     \end{picture}}}
 
 \newpagestyle{arcoStyle}[\scriptsize\sffamily]{
-  \sethead{\graycolor{\@arcoTopic}} %
-          {\UCLMbglogo} %
+  \sethead{\graycolor{\@arcoTopic}}
+          {\UCLMbglogo}
           {\graycolor{\@arcoCourse}}
-  \setfoot{\graycolor{\today}} %
-          {} %
+  \setfoot{}
+    %\graycolor{\today}}
           {\graycolor{\thepage/\pageref{arco:lastpage}}}
+          {}
   \headrule
-  \footrule
+%  \footrule
 }
 \pagestyle{arcoStyle}
 
@@ -109,7 +107,7 @@
 
 \renewcommand\maketitle{%
   \let\footnotesize\small%
-  \let\footnoterule\relax%
+%  \let\footnoterule\relax%
 
   \mymaketitle
 

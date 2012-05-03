@@ -1,0 +1,23 @@
+\usepackage{fancybox}
+
+\def\id    #1{\texttt{#1}}   % identificador
+\def\code  #1{\texttt{#1}}   % trozo pequeño de código fuente
+\def\iface #1{\textit{#1}}   % interfaz
+\def\kw    #1{\texttt{#1}}   % keyword, palabra reservada
+\def\fg    #1{\textit{#1}}   % foreign, una palabra en inglés
+\def\app   #1{\texttt{#1}}   % aplicación, programa
+
+% Por conveniencia, estos nombres corresponden con elementos DocBook equivalentes
+\def\command     #1{\texttt{#1}}          % comando
+\def\filename    #1{\texttt{#1}}
+\def\function    #1{\texttt{#1()}}
+\def\guilabel    #1{\emph{#1}}
+\def\guimenuitem #1{\emph{#1}}
+\def\token       #1{\texttt{#1}}          % literal, constante simbólica
+\def\type        #1{\texttt{#1}}          % tipo de dato o clase
+\def\varname     #1{\texttt{#1}}
+
+\def\guibutton#1{%
+  \raisebox{2pt}{%
+    \fboxsep=0.8mm%
+    \ovalbox{{\fontsize{6}{6}\selectfont\textbf{#1}}}}}
