@@ -1,3 +1,9 @@
+arco-authors (0.20120503-1) unstable; urgency=low
+
+  * New release
+
+ -- David Villa Alises <David.Villa@uclm.es>  Thu, 03 May 2012 12:06:33 +0200
+
 arco-authors (0.20120420-1) unstable; urgency=low
 
   * Separated from arco-tools
