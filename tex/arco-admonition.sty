@@ -1,21 +1,20 @@
 \usepackage{arco-color}
 
 \newcommand{\admonition}[2]{
-  \vspace{3mm}
+  \par
   \begin{center}
   {\small
     \fboxrule=0.5pt
     \fboxsep=5mm
-    \par
-    \noindent
 
+    \noindent
     \fcolorbox{gray20}{gray90}{
       \parbox{1.3cm}{\resizebox{1cm}{!}{\includegraphics{/usr/share/texmf/tex/latex/dblatex/contrib/db2latex/graphics/#1.pdf}}}
       \parbox{0.8\textwidth}{#2}
     }
   }
   \end{center}
-  \vspace{3mm}
+  \par
 }
 
 

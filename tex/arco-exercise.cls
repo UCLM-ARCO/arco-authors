@@ -89,6 +89,13 @@
 }
 \pagestyle{arcoStyle}
 
+
+% -- utilities --
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem{exercise}{Ejercicio}
+
+
 \def\mymaketitle{%
   \null
   \normalfont
