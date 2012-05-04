@@ -37,7 +37,7 @@ all:  $(PDF)
 	$(PDFNUP) --no-landscape --nup 1x2 --scale 0.9 --delta "0.45cm 0.45cm" $< --outfile $@
 
 %.pre2x4.pdf: %.first.pdf %.2x2.pdf
-	pdfjoin $^ --outfile $@
+	pdfjoin --quiet $^ --outfile $@
 
 clean:
 	$(RM) temp *~ $(PDF)
