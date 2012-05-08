@@ -8,7 +8,7 @@ DBLATEX_FLAGS ?= -T simple
 
 FIGURES = $(addprefix $(FIGDIR)/, $(shell $(TOOLDIR)/db-figures.sh $(MAIN)))
 
-all: $(TARGET)
+all:: $(TARGET)
 
 $(TARGET): $(XMLSRC) $(FIGURES)
 
