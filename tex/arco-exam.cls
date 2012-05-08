@@ -34,11 +34,12 @@
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[spanish]{babel}
 \RequirePackage{times}
+\RequirePackage{multicol}
 
 \RequirePackage[margin=1.8cm,top=3cm,bottom=2cm]{geometry}
 
 \RequirePackage{graphicx}
-\graphicspath{{/}{figures/}}
+\graphicspath{{/}{figures/}{./images/}}
 
 \RequirePackage{enumitem}
 \setlist{topsep=0pt}
@@ -141,17 +142,21 @@
 
 \newcounter{choicecounter}
 
-\newenvironmentx{arcoQuestion}[2][1=1,2=@]{
+\newenvironment{arcoQuestion}[1]{
   \begin{minipage}{.95\textwidth}
     \question[#1]
-    #2
-    \vspace{5pt}
-    \setcounter{choicecounter}{0}
 }
 {
   \end{minipage}
-  \mbox{} \\[0.5cm]
+  \null \\[0.5cm]
+  \setcounter{choicecounter}{0}
 }
+
+%\newcommand{\arcoStatement}[1]{%
+%  #1\vspace{5pt}\par}
+
+\newcommand{\arcoAnswer}[1]{%
+\ifprintanswers #1 \else \phantom{88} \fi }
 
 \newcommand{\arcoChoiceMark}{$\square$}
 \newcommand{\arcoCorrectChoiceMark}{ %
@@ -161,6 +166,7 @@
   \stepcounter{choicecounter}
   {\fontsize{15pt}{15pt}\selectfont #1 }\hspace{2pt}
   \textbf{\alph{choicecounter}})\hspace{4pt}\parbox[t]{.9\textwidth}{#2\\[-.3cm]}%
+  % dont remove this
 
 }
 
@@ -181,5 +187,7 @@
       \fi
     }}
 }
+
+\RequirePackage{arco-listings}
 
 \endinput

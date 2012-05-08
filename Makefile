@@ -42,11 +42,14 @@ install:
 	install -v -m 555 bin/* $(DESTDIR)/usr/bin/
 
 	install -vd $(FIGURES)
-	@$(WGET) $(LOGOS)/uclm.pdf            -O $(FIGURES)/uclm.pdf
-	@$(WGET) $(LOGOS)/uclm_logo_bw.mp.pdf -O $(FIGURES)/uclm-logo-bw-mp.pdf
-	@$(WGET) $(LOGOS)/uclm-A4.pdf         -O $(FIGURES)/uclm-A4.pdf
-	@$(WGET) $(LOGOS)/arco-white.pdf      -O $(FIGURES)/arco-white.pdf
-	@$(WGET) $(LOGOS)/arco-watermark.pdf  -O $(FIGURES)/arco-watermark.pdf
+	install -v -m 444 figures/* $(FIGURES)
 
 	install -vd $(DOCDIR)/arco-authors
 	tar cvfz $(DOCDIR)/arco-authors/samples.tgz --directory samples latex docbook
+
+download-images:
+	@$(WGET) $(LOGOS)/uclm.pdf            -O figures/uclm.pdf
+	@$(WGET) $(LOGOS)/uclm_logo_bw.mp.pdf -O figures/uclm-logo-bw-mp.pdf
+	@$(WGET) $(LOGOS)/uclm-A4.pdf         -O figures/uclm-A4.pdf
+	@$(WGET) $(LOGOS)/arco-white.pdf      -O figures/arco-white.pdf
+	@$(WGET) $(LOGOS)/arco-watermark.pdf  -O figures/arco-watermark.pdf
