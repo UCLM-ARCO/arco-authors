@@ -58,14 +58,7 @@
 
 \RequirePackage[sf,bf,compact,clearempty]{titlesec}
 
-\RequirePackage{atbeginend}
-\BeforeEnd{document}{\label{arco:lastpage}}
-
-\RequirePackage{color}
-\definecolor{gray25}{gray}{0.25}
-\definecolor{uclm-light}{cmyk}{0,.05,.05,0}
-\def\graycolor#1{\textcolor{gray25}{#1}}
-\def\uclmcolor#1{\textcolor{uclm-light}{#1}}
+\RequirePackage{arco-color}
 
 \newcommand{\ifcolor}[1]{#1}
 \newcommand{\UCLMbglogo}{%
@@ -77,12 +70,12 @@
     \end{picture}}}
 
 \newpagestyle{arcoStyle}[\scriptsize\sffamily]{
-  \sethead{\graycolor{\@arcoTopic}}
+  \sethead{\gray25color{\@arcoTopic}}
           {\UCLMbglogo}
-          {\graycolor{\@arcoCourse}}
+          {\gray25color{\@arcoCourse}}
   \setfoot{}
-    %\graycolor{\today}}
-          {\graycolor{\thepage/\pageref{arco:lastpage}}}
+    %\gray25color{\today}}
+          {\gray25color{\thepage/\pageref{arco:lastpage}}}
           {}
   \headrule
 %  \footrule
@@ -92,8 +85,6 @@
 
 % -- utilities --
 \usepackage{amsthm}
-\theoremstyle{definition}
-\newtheorem{exercise}{Ejercicio}
 
 
 \def\mymaketitle{%

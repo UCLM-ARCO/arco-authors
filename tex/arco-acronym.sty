@@ -1,4 +1,14 @@
 \usepackage{relsize}  % provides textscale
 \usepackage[printonlyused]{acronym}
+
 \newcommand{\Acro}[2]{\acro{#1}{#2}\acused{#1}}
 \newcommand{\initials}[1]{\textsc{\textscale{.85}{#1}}}
+
+\renewcommand*{\acsfont}[1]{\textsc{\textscale{.85}{#1}}} % enunciado del acrónimo: OO
+\renewcommand*{\acfsfont}[1]{#1}
+\renewcommand*{\acffont}[1]{#1}
+
+% imprime: "Object Oriented (OO)"
+\newcommand{\acx}[1]{\acused{#1}\acs{#1} %
+  \nolinebreak[3] %
+  (\acl{#1})}

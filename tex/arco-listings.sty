@@ -12,11 +12,20 @@
 %|
 %| May be set locally for a listing or globally with \lstset command
 
+\usepackage{tocbibind}
+
 \usepackage{arco-color}
 
 \usepackage{listings}
 \renewcommand{\lstlistingname}{Listado}
 \newcommand{\lstfont}{\ttfamily\fontfamily{pcr}}
+
+% de tocbibind, para que el índice de listados aparezca en la ToC
+\renewcommand{\lstlistoflistings}{%
+  \begingroup
+  \tocfile{\lstlistlistingname}{lol}
+  \endgroup}
+
 
 \lstset{
   % frame
