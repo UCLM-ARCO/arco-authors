@@ -148,7 +148,7 @@
 }
 {
   \end{minipage}
-  \null \\[0.5cm]
+  \null \\[0.3cm]
   \setcounter{choicecounter}{0}
 }
 

@@ -1,6 +1,6 @@
 # -*- mode:makefile -*-
 # ----------------------------------------------------------------------
-# Required pkgs: pdfjam
+# Required pkgs: pdfjam, pdftk
 # ----------------------------------------------------------------------
 
 .INTERMEDIATE: *.1.pdf *.2-.2x2.pdf *.pre2x4.pdf
@@ -8,7 +8,10 @@
 PDFNUP=pdfnup --quiet --paper a4paper
 DELTA08=--delta  "0.8cm 0.8cm"
 
-%.2x1.pdf: %.pdf
+%.fix.pdf: %.pdf
+	pdftk $< output $@
+
+%.2x1.pdf: %.fix.pdf
 	$(PDFNUP) $(DELTA08) --landscape --nup 2x1 $< --outfile $@
 
 %.1x3.pdf: %.pdf
