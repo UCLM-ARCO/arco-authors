@@ -18,12 +18,11 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage[spanish]{babel}
 
-\RequirePackage{arco-fonts}
-\RequirePackage{arco-basics}
-\RequirePackage{arco-hyper}
+\RequirePackage{arco-book-utils}
+
 
 \RequirePackage{graphicx}
-\graphicspath{{{.}figures/}}
+\graphicspath{{.}{./figures/}}
 
 \RequirePackage{arco-color}
 %\RequirePackage{transparent}
@@ -33,13 +32,11 @@
 
 \RequirePackage{amsmath}
 \RequirePackage{tocbibind}
-\RequirePackage{enumerate}
+% \RequirePackage{enumerate}
 \RequirePackage{sectsty}
 \RequirePackage{checkend}
 \RequirePackage{rotating}
 
-
-\RequirePackage{arco-acronym}
 
 \RequirePackage[clearempty]{titlesec}
 \titleformat{\chapter}{\normalfont\huge\bfseries}{\thechapter. }{0pt}{}
