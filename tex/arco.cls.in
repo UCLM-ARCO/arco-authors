@@ -39,7 +39,7 @@
 \RequirePackage{rotating}
 
 
-\RequirePackage{arco-acro}
+\RequirePackage{arco-acronym}
 
 \RequirePackage[clearempty]{titlesec}
 \titleformat{\chapter}{\normalfont\huge\bfseries}{\thechapter. }{0pt}{}
