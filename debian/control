@@ -12,8 +12,8 @@ Recommends: unoconv
 Architecture: all
 Depends: ${misc:Depends},
 	 texlive-binaries,
-	 texlive-latex-extra,
  	 texlive-lang-spanish,
+	 texlive-latex-extra,
 	 texlive-latex-recommended,
 	 texlive-extra-utils,
  	 cm-super, inkscape, dblatex, rubber, netpbm, dia, aspell-en

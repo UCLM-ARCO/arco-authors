@@ -73,17 +73,8 @@
   \label{arco:lastpage}
 }
 
-\RequirePackage{color}
-\definecolor{gray25}{gray}{0.25}
-\definecolor{uclm-light}{cmyk}{0,.05,.05,0}
-\def\graycolor#1{\textcolor{gray25}{#1}}
-\def\uclmcolor#1{\textcolor{uclm-light}{#1}}
+\RequirePackage{arco-color}
 
-% PANTONE 7427. R:60 G:8 B:15
-\definecolor{uclmred}{rgb}{.60,.08,.15}
-
-% Cool Gray 5. R:72 G:70 B:68
-\definecolor{uclmgray}{rgb}{.72,.70,.68}
 
 \newcommand{\ESIname}{\textbf{\textsf{Escuela Superior de Informática}}}
 
@@ -177,7 +168,7 @@
 \addtolength{\altolinea}{0.5cm}
 
 \newcommand{\arcoSolutionorbox}[2]{
-  \fbox{
+  \fcolorbox{gray90}{white}{
     \parbox{.97\textwidth}{
       \ifprintanswers
       #2
