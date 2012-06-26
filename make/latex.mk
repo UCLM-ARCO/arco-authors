@@ -7,15 +7,15 @@ RUBBER=rubber $(RUBBER_FLAGS) --texpath ~/.texmf -m hyperref --warn $(RUBBER_WAR
 MAIN ?= $(shell grep -l "^[[:space:]]*\\\\begin{document}" *.tex)
 TEX_MAIN ?= $(MAIN)
 PDF = $(TEX_MAIN:.tex=.pdf)
-TEX_SOURCE ?= $(shell $(TOOLDIR)/latex-parts.sh $(TEX_MAIN))
+TEX_SOURCES ?= $(shell $(TOOLDIR)/latex-parts.sh $(TEX_MAIN))
 
 TEX_FIGURES = $(addprefix $(FIGDIR)/, \
-	        $(foreach file, $(TEX_SOURCE), \
+	        $(foreach file, $(TEX_SOURCES), \
                   $(shell $(TOOLDIR)/latex-figures.sh $(file))))
 
 all:: $(PDF)
 
-$(PDF): $(TEX_SOURCE) $(TEX_FIGURES)
+$(PDF): $(TEX_SOURCES) $(TEX_FIGURES)
 
 %.pdf: %.tex
 	$(RUBBER) --pdf $<
@@ -25,10 +25,10 @@ $(PDF): $(TEX_SOURCE) $(TEX_FIGURES)
 	latex2html -split 0 -html_version 4.0,latin1,unicode $<
 
 help:
-	@echo "- The name for the master TeX file should be: 'main.tex'"
-	@echo "  But you can changed defining: 'MAIN = your_master.tex' in your Makefile"
-	@echo "- Put your image sources in the subdirectory 'figures'."
-	@echo "- 'vclean' target remove automatically converted images."
+	@echo "- This ties to compile all .tex files including a \begin{document} statement"
+	@echo "  You may set a specific file: 'MAIN = your_master.tex' in your Makefile"
+	@echo "- Put your figure sources in the subdirectory './figures'."
+	@echo "- 'vclean' target will remove automatically converted images."
 	@echo
 
 clean::
