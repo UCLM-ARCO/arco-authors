@@ -39,7 +39,7 @@
 \RequirePackage[margin=1.8cm,top=3cm,bottom=2cm]{geometry}
 
 \RequirePackage{graphicx}
-\graphicspath{{/}{figures/}{./images/}}
+\graphicspath{{/}{figures/}{images/}}
 
 \RequirePackage{enumitem}
 \setlist{topsep=0pt}
@@ -89,29 +89,49 @@
 
 
 \newcommand{\UCLMhead}[2]{
-  \setlength{\unitlength}{1in}
+  \setlength{\unitlength}{1cm}
   \begin{picture}(0,0)
-    \put(-0.5,0){\includegraphics[width=4cm]{%
+    \put(-1.3,0){\includegraphics[width=4cm]{%
         /usr/share/arco/figures/uclm.pdf}}
-    \put(1.2,0.3){\makebox(0,0)[l]{\textsf{\textbf{\Large #1}}}}
-    \put(1.2,0.055){\makebox(0,0)[l]{\textsf{\textbf{\large %
+    \put(3,1.6){\makebox(0,0)[l]{\textsf{\textbf{\Large #1}}}}
+    \put(3,1.1){\makebox(0,0)[l]{#2}}
+    \put(3,0.14){\makebox(0,0)[l]{\textsf{\textbf{\large %
             \textcolor{uclmred}{\ESIname}}}}}
-    \put(7.2,0.55){\makebox(0,0)[r]{%
-        \parbox{0.7\textwidth}{
-          \begin{flushright}
-            #2
-          \end{flushright}
-      }}}
   \end{picture}
 }
 
-\newpagestyle{arcoStyle}[\small\sffamily]{
-  \sethead{\UCLMhead{\@arcoTopic}{\@arcoExamDesc\\\@arcoExamDate}} %
+\newcommand{\qualificationBox}{
+  \setlength{\unitlength}{1cm}
+  \begin{picture}(0,0)
+    \put(10,1.2){
+      \makebox(0,0)[r]{%
+        \parbox{0.7\textwidth}{
+          \fcolorbox{gray50}{white}{%
+            \textcolor{gray50}{\hspace{.5cm}calificación}
+            \rule{0cm}{2cm}
+            \rule{0.3cm}{0cm}
+          }}}}
+  \end{picture}
+}
+
+\newpagestyle{firstpage}[\small\sffamily]{
+  \sethead{\UCLMhead{\@arcoTopic}{\@arcoExamDesc}} %
+          {\UCLMbglogo} %
+          {\qualificationBox}
+  \setfoot{\@arcoExamDate}{}{\thepage{}/\numpages}
+}
+
+\newpagestyle{main}[\small\sffamily]{
+  \sethead{\UCLMhead{\@arcoTopic}{\@arcoExamDesc}} %
           {\UCLMbglogo} %
           {}
-  \setfoot{}{Pág. \thepage{}/\numpages}{}
+  \setfoot{\@arcoExamDate}{}{\thepage{}/\numpages}
 }
-\pagestyle{arcoStyle}
+
+\pagestyle{main}
+\thispagestyle{firstpage}
+
+
 
 \newcommand{\arcoExamAdvice}[1]{
   \null
@@ -177,6 +197,14 @@
       \rule{.9\textwidth}{0mm}
       \fi
     }}
+}
+
+\newcommand{\arcoFigureWithAnswer}[3]{
+  \ifprintanswers
+  \includegraphics[width=#1\textwidth]{#3}
+  \else
+  \includegraphics[width=#1\textwidth]{#2}
+  \fi
 }
 
 \RequirePackage{arco-listings}
