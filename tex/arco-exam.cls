@@ -131,8 +131,6 @@
 \pagestyle{main}
 \thispagestyle{firstpage}
 
-
-
 \newcommand{\arcoExamAdvice}[1]{
   \null
   \begin{center}
@@ -145,7 +143,12 @@
 
 \newcommand{\arcoExamStudentForm}{
   \noindent
-  Apellidos: \enspace\rule{0.44\textwidth}{.5pt} \enspace%
+  Apellidos:
+  \ifprintanswers
+  \enspace\rule{0.15\textwidth}{.5pt}{\Large SOLUCIÓN}\rule{0.15\textwidth}{.5pt}
+  \else
+  \enspace\rule{0.44\textwidth}{.5pt} \enspace
+  \fi
   Nombre:    \enspace\rule{0.23\textwidth}{.5pt} \enspace%
   Grupo:     \enspace\hrulefill
   \bigskip
@@ -163,9 +166,6 @@
   \setcounter{choicecounter}{0}
 }
 
-%\newcommand{\arcoStatement}[1]{%
-%  #1\vspace{5pt}\par}
-
 \newcommand{\arcoAnswer}[1]{%
 \ifprintanswers #1 \else \phantom{88} \fi }
 
@@ -177,7 +177,7 @@
   \stepcounter{choicecounter}
   {\fontsize{15pt}{15pt}\selectfont #1 }\hspace{2pt}
   \textbf{\alph{choicecounter}})\hspace{4pt}\parbox[t]{.9\textwidth}{#2\\[-.3cm]}%
-  % dont remove this
+  % DO NOT REMOVE THESE LINES
 
 }
 
@@ -185,7 +185,7 @@
 \newcommand{\correctChoice}[1]{\arcoEmptyChoice{\arcoCorrectChoiceMark}{#1}}
 
 \newlength{\altolinea}
-\addtolength{\altolinea}{0.5cm}
+\addtolength{\altolinea}{5mm minus 2mm}
 
 \newcommand{\arcoSolutionorbox}[2]{
   \fcolorbox{gray90}{white}{
