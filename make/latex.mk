@@ -1,8 +1,8 @@
 TOOLDIR=/usr/share/arco
-FIGDIR=figures
+FIGDIR ?= figures
 
 RUBBER_WARN ?= refs
-RUBBER=rubber $(RUBBER_FLAGS) --texpath ~/.texmf -m hyperref --warn $(RUBBER_WARN)
+RUBBER=nice -n 19 rubber $(RUBBER_FLAGS) --texpath ~/.texmf -m hyperref --warn $(RUBBER_WARN)
 
 MAIN ?= $(shell grep -l "^[[:space:]]*\\\\begin{document}" *.tex)
 TEX_MAIN ?= $(MAIN)
