@@ -1,12 +1,16 @@
 #!/bin/bash
 
 function parts() {
-    for f in $(grep "\\input{" $1 | grep -v "^%" | awk -F{ '{print $2}' | awk -F} '{print $1}'); do
+    files=$(grep -v "^%" "$1" \
+	| grep "\\input{" \
+	| sort | uniq \
+	| sed "s/.*\\input{\([[:alnum:]_\.\-]\+\)}.*/\1/g")
+
+    for f in $files; do
          echo $f
 	 parts $f
     done
 }
-
 
 MAIN=${1:-main.tex}
 echo $MAIN
