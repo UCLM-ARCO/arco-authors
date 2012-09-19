@@ -14,25 +14,11 @@
 
 \RequirePackage[left=28mm,right=22.8mm,top=25.4mm,bottom=25.4mm]{geometry}
 
-\RequirePackage[utf8]{inputenc}
-\RequirePackage[T1]{fontenc}
-\RequirePackage[spanish]{babel}
-
 \RequirePackage{arco-book-utils}
-
-
-\RequirePackage{graphicx}
-\graphicspath{{.}{./figures/}}
-
 \RequirePackage{arco-color}
-%\RequirePackage{transparent}
-\RequirePackage[%
-% colorgrid,
-  texcoord]{eso-pic}
 
 \RequirePackage{amsmath}
 \RequirePackage{tocbibind}
-% \RequirePackage{enumerate}
 \RequirePackage{sectsty}
 \RequirePackage{checkend}
 \RequirePackage{rotating}
@@ -54,121 +40,12 @@
   \markboth{\thechapter.\ \textsc{#1}}{}%
 }
 
-\RequirePackage{ifthen}
-\newboolean{watermarkdefined}
-
-\def\uclmLogo{/usr/share/arco/figures/uclm-A4.pdf}
-
-%% -- Variables del estilo ------------------------------------
-\gdef\@entityAcro{ARCO}
-\def\entityAcro#1{\gdef\@entityAcro{#1}}
-\gdef\@entityName{Grupo de Arquitectura y Redes de Computadores}
-\def\entityName#1{\gdef\@entityName{#1}}
-\gdef\@entityLogo{/usr/share/arco/figures/arco-white.pdf}
-\def\entityWatermark#1{%
-  \gdef\@entityWatermark{#1}
-  \setboolean{watermarkdefined}{true}
-}
-\gdef\@entityWatermark{}
-\def\entityLogo#1{\gdef\@entityLogo{#1}}
-\gdef\@reportCode{}
-\gdef\@sequentialGroup{}
-\def\ISRN#1#2{%
-  \gdef\@reportCode{#1}
-  \gdef\@sequentialGroup{#2}
-}
-\def\docid#1{%
-  \gdef\@sequentialGroup{#1}}
-
 
 %\allsectionsfont{\sffamily}
 %\sectionfont{\mdseries\itshape}
 
-\parskip=0.2cm
-\reversemarginpar
-\marginparwidth=3cm
-
-\newcommand{\maketitlepage}{%
-  \null\pagestyle{empty}
-  \add_frontpage_content
-  \vfil\null
-  \end{titlepage}%
-}
-
-\def\add_frontpage_content{
-  \AddToShipoutPicture*{
-    \setlength{\unitlength}{1mm}%
-    \put(12,-25){%
-      \includegraphics[width=3cm]{\uclmLogo}}
-
-    \put(12,-46){%
-      \renewcommand{\fboxsep}{0pt}%
-      \colorbox[rgb]{.72,.70,.68}{\includegraphics[width=3cm]{\@entityLogo}}}
-
-    \put(12,-267){%
-      \rotatebox{90}{\scriptsize \putISRN}
-    }
-
-%    \put(0,-100){\makebox(0,0)[l]{\textsf{\entityName}}}
-
-    \put(48,-22){\makebox(0,0)[l]{\large\textsf{\textbf{%
-            \textcolor{uclmred}{\@entityName}}}}}
-
-    \put(190,-95){\makebox(0,0)[r]{%
-        \begin{minipage}[r]{15cm}
-          \begin{flushright}
-            \Huge\textsf{\textbf{\@title}}
-          \end{flushright}
-        \end{minipage}}}
-
-    \put(190,-153){\makebox(0,0)[r]{\Large \lineskip .75em
-        \begin{tabular}[t]{r}%
-          \@author
-        \end{tabular}}}
-
-    \put(190,-267){\makebox(0,0)[r]{\large \@date}}
-  }
-
-  \ifthenelse{\boolean{watermarkdefined}}{
-    \AddToShipoutPicture{
-      \setlength{\unitlength}{1mm}%
-      \put(0,-297){%
-        \includegraphics[width=12cm]{\@entityWatermark}
-      }
-    }
-  }{}
-}
-
-\newcommand{\putISRN}{ISRN \@entityAcro/\@reportCode-{}-\the\year/\@sequentialGroup}
+\usepackage{arco-title}
+\usepackage{arco-marginnote}
 
 
-\renewcommand\maketitle{%
-  \begin{titlepage}
-    \let\footnotesize\small%
-    \let\footnoterule\relax%
-    \let \footnote \thanks%
-
-    \maketitlepage%
-    \setcounter{footnote}{0}%
-
-    \global\let\thanks\relax
-    \global\let\maketitle\relax
-
-    \global\let\@thanks\@empty
-
-    \global\let\@author\@empty
-    \global\let\author\relax
-
-    \global\let\@date\@empty
-    \global\let\date\relax
-
-    \global\let\@docid\@empty
-    \global\let\docid\relax
-
-    \global\let\@title\@empty
-    \global\let\title\relax
-
-    \global\let\and\relax
-  }
-
-  \endinput
+\endinput

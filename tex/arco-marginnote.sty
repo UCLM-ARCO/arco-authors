@@ -1,0 +1,14 @@
+\usepackage{setspace}
+\usepackage{marginnote}
+
+\reversemarginpar
+\marginparwidth=3cm
+
+\newcommand{\sidebar}[2]{
+  \vspace*{0.6cm}
+  \marginnote{{\large \bfseries #1} \\[.8mm]
+    \begin{spacing}{0.7}
+      {\footnotesize #2}
+    \end{spacing}
+  }
+}

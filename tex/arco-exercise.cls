@@ -22,39 +22,19 @@
 \ProcessOptions\relax
 \LoadClass{article}
 
-\parskip=0.2cm
-\reversemarginpar
-\marginparwidth=3cm
-
-\RequirePackage[utf8]{inputenc}
-\RequirePackage[T1]{fontenc}
-\RequirePackage[spanish]{babel}
-
+\RequirePackage{arco-basics}
 \RequirePackage{arco-fonts}
 
 \RequirePackage[margin=3cm]{geometry}
 
-\RequirePackage{graphicx}
-\graphicspath{{/}{figures/}}
-
 \RequirePackage{enumitem}
 \setlist{noitemsep, topsep=0pt}
-
-\RequirePackage{arco-basics}
 
 \RequirePackage[%
 % colorgrid,
   texcoord]{eso-pic}
 
 \RequirePackage{ifthen}
-%\RequirePackage{transparent}
-%\RequirePackage{amsmath}
-%\RequirePackage{tocbibind}
-%\RequirePackage{enumerate}
-%\RequirePackage{sectsty}
-%\RequirePackage{checkend}
-%\RequirePackage{rotating}
-%\RequirePackage[inline,marginclue,draft]{fixme}
 
 \RequirePackage[sf,bf,compact,clearempty]{titlesec}
 

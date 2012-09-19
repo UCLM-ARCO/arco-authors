@@ -19,16 +19,14 @@
 \setlist{topsep=0pt}
 \newlist{definitionlist}{description}{1}
 \setlist[definitionlist]{
-  style     = nextline,
+  style = nextline,
 }
 
-\parskip = 2mm
 
 \usepackage{atbeginend}
 \BeforeEnd{document}{\label{arco:lastpage}}
 
-
-\setlength{\parskip}{2mm plus 0.2mm minus 0.2mm}
+\setlength{\parskip}{2mm plus 0.3mm minus 0.3mm}
 
 %% Párrafos
 % La indentación que precede al párrafo normal debe ser de un
@@ -41,3 +39,4 @@
 
 
 \usepackage{graphicx}
+\graphicspath{{.}{./figures/}}

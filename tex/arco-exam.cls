@@ -26,20 +26,12 @@
 \ProcessOptions\relax
 \LoadClass{exam}
 
-\parskip=0.2cm
-\reversemarginpar
-\marginparwidth=3cm
-
-\RequirePackage[T1]{fontenc}
-\RequirePackage[utf8]{inputenc}
-\RequirePackage[spanish]{babel}
 \RequirePackage{times}
 \RequirePackage{multicol}
 
 \RequirePackage[margin=1.8cm,top=3cm,bottom=2cm]{geometry}
 
-\RequirePackage{graphicx}
-\graphicspath{{/}{figures/}{images/}}
+\RequirePackage{arco-basics}
 
 \RequirePackage{enumitem}
 \setlist{topsep=0pt}
