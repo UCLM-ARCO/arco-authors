@@ -14,7 +14,7 @@
 \def\function    #1{\texttt{#1()}}
 \def\guilabel    #1{\emph{#1}}
 \def\guimenuitem #1{\emph{#1}}
-\def\token       #1{\texttt{#1}}          % literal, constante simbólica
+\def\token       #1{`\texttt{#1}'}        % literal, constante simbólica
 \def\type        #1{\texttt{#1}}          % tipo de dato o clase
 \def\varname     #1{\texttt{#1}}
 
@@ -26,4 +26,4 @@
 
 \usepackage{enumitem}
 \newlist{qandaentry}{enumerate}{10}
-\setlist[qandaentry]{label*=[\bfseries E\arabic*]}
+\setlist[qandaentry]{label*=[\bfseries E\,\thechapter.\arabic*]}
