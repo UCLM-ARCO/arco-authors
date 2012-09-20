@@ -27,9 +27,6 @@
 
 \RequirePackage[margin=3cm]{geometry}
 
-\RequirePackage{enumitem}
-\setlist{noitemsep, topsep=0pt}
-
 \RequirePackage[%
 % colorgrid,
   texcoord]{eso-pic}

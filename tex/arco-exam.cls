@@ -33,10 +33,6 @@
 
 \RequirePackage{arco-basics}
 
-\RequirePackage{enumitem}
-\setlist{topsep=0pt}
-\setlist{noitemsep}
-
 \RequirePackage[%
   colorlinks=true,
   linkcolor=black,
