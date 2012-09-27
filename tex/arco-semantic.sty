@@ -1,22 +1,25 @@
-%\usepackage{arco-listings}
 
-\def\id    #1{\texttt{#1}}   % identificador
+%http://tex.stackexchange.com/questions/44361/how-to-automatically-hyphenate-within-texttt
+\newcommand\hypetexttt[1]{\texttt{\hyphenchar\font=45\relax #1}}
+
+
+\def\id    #1{\hypetexttt{#1}}   % identificador
 %\def\code  #1{\lstinline!#1!}   % trozo pequeño de código fuente
-\def\code  #1{\texttt{#1}}   % trozo pequeño de código fuente
+\def\code  #1{\hypetexttt{#1}}   % trozo pequeño de código fuente
 \def\iface #1{\textit{#1}}   % interfaz
 \def\kw    #1{\texttt{#1}}   % keyword, palabra reservada
 \def\fg    #1{\textit{#1}}   % foreign, una palabra en inglés
-\def\app   #1{\texttt{#1}}   % aplicación, programa
+\def\app   #1{\hypetexttt{#1}}   % aplicación, programa
 
 % Por conveniencia, estos nombres corresponden con elementos DocBook equivalentes
 \def\command     #1{\texttt{#1}}          % comando
-\def\filename    #1{\texttt{#1}}
-\def\function    #1{\texttt{#1()}}
+\def\filename    #1{\hypetexttt{#1}}
+\def\function    #1{\hypetexttt{#1()}}
 \def\guilabel    #1{\emph{#1}}
 \def\guimenuitem #1{\emph{#1}}
 \def\token       #1{`\texttt{#1}'}        % literal, constante simbólica
-\def\type        #1{\texttt{#1}}          % tipo de dato o clase
-\def\varname     #1{\texttt{#1}}
+\def\type        #1{\hypetexttt{#1}}          % tipo de dato o clase
+\def\varname     #1{\hypetexttt{#1}}
 
 \usepackage{fancybox}
 \def\guibutton#1{%
@@ -25,5 +28,5 @@
     \ovalbox{{\fontsize{6}{6}\selectfont\textbf{#1}}}}}
 
 \usepackage{enumitem}
-\newlist{qandaentry}{enumerate}{10}
-\setlist[qandaentry]{label*=[\bfseries E\,\thechapter.\arabic*]}
+\newlist{qandaset}{enumerate}{10}
+\setlist[qandaset]{label*=[\bfseries E\,\thechapter.\arabic*]}
