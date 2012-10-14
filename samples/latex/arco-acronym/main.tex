@@ -1,0 +1,60 @@
+\documentclass[a4paper, 11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{times}
+
+\usepackage{graphicx}
+\graphicspath{{figures/}}
+
+\usepackage{arco-acronym}
+\def\texcmd#1{\texttt{$\backslash$#1}}
+
+\title{}
+
+\begin{document}
+\maketitle
+
+
+\section{Lista de acrónimos}
+
+{\small
+\begin{acronym}[XXXXXXXX]
+  \Acro{GNU}     {\acs{GNU} is Not Unix}
+  \acro{OO}      {Orientación a Objetos}
+  \acro{RPC}     {Remote Procedure Call}
+\end{acronym}
+}
+
+
+\section{Instrucciones}
+
+\begin{itemize}
+\item \texcmd{acs} (short) muestra el acrónimo propiamente dicho (como: \acs{OO}).
+\item \texcmd{acl} (large) muestra el significado del acrónimo (como: \acl{OO}).
+\item \texcmd{acf} (full) muestra ambas (como: \acf{OO}).
+\end{itemize}
+
+Por lo general debería usar \texcmd{ac}. La primera vez que aparece en cada capítulo este
+comando muestra la versión \texcmd{acf} y en el resto de las ocasiones usa
+\texcmd{acs}. Por ejemplo, escribiendo dos veces \texcmd{ac\{RPC\}} se obtiene: \ac{RPC} y
+\ac{RPC}.
+
+Toma la precaución de usar \texcmd{acs} en los nombres de las secciones, caption de los
+flotantes y en la definición de otros acrónimos en el entorno \texttt{acronym}, pues estos
+aparecen primero en las tablas de contenidos, lo que puede provocar problemas.
+
+Si utilizan \texcmd{Acro} en lugar de \texcmd{acro} para definir acrónimos, el acrónimo
+aparecerá siempre en su versión corta. Eso es adecuado para acrónimos muy conocidos, como
+\ac{GNU}.
+
+\end{document}
+
+
+% Local Variables:
+%   coding: utf-8
+%   mode: latex
+%   mode: flyspell
+%   ispell-local-dictionary: "castellano8"
+% End:
