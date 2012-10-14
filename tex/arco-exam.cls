@@ -12,11 +12,11 @@
 \RequirePackage{arco-internal}
 
 %% -- Variables de la clase ------------------------------------
-\gdef\@arcoTopic{\arcoCommandHelp{arcoTopic}}
+\gdef\@arcoTopic{\texcmd{arcoTopic}}
 \def\arcoTopic#1{\gdef\@arcoTopic{#1}}
-\gdef\@arcoExamDesc{\arcoCommandHelp{arcoExamDesc}}
+\gdef\@arcoExamDesc{\texcmd{arcoExamDesc}}
 \def\arcoExamDesc#1{\gdef\@arcoExamDesc{#1}}
-\gdef\@arcoExamDate{\arcoCommandHelp{arcoExamDate}}
+\gdef\@arcoExamDate{\texcmd{arcoExamDate}}
 \def\arcoExamDate#1{\gdef\@arcoExamDate{#1}}
 
 \NeedsTeXFormat{LaTeX2e}

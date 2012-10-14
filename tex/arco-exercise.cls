@@ -9,10 +9,10 @@
 %   http://stackoverflow.com/questions/581916/how-do-you-extend-article-document-class-in-latex
 
 %% -- Variables de la clase ------------------------------------
-\gdef\@arcoTopic{\arcoCommandHelp{arcoTopic}}
+\gdef\@arcoTopic{\texcmd{arcoTopic}}
 \gdef\@arcoTopic{<asignatura>}
 \def\arcoTopic#1{\gdef\@arcoTopic{#1}}
-\gdef\@arcoCourse{\arcoCommaondHelp{arcoCourse}}
+\gdef\@arcoCourse{\texcmd{arcoCourse}}
 \def\arcoCourse#1{\gdef\@arcoCourse{#1}}
 
 \NeedsTeXFormat{LaTeX2e}
