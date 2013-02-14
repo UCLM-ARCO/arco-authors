@@ -79,8 +79,21 @@
   numbers=none,
 }
 
+\newlength{\marginwidth}
+\setlength{\marginwidth}{\marginparwidth}
+\addtolength{\marginwidth}{\marginparsep}
+
 \lstnewenvironment{console}[1][]
-   {\lstset{style=consoleStyle,#1}\pagebreak[0]}
+    {\lstset{style=consoleStyle,#1}\pagebreak[0]}
+    {\pagebreak[0]}
+
+\lstnewenvironment{wideconsole}[1][]
+    {\mbox{}
+     \checkoddpage
+     \ifthenelse{\boolean{oddpage}}
+       {\lstset{style=consoleStyle,xleftmargin=-\marginwidth,#1}}
+       {\lstset{style=consoleStyle,xrightmargin=-\marginwidth,#1}}
+     \pagebreak[0]}
    {\pagebreak[0]}
 
 

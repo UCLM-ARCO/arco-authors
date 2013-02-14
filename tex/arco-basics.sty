@@ -18,9 +18,11 @@
 \usepackage{enumitem}
 \setlist{topsep=3pt, noitemsep}
 \setlist[description]{topsep=0pt, itemsep=4pt}
+\setlist[enumerate]{topsep=3pt}
 
 \newlist{definitionlist}{description}{1}
 \setlist[definitionlist]{
+  topsep = 3pt,
   style = nextline,
 }
 
@@ -42,3 +44,11 @@
 
 \usepackage{graphicx}
 \graphicspath{{.}{./figures/}}
+
+
+\makeatletter
+% penalize page breaks before lists
+\@beginparpenalty=5000
+
+\newcommand\nobreakhere{\par\nobreak\@afterheading}
+\makeatother
