@@ -24,6 +24,7 @@
 
 \RequirePackage{arco-basics}
 \RequirePackage{arco-fonts}
+\RequirePackage{arco-hyper}
 
 \RequirePackage[margin=3cm]{geometry}
 
