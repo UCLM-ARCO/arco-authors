@@ -70,8 +70,30 @@
     {¡}{{!`}}1 {¿}{{?`}}1
 }
 
+\newlength{\marginwidth}
+\setlength{\marginwidth}{\marginparwidth}
+\addtolength{\marginwidth}{\marginparsep}
+
+
+\newcommand*\autolstmargin{
+  \checkoddpage%
+  \ifthenelse{\boolean{oddpage}}%
+      {xleftmargin=-\marginwidth}
+      {xrightmargin=-\marginwidth}}
+
+
 \lstnewenvironment{listing}[1][]
-   {\pagebreak[0]\lstset{#1}}{\pagebreak[0]}
+   {\pagebreak[0]\lstset{#1}}
+   {\pagebreak[0]}
+
+\lstnewenvironment{widelisting}[1][]
+   {\pagebreak[0]
+    \checkoddpage
+    \ifthenelse{\boolean{oddpage}}
+       {\lstset{xleftmargin=-\marginwidth,#1}}
+       {\lstset{xrightmargin=-\marginwidth,#1}}
+   }
+   {\pagebreak[0]}
 
 \lstdefinestyle{consoleStyle}{
   basicstyle=\scriptsize\bf\ttfamily,
@@ -79,21 +101,26 @@
   numbers=none,
 }
 
-\newlength{\marginwidth}
-\setlength{\marginwidth}{\marginparwidth}
-\addtolength{\marginwidth}{\marginparsep}
+\newcommand\wideinputlisting[1][]{%
+  \checkoddpage%
+  \ifthenelse{\boolean{oddpage}}%
+      {\def\xmargin{xleftmargin=-\marginwidth}}
+      {\def\xmargin{xrightmargin=-\marginwidth}}
+  \expandafter\lstinputlisting\expandafter[\xmargin,#1]
+  }
+
 
 \lstnewenvironment{console}[1][]
-    {\lstset{style=consoleStyle,#1}\pagebreak[0]}
-    {\pagebreak[0]}
+   {\pagebreak[0]\lstset{style=consoleStyle,#1}}
+   {\pagebreak[0]}
 
 \lstnewenvironment{wideconsole}[1][]
-    {\mbox{}
-     \checkoddpage
-     \ifthenelse{\boolean{oddpage}}
-       {\lstset{style=consoleStyle,xleftmargin=-\marginwidth,#1}}
-       {\lstset{style=consoleStyle,xrightmargin=-\marginwidth,#1}}
-     \pagebreak[0]}
+   {\pagebreak[0]
+    \checkoddpage
+    \ifthenelse{\boolean{oddpage}}
+      {\lstset{style=consoleStyle,xleftmargin=-\marginwidth,#1}}
+      {\lstset{style=consoleStyle,xrightmargin=-\marginwidth,#1}}
+   }
    {\pagebreak[0]}
 
 
