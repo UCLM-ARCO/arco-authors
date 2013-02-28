@@ -74,12 +74,14 @@
 \setlength{\marginwidth}{\marginparwidth}
 \addtolength{\marginwidth}{\marginparsep}
 
-
+% experimental
+% http://tex.stackexchange.com/questions/83502/how-to-define-package-options-in-a-command-for-reuse
 \newcommand*\autolstmargin{
-  \checkoddpage%
-  \ifthenelse{\boolean{oddpage}}%
-      {xleftmargin=-\marginwidth}
-      {xrightmargin=-\marginwidth}}
+    \checkoddpage%
+    \setkeys{
+      \ifthenelse{\boolean{oddpage}}%
+        {xleftmargin=-\marginwidth}
+        {xrightmargin=-\marginwidth}}}
 
 
 \lstnewenvironment{listing}[1][]
@@ -95,11 +97,10 @@
    }
    {\pagebreak[0]}
 
-\lstdefinestyle{consoleStyle}{
-  basicstyle=\scriptsize\bf\ttfamily,
-  backgroundcolor=\color{gray75},
-  numbers=none,
-}
+
+\newcommand\inputlisting[1][]{%
+  \expandafter\lstinputlisting\expandafter[#1]
+  }
 
 \newcommand\wideinputlisting[1][]{%
   \checkoddpage%
@@ -109,6 +110,11 @@
   \expandafter\lstinputlisting\expandafter[\xmargin,#1]
   }
 
+\lstdefinestyle{consoleStyle}{
+  basicstyle=\scriptsize\bf\ttfamily,
+  backgroundcolor=\color{gray75},
+  numbers=none,
+}
 
 \lstnewenvironment{console}[1][]
    {\pagebreak[0]\lstset{style=consoleStyle,#1}}
