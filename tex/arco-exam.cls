@@ -151,7 +151,7 @@
 %  \enspace\rule{0.15\textwidth}{.5pt}{\Large SOLUCIÓN}\rule{0.15\textwidth}{.5pt}
   \else
 %  \enspace\rule{0.44\textwidth}{.5pt} \enspace
-  \underline{0.44\textwidth}
+  \underline{\hspace*{0.44\textwidth}}
   \fi
   \enspace Nombre:    \underline{\hspace*{0.23\textwidth}}%
   \enspace Grupo:     \underline{\hspace*{1cm}}
