@@ -24,7 +24,7 @@ clean:
 	$(RM) compile.el tex/arco-book.cls tex/arco-report.cls
 #	$(MAKE) -C samples clean
 
-install: download-images
+install:
 	install -vd $(BASE)
 	install -v -m 555 scripts/*  $(BASE)/
 

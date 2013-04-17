@@ -27,7 +27,7 @@
 \RequirePackage[clearempty]{titlesec}
 \titleformat{\chapter}{\normalfont\huge\bfseries}{\thechapter. }{0pt}{}
 
-
+% FIXME: change to titleps
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 
