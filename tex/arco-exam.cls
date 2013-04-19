@@ -129,16 +129,32 @@
   \bigskip
 }
 
+\usepackage{calc}
+
+% \newlength{\remaining}
+% \newcommand{\titleline}[1]{%
+%   \setlength{\remaining}{(\textwidth-\widthof{\textsc{#1}})/2}
+%   \noindent\underline{\hspace*{\remaining}#1\hspace*{\remaining}}\par}
+
+\newlength{\remaining}
+\newcommand{\undertitleline}[1]{%
+% \setlength{\remaining}{(\textwidth-\widthof{\textsc{#1}})/2}
+  \setlength{\remaining}{0.15\textwidth}
+  \noindent\underline{\hspace*{\remaining}#1\hspace*{\remaining}}}
+
+
 \newcommand{\arcoExamStudentForm}{
   \noindent
   Apellidos:
   \ifprintanswers
-  \enspace\rule{0.15\textwidth}{.5pt}{\Large SOLUCIÓN}\rule{0.15\textwidth}{.5pt}
+  \undertitleline{\Large SOLUCIÓN}
+%  \enspace\rule{0.15\textwidth}{.5pt}{\Large SOLUCIÓN}\rule{0.15\textwidth}{.5pt}
   \else
-  \enspace\rule{0.44\textwidth}{.5pt} \enspace
+%  \enspace\rule{0.44\textwidth}{.5pt} \enspace
+  \underline{\hspace*{0.44\textwidth}}
   \fi
-  Nombre:    \enspace\rule{0.23\textwidth}{.5pt} \enspace%
-  Grupo:     \enspace\hrulefill
+  \enspace Nombre:    \underline{\hspace*{0.23\textwidth}}%
+  \enspace Grupo:     \underline{\hspace*{1cm}}
   \bigskip
 }
 
