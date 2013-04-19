@@ -62,7 +62,7 @@
 }
 
 \RequirePackage{arco-color}
-
+\RequirePackage{transparent}
 
 \newcommand{\ESIname}{\textbf{\textsf{Escuela Superior de Informática}}}
 
@@ -177,6 +177,7 @@
 
 \newcommand{\arcoSolutionorbox}[2]{
   \fcolorbox{gray90}{white}{
+    \transparent{0.5}
     \parbox{.97\textwidth}{
       \ifprintanswers
       #2
