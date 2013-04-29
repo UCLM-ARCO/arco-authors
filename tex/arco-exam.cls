@@ -126,7 +126,7 @@
         #1
       }}
   \end{center}
-  \bigskip
+  \medskip
 }
 
 \usepackage{calc}
@@ -155,7 +155,8 @@
   \fi
   \enspace Nombre:    \underline{\hspace*{0.23\textwidth}}%
   \enspace Grupo:     \underline{\hspace*{1cm}}
-  \bigskip
+  \mbox{}
+  \medskip
 }
 
 \newcounter{choicecounter}
