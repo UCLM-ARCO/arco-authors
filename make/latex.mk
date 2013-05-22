@@ -19,7 +19,11 @@ $(PDF): $(TEX_SOURCES) $(TEX_FIGURES)
 
 %.pdf: %.tex
 	$(RUBBER) --pdf $<
-	-@ ! grep Citation $(<:.tex=.log)
+	-@ ! grep --color Reference $(<:.tex=.log)
+	-@ ! grep --color Citation $(<:.tex=.log)
+	-@ ! grep --color "multiply defined" $(<:.tex=.log)
+	-@ ! grep "acronym Warning" $(<:.tex=.log) | sort | uniq | grep --color "acronym Warning"
+
 
 %.html: %.tex
 	latex2html -split 0 -html_version 4.0,latin1,unicode $<
