@@ -23,6 +23,7 @@ $(PDF): $(TEX_SOURCES) $(TEX_FIGURES)
 	-@ ! grep --color Citation $(<:.tex=.log)
 	-@ ! grep --color "multiply defined" $(<:.tex=.log)
 	-@ ! grep "acronym Warning" $(<:.tex=.log) | sort | uniq | grep --color "acronym Warning"
+	-@ ! rgrep --color FIXME *.tex
 
 
 %.html: %.tex
