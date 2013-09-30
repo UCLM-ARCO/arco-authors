@@ -17,6 +17,7 @@ WGET=wget --no-check-certificate -nv
 all:
 	sed s/CLASS/book/g tex/arco.cls.in > tex/arco-book.cls
 	sed s/CLASS/report/g tex/arco.cls.in > tex/arco-report.cls
+	sed s/CLASS/article/g tex/arco.cls.in > tex/arco-article.cls
 
 clean:
 	$(RM) $(shell find -name *~)

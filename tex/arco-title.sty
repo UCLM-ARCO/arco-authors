@@ -5,8 +5,12 @@
 
 \gdef\@entityAcro{ARCO}
 \def\entityAcro#1{\gdef\@entityAcro{#1}}
+
 \gdef\@entityName{Grupo de Arquitectura y Redes de Computadores}
 \def\entityName#1{\gdef\@entityName{#1}}
+
+\gdef\@docTopic{}
+\def\docTopic#1{\gdef\@docTopic{#1}}
 
 \gdef\@entityLogo{/usr/share/arco/figures/arco-white.pdf}
 \setboolean{logodefined}{true}
@@ -74,8 +78,12 @@
 
 %    \put(0,-100){\makebox(0,0)[l]{\textsf{\entityName}}}
 
-    \put(48,-22){\makebox(0,0)[l]{\large\textsf{\textbf{%
+    \put(48,-24){\makebox(0,0)[l]{\large\textsf{\textbf{%
             \textcolor{uclmred}{\@entityName}}}}}
+
+    \put(48,-12){\makebox(0,0)[l]{\Large\textsf{\textbf{%
+            \@docTopic}}}}
+
 
     \put(190,-95){\makebox(0,0)[r]{%
         \begin{minipage}[r]{15cm}
