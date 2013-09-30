@@ -66,14 +66,12 @@
 
 \newcommand{\ESIname}{\textbf{\textsf{Escuela Superior de Informática}}}
 
-\newcommand{\ifcolor}[1]{#1}
 \newcommand{\UCLMbglogo}{%
-  \ifcolor{%
-    \begin{picture}(0,0)
-      \put(-55,-820){
-        \uclmcolor{\includegraphics[width=1.1\textwidth]{%
-            /usr/share/arco/figures/uclm-logo-bw-mp.pdf}}}
-    \end{picture}}}
+  \begin{picture}(0,0)
+    \put(-55,-820){
+      \uclmcolor{\includegraphics[width=1.1\textwidth]{%
+          /usr/share/arco/figures/uclm-logo-bw-mp.pdf}}}
+  \end{picture}}
 
 
 \newcommand{\UCLMhead}[2]{
@@ -83,8 +81,7 @@
         /usr/share/arco/figures/uclm.pdf}}
     \put(3,1.6){\makebox(0,0)[l]{\textsf{\textbf{\Large #1}}}}
     \put(3,1.1){\makebox(0,0)[l]{#2}}
-    \put(3,0.14){\makebox(0,0)[l]{\textsf{\textbf{\large %
-            \textcolor{uclmred}{\ESIname}}}}}
+    \put(3,0.14){\makebox(0,0)[l]{\textsf{\textbf{\large \textcolor{uclmred}{\ESIname}}}}}
   \end{picture}
 }
 

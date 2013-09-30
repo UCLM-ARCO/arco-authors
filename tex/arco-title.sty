@@ -1,19 +1,36 @@
-
 \RequirePackage{ifthen}
 \newboolean{watermarkdefined}
+\newboolean{logodefined}
 
 
 \gdef\@entityAcro{ARCO}
 \def\entityAcro#1{\gdef\@entityAcro{#1}}
 \gdef\@entityName{Grupo de Arquitectura y Redes de Computadores}
 \def\entityName#1{\gdef\@entityName{#1}}
+
 \gdef\@entityLogo{/usr/share/arco/figures/arco-white.pdf}
+\setboolean{logodefined}{true}
+\def\entityLogo#1{
+  \gdef\@entityLogo{#1}
+  \ifthenelse{\equal{#1}{}}{
+    \setboolean{logodefined}{false}
+  }
+  {
+    \setboolean{logodefined}{true}
+  }
+}
+
+\gdef\@entityWatermark{}
 \def\entityWatermark#1{%
   \gdef\@entityWatermark{#1}
-  \setboolean{watermarkdefined}{true}
+  \ifthenelse{\equal{#1}{}}{
+    \setboolean{watermarkdefined}{false}
+  }
+  {
+    \setboolean{watermarkdefined}{true}
+  }
 }
-\gdef\@entityWatermark{}
-\def\entityLogo#1{\gdef\@entityLogo{#1}}
+
 \gdef\@reportCode{}
 \gdef\@sequentialGroup{}
 \def\ISRN#1#2{%
@@ -44,9 +61,12 @@
     \put(12,-25){%
       \includegraphics[width=3cm]{\uclmLogo}}
 
-    \put(12,-46){%
-      \renewcommand{\fboxsep}{0pt}%
-      \colorbox[rgb]{.72,.70,.68}{\includegraphics[width=3cm]{\@entityLogo}}}
+
+    \ifthenelse{\boolean{logodefined}}{
+      \put(12,-46){%
+        \renewcommand{\fboxsep}{0pt}%
+        \colorbox[rgb]{.72,.70,.68}{\includegraphics[width=3cm]{\@entityLogo}}}
+    }{}
 
     \put(12,-267){%
       \rotatebox{90}{\scriptsize \putISRN}
@@ -94,10 +114,10 @@
     \maketitlepage%
     \setcounter{footnote}{0}%
 
-    \global\let\thanks\relax
     \global\let\maketitle\relax
 
     \global\let\@thanks\@empty
+    \global\let\thanks\relax
 
     \global\let\@author\@empty
     \global\let\author\relax
