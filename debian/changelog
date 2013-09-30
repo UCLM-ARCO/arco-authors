@@ -1,6 +1,13 @@
 arco-authors (0.20130930-1) unstable; urgency=low
 
   * New release
+  * bibname/refname support
+
+ -- David Villa Alises <David.Villa@gmail.com>  Mon, 30 Sep 2013 23:12:33 +0200
+
+arco-authors (0.20130930-1) unstable; urgency=low
+
+  * New release
 
  -- David Villa Alises <David.Villa@gmail.com>  Mon, 30 Sep 2013 10:45:30 +0200
 
