@@ -131,3 +131,13 @@
 
 
 \lstloadlanguages{}
+
+\lstdefinelanguage{Slice}{%
+  morekeywords=[2]{void, bool, byte, short, int, float, sequence, string,
+    dictionary, Object},
+  morekeywords=[3]{module, interface, struct, class, exception,
+    throws, extends, idempotent},
+  morekeywords=[4]{in, out},
+  morekeywords=[5]{include},
+  sensitive=false
+  }
