@@ -1,3 +1,10 @@
+\RequirePackage{datetime}
+\RequirePackage{atbeginend}
+
+\AfterBegin{document}{
+  \renewcommand{\dateseparator}{.}
+}
+
 \RequirePackage{ifthen}
 \newboolean{watermarkdefined}
 \newboolean{logodefined}
@@ -97,7 +104,7 @@
           \@author
         \end{tabular}}}
 
-    \put(190,-267){\makebox(0,0)[r]{\large \@date}}
+    \put(190,-267){\makebox(0,0)[r]{\large \yyyymmdddate\@date}}
   }
 
   \ifthenelse{\boolean{watermarkdefined}}{
