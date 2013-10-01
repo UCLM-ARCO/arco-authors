@@ -23,6 +23,8 @@ clean:
 	$(RM) $(shell find -name *~)
 	find . -name "*.elc" -delete
 	$(RM) compile.el tex/arco-book.cls tex/arco-report.cls
+
+vclean: clean
 	$(MAKE) -C samples clean
 
 install:
