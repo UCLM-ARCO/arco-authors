@@ -2,7 +2,7 @@ TOOLDIR=/usr/share/arco
 FIGDIR ?= figures
 
 RUBBER_WARN ?= refs
-RUBBER=rubber $(RUBBER_FLAGS) --texpath ~/.texmf -m hyperref --warn $(RUBBER_WARN)
+RUBBER_ARGS=--texpath ~/.texmf --module hyperref --warn $(RUBBER_WARN) $(RUBBER_FLAGS)
 
 MAIN ?= $(shell grep -l "^[[:space:]]*\\\\begin{document}" *.tex)
 TEX_MAIN ?= $(MAIN)
@@ -18,7 +18,7 @@ all:: $(PDF)
 $(PDF): $(TEX_SOURCES) $(TEX_FIGURES)
 
 %.pdf: %.tex
-	$(RUBBER) --pdf $<
+	rubber --pdf $(RUBBER_ARGS) $<
 	-@ ! grep --color Reference $(<:.tex=.log)
 	-@ ! grep --color Citation $(<:.tex=.log)
 	-@ ! grep --color "multiply defined" $(<:.tex=.log)
@@ -37,7 +37,7 @@ help:
 	@echo
 
 clean::
-	-$(RUBBER) --clean --pdf $(TEX_MAIN)
+	-rubber --clean --pdf $(TEX_MAIN)
 	$(RM) *~ *.maf *.mtc *.lol
 	$(RM) $(foreach tex, \
 		$(TEX_MAIN), \
