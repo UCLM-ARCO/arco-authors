@@ -74,13 +74,13 @@
 
 \newlength{\admlength}
 \newcommand{\admonition}[2] {
-  \begin{center}
-    \hspace{0mm}%\newline
-    \noindent
+  \begin{center} %
+    \noindent %
     \setlength{\fboxsep}{5pt}
     \setlength{\admlength}{\linewidth}
     \addtolength{\admlength}{-4mm}
-
+    %
+    \vspace*{-2mm}
     \begin{minipage}{\admlength}
       \hrule
       \vspace*{2mm}
@@ -98,11 +98,8 @@
         \addtolength{\admlength}{-16mm}
         \begin{minipage}{\admlength}
         }
-
         % \textbf{#2}\\%
-
         #2
-
         \ifthenelse{\equal{\admgraph}{false}}{}{
         \end{minipage}\newline
       }
