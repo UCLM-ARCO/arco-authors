@@ -22,7 +22,7 @@ all:
 clean:
 	$(RM) $(shell find -name *~)
 	find . -name "*.elc" -delete
-	$(RM) compile.el tex/arco-book.cls tex/arco-report.cls
+	$(RM) compile.el tex/arco-book.cls tex/arco-report.cls tex/arco-article.cls
 
 vclean: clean
 	$(MAKE) -C samples clean
