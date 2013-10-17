@@ -13,6 +13,8 @@ TEX_FIGURES = $(addprefix $(FIGDIR)/, \
 	        $(foreach file, $(TEX_SOURCES), \
                   $(shell $(TOOLDIR)/latex-figures.sh $(file))))
 
+.DELETE_ON_ERROR:
+
 all:: $(PDF)
 
 $(PDF): $(TEX_SOURCES) $(TEX_FIGURES)
