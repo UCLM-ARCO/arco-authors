@@ -1,6 +1,10 @@
+%
+\gdef\@docLanguage{spanish}
+\DeclareOption{english}{\gdef\@docLanguage{english}}
+\ProcessOptions\relax
+
 \usepackage[T1]{fontenc}
-\usepackage[spanish]{babel}
-\usepackage{microtype}
+\usepackage[\@docLanguage]{babel}
 
 \usepackage{ifxetex}
 \ifxetex
