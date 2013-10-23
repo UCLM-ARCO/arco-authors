@@ -40,7 +40,7 @@ help:
 
 clean::
 	-rubber --clean --pdf $(TEX_MAIN)
-	$(RM) *~ *.maf *.mtc *.lol
+	$(RM) *~ *.maf *.mtc *.lol *.out
 	$(RM) $(foreach tex, \
 		$(TEX_MAIN), \
 	        $(addprefix $(basename $(notdir $(tex))), .blg .bbl))
