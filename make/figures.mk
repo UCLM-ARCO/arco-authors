@@ -7,10 +7,10 @@
 #-- dia	 ----------------------------------------------------
 
 %.eps: %.dia
-	dia -n -e $@ -t eps $<
+	dia --nosplash --export $@ --filter eps $<
 
 %.png: %.dia
-	dia -n -e $@ -t png $<
+	dia --nosplash --export $@ --filter png $<
 
 
 #-- inkscape -----------------------------------------------
@@ -22,22 +22,22 @@ DPI?=$(PNGPPP)
 # include figures.mk
 # DPI = <your quality>
 
-%.pdf: %.dia
-	inkscape -A $@ --export-text-to-path $<
-
 %.png: %.svg
-	inkscape -d $(DPI) -e $@ $<
+	inkscape --export-dpi $(DPI) --export-png $@ $<
 
 %.300.png: %.svg
-	inkscape -d 300 -e $@ $<
+	inkscape --export-dpi 300 --export-png $@ $<
+
+%.pdf: %.dia
+	inkscape --export-pdf $@ --export-text-to-path $<
 
 %.pdf: %.svg
-	inkscape -A  $@ --export-text-to-path $<
+	inkscape --export-pdf $@ --export-text-to-path $<
 
 #-- libreoffice -----------------------------------------------
 
 %.jpg: %.ods
-	unoconv -f html $<
+	unoconv --format html $<
 	mv $*_html_*.jpg $@
 	rm $*.html
 
