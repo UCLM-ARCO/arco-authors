@@ -1,3 +1,9 @@
+0.20131113
+==========
+
+* arco-admonition and arco-admonition-xelatex
+* arco-book-utils -> arco-book-basics
+
 0.20130522
 ==========
 
