@@ -1,3 +1,8 @@
+0.20131114
+==========
+
+* arco-admonition-xelatex integrated again in arco-admonition
+
 0.20131113
 ==========
 

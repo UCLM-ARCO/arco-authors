@@ -16,6 +16,13 @@ Depends: ${misc:Depends},
 	 texlive-latex-extra,
 	 texlive-latex-recommended,
 	 texlive-extra-utils,
- 	 cm-super, inkscape, dblatex, rubber, netpbm, dia, aspell-en
+ 	 cm-super,
+	 inkscape,
+	 dblatex,
+	 rubber,
+	 netpbm,
+	 dia,
+	 aspell-en,
+	 noweb
 Description: ARCO authors tools, styles and templates
  LaTeX and DocBook utilities and styles for Arco authors.

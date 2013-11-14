@@ -1,28 +1,167 @@
 \usepackage{arco-color}
+\usepackage{ifxetex}
 
-\newcommand{\admonition}[2]{
-  \par
-  \begin{center}
-  {\small
-    \fboxrule=0.5pt
-    \fboxsep=5mm
+\newcommand{\dblatexAdmonitionIcon}[1]{%
+  \includegraphics[width=0.8cm]{/usr/share/texmf/tex/latex/dblatex/contrib/db2latex/graphics/#1.pdf}%
+}
 
-    \noindent
-    \fcolorbox{gray20}{gray90}{
-      \parbox{1.3cm}{\resizebox{1cm}{!}{\includegraphics{/usr/share/texmf/tex/latex/dblatex/contrib/db2latex/graphics/#1.pdf}}}
-      \parbox{0.8\textwidth}{#2}
+% important
+% \faicon{exclamation-sign}
+%
+% warning
+% \faicon{warning-sign}
+%
+% caution
+% \faicon{bolt}
+% \faicon{minus}
+
+\ifxetex %
+\usepackage{fontawesome}
+\newcommand{\awesomeAdmonitionIcon}[1]{%
+  \def\tmp{#1}
+
+  \def\tiptext{tip}
+  \def\notetext{note}
+  \def\importanttext{important}
+  \def\warningtext{warning}
+  \def\cautiontext{caution}
+  \def\experimenttext{experiment}
+
+  \ifx\tmp\tiptext
+    ~\faicon{lightbulb}%
+  \else\ifx\tmp\notetext
+    ~\faicon{info-sign}%
+  \else\ifx\tmp\importanttext
+    ~\faicon{exclamation-sign}%
+  \else\ifx\tmp\warningtext
+    ~\faicon{warning-sign}%
+  \else\ifx\tmp\cautiontext
+    ~\faicon{minus-sign}%
+  \else\ifx\tmp\experimenttext
+    ~\faicon{beaker}%
+  \else
+    ~\faicon{#1}%
+  \fi\fi\fi\fi\fi\fi
+}
+\else %
+\newcommand{\awesomeAdmonition}[1]{}
+\fi %
+
+
+\newcommand{\admonitionIcon}[1]{ %
+  \ifxetex %
+    {\huge \awesomeAdmonitionIcon{#1}} %
+  \else %
+    \dblatexAdmonitionIcon{#1} %
+  \fi %
+}
+
+% \newcommand{\admonition}[2]{
+%   \par
+%   {\huge \awesomeAdmonition{#1}}
+%   \begin{center}
+%     \fboxrule=0.5pt
+%     \fboxsep=5mm
+%
+%     {\huge \awesomeAdmonition{#1}}
+%     \noindent
+%     \fcolorbox{gray20}{gray90}{
+%       \parbox{1.3cm}{\resizebox{1cm}{!}{
+%           \ifxetex
+%             {\fontsize{100}{100} \selectfont
+%               \awesomeAdmonition{#1}
+%             }
+%           \else
+%             \dblatexAdmonition{#1}
+%           \fi
+%         }}
+%       \parbox{0.8\textwidth}{#2}
+%     }
+%   \end{center}
+%   \par
+% }
+
+
+% \newlength{\admlength}
+% \newcommand{\admonition2}[2] {
+%   \begin{center} %
+%     \noindent %
+%     \setlength{\fboxsep}{5pt}
+%     \setlength{\admlength}{\linewidth}
+%     \addtolength{\admlength}{-4mm}
+%     %
+%     \vspace*{-2mm}
+%     \begin{minipage}{\admlength}
+%       \hrule
+%       \vspace*{2mm}
+%       \ifthenelse{\equal{#1}{}}{
+%         \def\admgraph{false}
+%       }{
+%         \def\admgraph{true}
+%
+%         \ifxetex %
+%           {\huge \awesomeAdmonition{#1}} %
+%         \else %
+%           \dblatexAdmonition{#1} %
+%         \fi %
+
+%         \hspace{1mm}
+%         \addtolength{\admlength}{-16mm}
+%         \begin{minipage}{\admlength}
+%         }
+%         % \textbf{#2}\\%
+%         #2
+%         \ifthenelse{\equal{\admgraph}{false}}{}{
+%         \end{minipage}\newline
+%       }
+%       \vspace{2mm}
+%       \hrule
+%     \end{minipage}\newline
+%   \end{center}
+% }
+
+\usepackage[framemethod=TikZ]{mdframed}
+
+\newmdenv[%
+  outerlinewidth=1.5pt,
+  innerlinewidth=0pt,
+  outerlinecolor=black!30,
+  middlelinecolor=black!30,
+  backgroundcolor=black!10,
+  roundcorner=4pt,
+]{roundedbox}
+
+\usepackage{adjustbox}
+
+\newlength{\admwidth}
+\newcommand{\admonition}[2] {
+  \setlength{\admwidth}{\linewidth}
+
+  \vspace*{2mm}
+  \begin{roundedbox} %
+    \ifthenelse{\equal{#1}{}}{ %
+      \def\admicon{false} %
+    }{ %
+      \def\admicon{true} %
+      \admonitionIcon{#1}
+      %
+      \addtolength{\admwidth}{-20mm} %
+      \begin{adjustbox}{valign=t,raise=3mm,minipage={\admwidth}}
     }
-  }
-  \end{center}
-  \par
+    %
+    #2
+    \ifthenelse{\equal{\admicon}{false}}{}{ %
+      \end{adjustbox} 
+    }
+  \end{roundedbox}
 }
 
 
-\newcommand{\note}[1]{
-  \admonition{note}{#1}}
-
 \newcommand{\tip}[1]{
   \admonition{tip}{#1}}
+
+\newcommand{\note}[1]{
+  \admonition{note}{#1}}
 
 \newcommand{\important}[1]{
   \admonition{important}{#1}}
@@ -32,3 +171,8 @@
 
 \newcommand{\caution}[1]{
   \admonition{caution}{#1}}
+
+\ifxetex
+\newcommand{\customAdmonition}[2]{
+  \admonition{#1}{#2}}
+\fi
