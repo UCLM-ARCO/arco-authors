@@ -14,7 +14,7 @@
 
 \RequirePackage[left=28mm,right=22.8mm,top=25.4mm,bottom=25.4mm]{geometry}
 
-\RequirePackage{arco-book-utils}
+\RequirePackage{arco-book-basics}
 \RequirePackage{arco-color}
 
 \RequirePackage{amsmath}
