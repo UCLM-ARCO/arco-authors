@@ -1,3 +1,10 @@
+arco-authors (0.20140219-1) unstable; urgency=low
+
+  * New release
+  * figures.mk: .odg -> .png
+
+ -- David Villa Alises <David.Villa@gmail.com>  Wed, 19 Feb 2014 18:00:23 +0100
+
 arco-authors (0.20131119-1) unstable; urgency=low
 
   * New release
