@@ -24,7 +24,7 @@ print() {
 download() {
     for i in $FIGURES; do
 	if [[ $(echo $i | grep -o "http://.*") ]]; then
-	    wget $i -O $(basename $i) -q
+	    wget $i -O $FIGDIR/$(basename $i) -q
 	fi
     done
 }

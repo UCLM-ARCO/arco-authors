@@ -11,7 +11,7 @@ TEX_SOURCES ?= $(shell $(TOOLDIR)/latex-parts.sh $(TEX_MAIN))
 
 TEX_FIGURES = $(addprefix $(FIGDIR)/, \
 	        $(foreach file, $(TEX_SOURCES), \
-                  $(shell $(TOOLDIR)/latex-figures.sh $(file))))
+                  $(shell FIGDIR=$(FIGDIR) $(TOOLDIR)/latex-figures.sh $(file))))
 
 .DELETE_ON_ERROR:
 
