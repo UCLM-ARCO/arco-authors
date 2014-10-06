@@ -19,6 +19,7 @@
 \def\token       #1{`\texttt{#1}'}        % literal, constante simbólica
 \def\type        #1{\hypetexttt{#1}}          % tipo de dato o clase
 \def\varname     #1{\hypetexttt{#1}}
+\def\line        #1{línea #1}
 
 \usepackage{fancybox}
 \def\guibutton#1{%
@@ -30,13 +31,14 @@
   \ifnum#1<10 0\fi
   \number#1}
 
+
 \usepackage{enumitem}
-\newlist{qandaset}{enumerate}{10}
+\newlist{qandaset}{enumerate}{100}
 %\setlist[qandaset]{label*=[\bfseries E\,\thechapter.\arabic*]}
 %\setlist[qandaset]{label=[\bfseries E\,\thechapter.\protect\twodigits{\theenumi}],leftmargin=*}
 
 \setlist[qandaset]{%
-  label=\bfseries E\,\thechapter.\protect\twodigits{\arabic*}, %
+  label=\bfseries E\,\thechapter.\protect\twodigits{\arabic*}{\hspace{1ex}}, %
   align=parleft, %
   labelsep=*, %
   leftmargin=*}
