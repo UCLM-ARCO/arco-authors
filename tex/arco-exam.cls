@@ -144,7 +144,7 @@
   \noindent
   Apellidos:
   \ifprintanswers
-  \undertitleline{\Large SOLUCIÓN}
+  \undertitleline{\large SOLUCIÓN}
 %  \enspace\rule{0.15\textwidth}{.5pt}{\Large SOLUCIÓN}\rule{0.15\textwidth}{.5pt}
   \else
 %  \enspace\rule{0.44\textwidth}{.5pt} \enspace
