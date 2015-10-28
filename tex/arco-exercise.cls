@@ -9,11 +9,11 @@
 %   http://stackoverflow.com/questions/581916/how-do-you-extend-article-document-class-in-latex
 
 %% -- Variables de la clase ------------------------------------
-\gdef\@arcoTopic{\texcmd{arcoTopic}}
-\gdef\@arcoTopic{<asignatura>}
-\def\arcoTopic#1{\gdef\@arcoTopic{#1}}
-\gdef\@arcoCourse{\texcmd{arcoCourse}}
-\def\arcoCourse#1{\gdef\@arcoCourse{#1}}
+\gdef\@docTopic{\texcmd{docTopic}}
+\gdef\@docTopic{<asignatura>}
+\def\docTopic#1{\gdef\@docTopic{#1}}
+\gdef\@docCourse{\texcmd{docCourse}}
+\def\docCourse#1{\gdef\@docCourse{#1}}
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{arco-exercise}[2012/02/22 class for student exercises]
@@ -44,13 +44,13 @@
     \begin{picture}(0,0)
       \put(-55,-820){
         \uclmcolor{\includegraphics[width=1.1\textwidth]{%
-            /usr/share/arco/figures/uclm-logo-bw-mp.pdf}}}
+            /usr/share/arco/figures/watermark-uclm.pdf}}}
     \end{picture}}}
 
 \newpagestyle{arcoStyle}[\scriptsize\sffamily]{
-  \sethead{\gray25color{\@arcoTopic}}
+  \sethead{\gray25color{\@docTopic}}
           {\UCLMbglogo}
-          {\gray25color{\@arcoCourse}}
+          {\gray25color{\@docCourse}}
   \setfoot{}
     %\gray25color{\today}}
           {\gray25color{\thepage/\pageref{arco:lastpage}}}

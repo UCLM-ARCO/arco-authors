@@ -1,18 +1,25 @@
 \documentclass{arco-article}
 
-%- Atributos de la plantilla 'arco-article'
-%- Se muestran comentados los valores por defecto
-%-
-%\entityAcro{ARCO}
-%\entityName{Grupo de Arquitectura y Redes de Computadores}
-%\entityLogo{/usr/share/arco/figures/arco-white.pdf}
-%\docTopic{}
-%\ISRN{}
-\entityWatermark{/usr/share/arco/figures/arco-watermark.pdf}
-\docid{Identificador del documento}
+%-- SEE COMMENT LINES FOR CLASS USAGE --
 
+%-- You can select an available entity:
+% \selectEntityARCO
+\selectEntityESI
 
-\title{Ejemplo de uso del estilo arco-article}
+%-- Or set fields one by one:
+% \entityAcro{ARCO}
+% \entityName{Grupo de Arquitectura y Redes de Computadores}
+% \entityLogo{\ArcoLogo}
+% \entityWatermark{\ArcoWatermark}
+
+%-- You should identify your document too:
+\docTopic{Proyecto Energos}
+\ISRN{ENERGOS}{13.2}
+% \docid{13.2}
+
+\title{Ejemplo de uso de la\\clase arco-article}
+\author{David.Villa@uclm.es}
+% \date{versión \yyyymmdddate\today}
 
 \begin{document}
 \maketitle
@@ -24,7 +31,6 @@
 Una cita~\cite{Cannon}.
 
 \bibliography{main}
-
 
 \end{document}
 

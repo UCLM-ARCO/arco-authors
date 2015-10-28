@@ -1,25 +1,32 @@
 \RequirePackage{datetime}
 \RequirePackage{atbeginend}
+\RequirePackage{arco-internal}
+\RequirePackage{grffile}
 
 \AfterBegin{document}{
   \renewcommand{\dateseparator}{.}
 }
 
+\gdef \uclmLogo        {/usr/share/arco/figures/uclm-A4.pdf}
+\gdef \placeholderLogo {/usr/share/arco/figures/entity-placeholder.pdf}
+\gdef \ArcoLogo        {/usr/share/arco/figures/entity-arco.pdf}
+\gdef \ArcoWatermark   {/usr/share/arco/figures/watermark-arco.pdf}
+\gdef \UclmWatermark   {/usr/share/arco/figures/watermark-uclm.pdf}
+
 \RequirePackage{ifthen}
 \newboolean{watermarkdefined}
 \newboolean{logodefined}
 
-
-\gdef\@entityAcro{ARCO}
+\gdef\@entityAcro{FIXME: Set your entity acronym  \texcmd{entityAcro\{\}}}
 \def\entityAcro#1{\gdef\@entityAcro{#1}}
 
-\gdef\@entityName{Grupo de Arquitectura y Redes de Computadores}
+\gdef\@entityName{FIXME: Set your entity name with \texcmd{entityName\{\}}}
 \def\entityName#1{\gdef\@entityName{#1}}
 
-\gdef\@docTopic{}
+\gdef\@docTopic{FIXME: Set your topic with \texcmd{docTopic\{\}}}
 \def\docTopic#1{\gdef\@docTopic{#1}}
 
-\gdef\@entityLogo{/usr/share/arco/figures/arco-white.pdf}
+\gdef\@entityLogo{\placeholderLogo}
 \setboolean{logodefined}{true}
 \def\entityLogo#1{
   \gdef\@entityLogo{#1}
@@ -51,7 +58,19 @@
 \def\docid#1{%
   \gdef\@sequentialGroup{#1}}
 
-\def\uclmLogo{/usr/share/arco/figures/uclm-A4.pdf}
+\def\selectEntityARCO{
+  \entityAcro{ARCO}
+  \entityName{Grupo de Arquitectura y Redes de Computadores}
+  \entityLogo{\ArcoLogo}
+  \entityWatermark{\ArcoWatermark}
+}
+
+\def\selectEntityESI{
+  \entityAcro{ESI}
+  \entityName{Escuela Superior de Informática}
+  \entityLogo{}
+  \entityWatermark{} %\UclmWatermark}
+}
 
 
 \RequirePackage[%
