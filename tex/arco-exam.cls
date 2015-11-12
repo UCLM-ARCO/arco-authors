@@ -66,11 +66,11 @@
 
 \newcommand{\ESIname}{\textbf{\textsf{Escuela Superior de Informática}}}
 
-\newcommand{\UCLMbglogo}{%
+\newcommand{\UclmWatermark}{%
   \begin{picture}(0,0)
     \put(-55,-820){
       \uclmcolor{\includegraphics[width=1.1\textwidth]{%
-          /usr/share/arco/figures/uclm-logo-bw-mp.pdf}}}
+          /usr/share/arco/figures/uclm_logo_watermark.pdf}}}
   \end{picture}}
 
 
@@ -78,7 +78,7 @@
   \setlength{\unitlength}{1cm}
   \begin{picture}(0,0)
     \put(-1.3,0){\includegraphics[width=4cm]{%
-        /usr/share/arco/figures/uclm.pdf}}
+        /usr/share/arco/figures/uclm_logomarca_1.pdf}}
     \put(3,1.6){\makebox(0,0)[l]{\textsf{\textbf{\Large #1}}}}
     \put(3,1.1){\makebox(0,0)[l]{#2}}
     \put(3,0.14){\makebox(0,0)[l]{\textsf{\textbf{\large \textcolor{uclmred}{\ESIname}}}}}
@@ -101,14 +101,14 @@
 
 \newpagestyle{firstpage}[\small\sffamily]{
   \sethead{\UCLMhead{\@arcoTopic}{\@arcoExamDesc}} %
-          {\UCLMbglogo} %
+          {\UclmWatermark} %
           {\qualificationBox}
   \setfoot{\@arcoExamDate}{}{\thepage{}/\numpages}
 }
 
 \newpagestyle{main}[\small\sffamily]{
   \sethead{\UCLMhead{\@arcoTopic}{\@arcoExamDesc}} %
-          {\UCLMbglogo} %
+          {\UclmWatermark} %
           {}
   \setfoot{\@arcoExamDate}{}{\thepage{}/\numpages}
 }

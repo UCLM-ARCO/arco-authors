@@ -1,19 +1,22 @@
 \documentclass{arco-report}
 
-%-- SEE COMMENT LINES FOR CLASS USAGE --
+%-- PAY ATTENTION TO COMMENT LINES FOR CLASS USAGE --
 
 %-- You can select an available entity:
-\selectEntityARCO
+% \selectEntityARCO
 % \selectEntityESI
 
 %-- Or set fields one by one:
-% \entityAcro{ARCO}
-% \entityName{Grupo de Arquitectura y Redes de Computadores}
-% \entityLogo{\ArcoLogo}
-% \entityWatermark{\ArcoWatermark}
+\def \entityAcro{CCCP}
+\def \entityName{Comisión de Control de Celebraciones Pendientes}
+\def\entityLogo {\includegraphics[width=3cm]{/usr/share/arco/figures/arco_entity.pdf}}
+\def \entityWatermark {
+  \put(-55,-310){
+    \includegraphics[width=1.1\textwidth]{/usr/share/arco/figures/uclm_logo_watermark.pdf}}
+}
 
 %-- You should identify your document too:
-\docTopic{Proyecto Energos}
+\def \docTopic {Proyecto Energos}
 \ISRN{ENERGOS}{13.2}
 % \docid{13.2}
 

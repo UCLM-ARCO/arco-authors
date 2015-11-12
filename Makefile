@@ -11,14 +11,15 @@ BIBDIR=$(DESTDIR)/usr/share/texmf/bibtex/bst/es-bib
 FIGURES=$(DESTDIR)/$(FINAL)/figures
 DOCDIR=$(DESTDIR)/usr/share/doc
 
-LOGOS=http://arco.esi.uclm.es/svn/public/doc/logos
+# LOGOS=http://arco.esi.uclm.es/svn/public/doc/logos
+LOGOS=https://bitbucket.org/arco_group/logos/raw/tip
 WGET=wget --no-check-certificate -nv
 
 all:
 	sed s/CLASS/book/g tex/arco.cls.in > tex/arco-book.cls
 	sed s/CLASS/report/g tex/arco.cls.in > tex/arco-report.cls
 	sed s/CLASS/article/g tex/arco.cls.in > tex/arco-article.cls
-	inkscape --export-pdf figures/entity-placeholder.pdf --export-text-to-path figures/entity-placeholder.svg
+	inkscape --export-pdf figures/placeholder_entity.pdf --export-text-to-path figures/placeholder_entity.svg
 
 clean:
 	$(RM) $(shell find -name *~)
@@ -52,8 +53,11 @@ install:
 	tar cvfz $(DOCDIR)/arco-authors/samples.tgz --directory samples latex docbook
 
 download-images:
-	@$(WGET) $(LOGOS)/uclm.pdf            -O figures/uclm.pdf
-	@$(WGET) $(LOGOS)/uclm_logo_bw.mp.pdf -O figures/uclm-logo-bw-mp.pdf
-	@$(WGET) $(LOGOS)/uclm-A4.pdf         -O figures/uclm-A4.pdf
-	@$(WGET) $(LOGOS)/arco-white.pdf      -O figures/arco-white.pdf
-	@$(WGET) $(LOGOS)/arco-watermark.pdf  -O figures/arco-watermark.pdf
+	@$(WGET) $(LOGOS)/esi.pdf              	  -O figures/esi.pdf
+	@$(WGET) $(LOGOS)/uclm_logo.pdf        	  -O figures/uclm_logo.pdf
+	@$(WGET) $(LOGOS)/arco_white.pdf       	  -O figures/arco_entity.pdf
+	@$(WGET) $(LOGOS)/arco_watermark.pdf   	  -O figures/arco_watermark.pdf
+	@$(WGET) $(LOGOS)/uclm_logomarca_1.pdf 	  -O figures/uclm_logomarca_1.pdf
+	@$(WGET) $(LOGOS)/uclm_logomarca_3.pdf 	  -O figures/uclm_logomarca_3.pdf
+	@$(WGET) $(LOGOS)/uclm_logo_watermark.pdf -O figures/uclm_logo_watermark.pdf
+	@$(WGET) $(LOGOS)/informatica_gray.pdf    -O figures/informatica_gray.pdf

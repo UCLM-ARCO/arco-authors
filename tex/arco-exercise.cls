@@ -8,13 +8,19 @@
 % Initial template taken from:
 %   http://stackoverflow.com/questions/581916/how-do-you-extend-article-document-class-in-latex
 
-%% -- Variables de la clase ------------------------------------
-\gdef\@docTopic{\texcmd{docTopic}}
-\gdef\@docTopic{<asignatura>}
-\def\docTopic#1{\gdef\@docTopic{#1}}
-\gdef\@docCourse{\texcmd{docCourse}}
-\def\docCourse#1{\gdef\@docCourse{#1}}
+\RequirePackage{arco-internal}
 
+%% -- Variables de la clase ------------------------------------
+\gdef \docTopic   {FIXME: Set the ``topic'' redefining \texcmd{docTopic}}
+\gdef \docCourse  {FIXME: Set the ``course'' redefining \texcmd{docCourse}}
+
+
+% \gdef\@docTopic{\texcmd{docTopic}}
+% \gdef\@docTopic{<asignatura>}
+% \def\docTopic#1{\gdef\@docTopic{#1}}
+% \gdef\@docCourse{\texcmd{docCourse}}
+% \def\docCourse#1{\gdef\@docCourse{#1}}
+%
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{arco-exercise}[2012/02/22 class for student exercises]
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
@@ -44,13 +50,13 @@
     \begin{picture}(0,0)
       \put(-55,-820){
         \uclmcolor{\includegraphics[width=1.1\textwidth]{%
-            /usr/share/arco/figures/watermark-uclm.pdf}}}
+            /usr/share/arco/figures/uclm_logo_watermark.pdf}}}
     \end{picture}}}
 
 \newpagestyle{arcoStyle}[\scriptsize\sffamily]{
-  \sethead{\gray25color{\@docTopic}}
+  \sethead{\gray25color{\docTopic}}
           {\UCLMbglogo}
-          {\gray25color{\@docCourse}}
+          {\gray25color{\docCourse}}
   \setfoot{}
     %\gray25color{\today}}
           {\gray25color{\thepage/\pageref{arco:lastpage}}}
