@@ -1,0 +1,7 @@
+# -*- coding: utf-8; mode: shell-script; tab-width: 4 -*-
+
+function ian-clean-hook() {
+    echo "user clean hook"
+    make -C samples clean
+    beep
+}
