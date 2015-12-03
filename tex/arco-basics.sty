@@ -33,6 +33,7 @@
   style = nextline,
 }
 
+\usepackage{setspace}
 
 \usepackage{atbeginend}
 \BeforeEnd{document}{\label{arco:lastpage}}
@@ -58,4 +59,8 @@
 \@beginparpenalty=5000
 
 \newcommand\nobreakhere{\par\nobreak\@afterheading}
+
+\let\oldS\S
+\def\S{\oldS\,}
+
 \makeatother
