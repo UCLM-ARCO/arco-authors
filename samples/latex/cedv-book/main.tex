@@ -1,20 +1,42 @@
-\documentclass[a4paper, twoside]{book}
-\usepackage{cedv-book}
+\documentclass{cedv-book}
 
 \title{Ejemplo de libro CEDV style}
 
 \begin{document}
 \maketitle
 
-\chapter{Introducción}
+\chapter{Listados}
+
+\section{\lstinline{lstlisting} básico}
+
+\begin{lstlisting}
+#include <stdio.h>
+
+int main(int argc, char* argv[]) {
+  printf("Hello World Ñandú!");
+}
+\end{lstlisting}
+
+
+\section{\lstinline{listing} language=C}
 
 \begin{listing}[language=C]
 #include <stdio.h>
 
 int main(int argc, char* argv[]) {
-  printf("Hello World!");
+  printf("Hello World Ñandú!");
 }
 \end{listing}
+
+\section{\lstinline{lstinputlisting} básico}
+
+\lstinputlisting{hello.c}
+
+
+\section{\lstinline{inputlisting} language=C}
+
+\inputlisting[language=C]{hello.c}
+
 
 \chapter{Nudo}
 

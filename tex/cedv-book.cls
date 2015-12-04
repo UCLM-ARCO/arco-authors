@@ -1,20 +1,38 @@
-\usepackage{arco-fonts}
+% -*- mode:latex -*-
+%
+% author: David Villa Alises <David.Villa@gmail.com>
+%
+% LaTeX2ε for class and package writers:
+%   http://www.latex-project.org/guides/clsguide.pdf
+%
+% Initial template taken from:
+%   http://stackoverflow.com/questions/581916/how-do-you-extend-article-document-class-in-latex
 
-\usepackage{arco-basics}
-\usepackage{arco-acronym}
-\usepackage{arco-hyper}
-\usepackage{arco-appendix}
-\usepackage{arco-bib}
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{cedv-book}[2015/12/03 class for books]
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
+\PassOptionsToClass{a4paper, twoside}{book}
+\ProcessOptions\relax
+\LoadClass{book}
 
-\usepackage{arco-color}
-\usepackage{arco-semantic}
-\usepackage{arco-admonition}
-\usepackage{arco-listings}
 
-\usepackage{datetime}
+\RequirePackage{arco-fonts}
+
+\RequirePackage{arco-basics}
+\RequirePackage{arco-acronym}
+\RequirePackage{arco-hyper}
+\RequirePackage{arco-appendix}
+\RequirePackage{arco-bib}
+
+\RequirePackage{arco-color}
+\RequirePackage{arco-semantic}
+\RequirePackage{arco-admonition}
+\RequirePackage{arco-listings}
+
+\RequirePackage{datetime}
 
 % FIXME: quitar del estilo (específico de documento)
-\usepackage{tikz-uml}
+\RequirePackage{tikz-uml}
 
 %%-- class config --
 
@@ -26,23 +44,21 @@
 \newcommand{\chapterauthors}[1]{%
   \renewcommand{\@chapterauthors}{#1}}
 
-% \makeatother
-
-\usepackage[
+\RequirePackage[
   paperwidth=159.175mm,
   paperheight=240.35mm,
   left=19.8mm,right=14.4mm,
   top=21mm, bottom=21mm,
   marginparwidth=1cm, marginparsep=1cm]{geometry}
 
-\usepackage[sf,bf,compact,clearempty,pagestyles]{titlesec}  % [rigidchapters]
-\usepackage[strict]{changepage}
+\RequirePackage[sf,bf,compact,clearempty,pagestyles]{titlesec}  % [rigidchapters]
+\RequirePackage[strict]{changepage}
 
 \setlist{
   topsep=1pt,
   itemsep=3pt}
 
-\usepackage[scaled=.73]{beramono}
+\RequirePackage[scaled=.73]{beramono}
 
 \def\line#1{{\bfseries línea\,#1}}
 \def\lines#1{{\bfseries líneas~#1}}
@@ -53,7 +69,7 @@
 
 %%-- TOC style --
 
-\usepackage[dotinlabels]{titletoc}
+\RequirePackage[dotinlabels]{titletoc}
 \contentsmargin{-0.5em}
 
 \titlecontents{chapter}
@@ -110,25 +126,26 @@
 
 %%-- side content --
 
-\usepackage{picins}
-% \usepackage{picinpar}
+% \RequirePackage{picins}
+% \RequirePackage{picinpar}
+\RequirePackage{wrapfig}
 
 %%%% http://www.nicolashoening.de/?blog&nr=64
 %%%% usage: \wrapnote{<title>}{<text>}
-\newcommand{\wrapnote}[2]{
-  \parpic(0.43\textwidth, 0pt)[r]{
-    \parbox[b]{0.4\textwidth}{
-      \vspace*{4pt plus 2pt minus 2pt}
-      {\footnotesize {\bf #1} \\[-5pt]
-        \textcolor{black!50}{\rule{0.4\textwidth}{1.7pt}}
-        \begin{spacing}{0.88}
-          #2
-        \end{spacing}
-      }
-      \vspace{6pt plus 2pt minus 2pt}
-    }
-  }
-}
+% \newcommand{\wrapnote}[2]{
+%   \parpic(0.43\textwidth, 0pt)[r]{
+%     \parbox[b]{0.4\textwidth}{
+%       \vspace*{4pt plus 2pt minus 2pt}
+%       {\footnotesize {\bf #1} \\[-5pt]
+%         \textcolor{black!50}{\rule{0.4\textwidth}{1.7pt}}
+%         \begin{spacing}{0.88}
+%           #2
+%         \end{spacing}
+%       }
+%       \vspace{6pt plus 2pt minus 2pt}
+%     }
+%   }
+% }
 
 % \newcommand{\wrapnote2}[2]{
 %   \begin{figwindow}[2,r,{
@@ -143,21 +160,36 @@
 %   \end{figwindow}
 % }
 
-
-
-
-\newcommand{\wrapimage}[3]{
-\begin{wrapfigure}{o}{.33\textwidth}
-  \vspace*{-7pt}
-  \begin{center}
-    \includegraphics[width=.28\textwidth]{#1}
-  \end{center}
-  \vspace{-15pt}
-  \caption{#3\label{#2}}
-  \vspace*{-7pt}
+\newcommand{\wrapnote}[2]{
+\begin{wrapfigure}{r}{0.4\textwidth}
+\parbox[b]{0.4\textwidth}{
+  \vspace*{-3mm}
+   {\footnotesize {\bf #1} \\[-5pt]
+     \textcolor{black!50}{\rule{0.4\textwidth}{1.7pt}}
+     \begin{spacing}{0.88}
+       #2
+     \end{spacing}
+   }
+  \vspace*{-1mm}
+}
 \end{wrapfigure}
 }
 
+
+
+% \newcommand{\wrapimage}[3]{
+% \begin{wrapfigure}{o}{.33\textwidth}
+%   \vspace*{-7pt}
+%   \begin{center}
+%     \includegraphics[width=.28\textwidth]{#1}
+%   \end{center}
+%   \vspace{-15pt}
+%   \caption{#3\label{#2}}
+%   \vspace*{-7pt}
+% \end{wrapfigure}
+% }
+
+\newcommand{\wrapimage}[3]{}
 
 
 %-- margin notes --
@@ -249,4 +281,4 @@
   \end{singlespace}
 }
 
-% \makeatletter
+\endinput
