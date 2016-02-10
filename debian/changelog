@@ -1,3 +1,17 @@
+arco-authors (0.20160210.1-1) unstable; urgency=low
+
+  * New release
+  * new depend: texlive-fonts-extra
+
+ -- David Villa Alises <David.Villa@gmail.com>  Wed, 10 Feb 2016 13:33:01 +0100
+
+arco-authors (0.20160210-1) unstable; urgency=low
+
+  * New release
+  * cedv-book package
+
+ -- David Villa Alises <David.Villa@gmail.com>  Wed, 10 Feb 2016 13:29:36 +0100
+
 arco-authors (0.20151215-1) unstable; urgency=low
 
   * New release
