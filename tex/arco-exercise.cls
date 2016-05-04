@@ -32,6 +32,8 @@
 \RequirePackage{arco-fonts}
 \RequirePackage{arco-hyper}
 
+\graphicspath{{./}{figures/}}
+
 \RequirePackage[margin=3cm]{geometry}
 
 \RequirePackage[%

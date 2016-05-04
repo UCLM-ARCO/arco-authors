@@ -33,6 +33,25 @@ DPI?=$(PNGPPP)
 %.pdf: %.svg
 	inkscape --export-pdf $@ --export-text-to-path $<
 
+#-- blockdiag
+
+%.svg: %.packetdiag
+	packetdiag $< -T svg
+
+%.svg: %.blockdiag
+	blockdiag $< -T svg
+
+
+#-- graphviz --------------------------------------------------
+
+DOTENGINE?=fdp
+
+%.png: %.dot
+	dot $< -o $@ -T png -K $(DOTENGINE)
+
+%.pdf: %.dot
+	dot $< -o $@ -T pdf -K $(DOTENGINE)
+
 #-- libreoffice -----------------------------------------------
 
 %.jpg: %.ods
