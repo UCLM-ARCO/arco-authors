@@ -1,8 +1,8 @@
-
 include arco/latex.mk
+# include /home/david/repos/arco-authors/make/latex.mk
 
 figures/esi.svg:
-	curl -# https://arco.esi.uclm.es/svn/public/doc/logos/emblema_informatica.svg -o $@
+	curl -# https://bytebucket.org/arco_group/logos/raw/tip/informatica.svg  -o $@
 
 vclean::
 	$(RM) figures/esi.svg

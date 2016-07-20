@@ -7,7 +7,7 @@ FINAL=/usr/share/arco
 BASE=$(DESTDIR)$(FINAL)
 MK=$(DESTDIR)/usr/include/arco
 LATEXSITE=$(DESTDIR)/usr/share/texmf/tex/latex/arco
-BIBDIR=$(DESTDIR)/usr/share/texmf/bibtex/bst/es-bib
+BIBDIR=$(DESTDIR)/usr/share/texlive/texmf-dist/bibtex/bst/es-bib
 FIGURES=$(DESTDIR)/$(FINAL)/figures
 DOCDIR=$(DESTDIR)/usr/share/doc
 

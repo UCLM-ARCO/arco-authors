@@ -1,3 +1,16 @@
+arco-authors (0.20160720.1-1) unstable; urgency=low
+
+  * New release
+
+ -- David Villa Alises <David.Villa@gmail.com>  Wed, 20 Jul 2016 18:54:32 +0200
+
+arco-authors (0.20160720-1) unstable; urgency=low
+
+  * New release
+  * remove rubber
+
+ -- David Villa Alises <David.Villa@gmail.com>  Wed, 20 Jul 2016 17:53:18 +0200
+
 arco-authors (0.20160504-1) unstable; urgency=low
 
   * New release

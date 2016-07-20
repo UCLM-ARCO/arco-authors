@@ -1,4 +1,5 @@
 TOOLDIR=/usr/share/arco
+# TOOLDIR=/home/david/repos/arco-authors/scripts
 FIGDIR ?= figures
 
 RUBBER_WARN ?= refs
@@ -6,12 +7,12 @@ RUBBER_ARGS=--texpath ~/.texmf --module hyperref --warn $(RUBBER_WARN) $(RUBBER_
 
 MAIN ?= $(shell grep -l "^[[:space:]]*\\\\begin{document}" *.tex)
 TEX_MAIN ?= $(MAIN)
+BASE = $(basename $(MAIN))
 PDF = $(TEX_MAIN:.tex=.pdf)
 TEX_SOURCES ?= $(shell $(TOOLDIR)/latex-parts.sh $(TEX_MAIN))
 
-TEX_FIGURES = $(addprefix $(FIGDIR)/, \
-	        $(foreach file, $(TEX_SOURCES), \
-                  $(shell FIGDIR=$(FIGDIR) $(TOOLDIR)/latex-figures.sh $(file))))
+TEX_FIGURES = $(foreach file, $(TEX_SOURCES), \
+                  $(shell FIGDIR=$(FIGDIR) $(TOOLDIR)/latex-figures.sh $(file)))
 
 # .DELETE_ON_ERROR:
 
@@ -20,13 +21,8 @@ all:: $(PDF)
 $(PDF): $(TEX_SOURCES) $(TEX_FIGURES)
 
 %.pdf: %.tex
-	rubber --pdf $(RUBBER_ARGS) $<
-	-@ ! grep --color Reference $(<:.tex=.log)
-	-@ ! grep --color Citation $(<:.tex=.log)
-	-@ ! grep --color "multiply defined" $(<:.tex=.log)
-	-@ ! grep "acronym Warning" $(<:.tex=.log) | sort | uniq | grep --color "acronym Warning"
-	-@ ! rgrep -n --color FIXME *.tex
-
+	@echo "-- compiling '$<'"
+	@$(TOOLDIR)/latex-compile.sh $<
 
 %.html: %.tex
 	latex2html -split 0 -html_version 4.0,latin1,unicode $<
@@ -39,8 +35,9 @@ help:
 	@echo
 
 clean::
-	-rubber --clean --pdf $(TEX_MAIN)
-	$(RM) *~ *.maf *.mtc *.lol *.out
+	@echo "-- cleanning"
+	$(RM) *~
+	$(RM) $(PDF) $(BASE).aux $(BASE).log *.maf *.mtc *.lol *.out
 	$(RM) $(foreach tex, \
 		$(TEX_MAIN), \
 	        $(addprefix $(basename $(notdir $(tex))), .blg .bbl))

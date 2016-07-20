@@ -3,12 +3,22 @@
 MAIN=${1:-main.tex}
 VALID_CHARS=":!#$&@%+/-.a-Z0-9_//\-"
 
-get_figures() {
+get_figure_paths() {
     [ -f $MAIN ] && grep -v "^ *%" $MAIN \
 	| grep includegraphics \
 	| sed "s/.*includegraphics.*{\([$VALID_CHARS]*\).*$/\1/g" \
 	| sort | uniq \
 	| grep -v ^/
+}
+
+check_existing_figures() {
+    for f in $FIGURES; do
+	if [ -f $f ]; then
+	    echo $f
+	else
+	    echo ./figures/$f
+	fi
+    done
 }
 
 print() {
@@ -29,6 +39,7 @@ download() {
     done
 }
 
-FIGURES=$(get_figures)
+FIGURES=$(get_figure_paths)
+FIGURES=$(check_existing_figures)
 download
 print
