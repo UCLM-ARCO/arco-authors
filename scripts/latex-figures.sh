@@ -13,7 +13,7 @@ get_figure_paths() {
 
 check_existing_figures() {
     for f in $FIGURES; do
-	if [ -f $f ]; then
+	if [ -f $f ] || [[ $f == ./figures* ]] || [[ $f == figures* ]]; then
 	    echo $f
 	else
 	    echo ./figures/$f
