@@ -37,7 +37,7 @@ help:
 clean::
 	@echo "-- cleanning"
 	$(RM) *~
-	$(RM) $(PDF) $(BASE).aux $(BASE).log *.maf *.mtc *.lol *.out
+	$(RM) $(PDF) $(BASE).aux $(BASE).log *.maf *.mtc *.lol *.lot *.lof *.out *.toc
 	$(RM) $(foreach tex, \
 		$(TEX_MAIN), \
 	        $(addprefix $(basename $(notdir $(tex))), .blg .bbl))
