@@ -43,9 +43,9 @@ run-pdflatex 3
 echo "--"
 
 if check-result; then
-    echo -- OK
+    echo -- ok
 else
-    echo -- FAIL
+    echo -- fail
 fi
 
 rm -f $OUT $ERR
