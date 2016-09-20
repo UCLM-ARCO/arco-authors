@@ -249,6 +249,10 @@
     {\bf Universidad de Castilla-La Mancha}\par
     Escuela Superior de Informática\\de Ciudad Real
 
+    \vspace*{\stretch{.4}}
+
+    \begin{large}\textbf{\@author}\end{large}\\
+
     \vspace*{\stretch{1}}
     {\small\@date}
   \end{center}
