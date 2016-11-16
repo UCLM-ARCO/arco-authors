@@ -3,4 +3,5 @@
 function ian-clean-hook() {
     echo "user clean hook"
     make -C samples clean
+	hg revert figures/placeholder_entity.pdf
 }
