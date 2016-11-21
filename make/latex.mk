@@ -1,9 +1,8 @@
 TOOLDIR=/usr/share/arco
-# TOOLDIR=/home/david/repos/arco-authors/scripts
 FIGDIR ?= figures
 
-RUBBER_WARN ?= refs
-RUBBER_ARGS=--texpath ~/.texmf --module hyperref --warn $(RUBBER_WARN) $(RUBBER_FLAGS)
+# RUBBER_WARN ?= refs
+# RUBBER_ARGS=--texpath ~/.texmf --module hyperref --warn $(RUBBER_WARN) $(RUBBER_FLAGS)
 
 MAIN ?= $(shell grep -l "^[[:space:]]*\\\\begin{document}" *.tex)
 TEX_MAIN ?= $(MAIN)
@@ -13,6 +12,8 @@ TEX_SOURCES ?= $(shell $(TOOLDIR)/latex-parts.sh $(TEX_MAIN))
 
 TEX_FIGURES = $(foreach file, $(TEX_SOURCES), \
                   $(shell FIGDIR=$(FIGDIR) $(TOOLDIR)/latex-figures.sh $(file)))
+
+export LATEX_ENGINE  ?= pdflatex
 
 # .DELETE_ON_ERROR:
 

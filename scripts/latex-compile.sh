@@ -6,8 +6,8 @@ BIBFILE=$BASE.bib
 LOG=$BASE.log
 ERR=$BASE-compile.err
 
-run-pdflatex() {
-    pdflatex -interaction=nonstopmode $MAIN > /dev/null
+run-latex() {
+    $LATEX_ENGINE -interaction=nonstopmode $MAIN > /dev/null
 }
 
 run-bibtex() {
@@ -34,11 +34,14 @@ check-result() {
     return 0
 }
 
+if [ $LATEX_ENGINE != "pdflatex" ]; then
+    echo "-- latex engine: $LATEX_ENGINE"
+fi
 
-run-pdflatex 1
+run-latex 1
 run-bibtex
-run-pdflatex 2
-run-pdflatex 3
+run-latex 2
+run-latex 3
 
 echo "--"
 
