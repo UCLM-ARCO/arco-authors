@@ -37,11 +37,12 @@ help:
 
 clean::
 	@echo "-- cleanning"
-	$(RM) *~
-	$(RM) $(PDF) $(BASE).aux $(BASE).log *.maf *.mtc *.lol *.lot *.lof *.out *.toc
 	$(RM) $(foreach tex, \
 		$(TEX_MAIN), \
-	        $(addprefix $(basename $(notdir $(tex))), .blg .bbl))
+	        $(addprefix $(basename $(notdir $(tex))), \
+		    .pdf .aux .log .maf .mtc .lol .lot .lof .out .toc .blg .bbl))
+	$(RM) *~
+
 
 vclean:: clean
 	$(RM) $(strip $(foreach figure, \
