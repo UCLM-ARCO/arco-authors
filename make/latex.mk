@@ -4,7 +4,7 @@ FIGDIR ?= figures
 # RUBBER_WARN ?= refs
 # RUBBER_ARGS=--texpath ~/.texmf --module hyperref --warn $(RUBBER_WARN) $(RUBBER_FLAGS)
 
-MAIN ?= $(shell grep -l "^[[:space:]]*\\\\begin{document}" *.tex)
+MAIN ?= $(shell grep -l "^[[:space:]]*\\\\begin{document}" *.tex | sort -V)
 TEX_MAIN ?= $(MAIN)
 BASE = $(basename $(MAIN))
 PDF = $(TEX_MAIN:.tex=.pdf)
@@ -15,33 +15,53 @@ TEX_FIGURES = $(foreach file, $(TEX_SOURCES), \
 
 export LATEX_ENGINE  ?= pdflatex
 
+TEX_OUT_EXTS = .aux .log .maf .mtc .lol .lot .out .toc .blg .bbl
+TEX_OUT_EXTS = aux,log,maf,mtc,lol,lot,out,toc,blg,bbl
+
+define GEN_INTERMEDIATES
+$(foreach tex, \
+    $1, \
+    $(addprefix $(basename $(notdir $(tex))), $2))
+endef
+
 # .DELETE_ON_ERROR:
 
 all:: $(PDF)
 
 $(PDF): $(TEX_SOURCES) $(TEX_FIGURES)
 
+%.pdf: SHELL=/bin/bash
 %.pdf: %.tex
 	@echo "-- compiling '$<'"
 	@$(TOOLDIR)/latex-compile.sh $<
+
+	$(eval INTERMEDIATES := $(call GEN_INTERMEDIATES, $<, .{$(TEX_OUT_EXTS)}))
+	@if [ "X$$DIRTY" = "X" ]; then \
+#	    echo "rm $(INTERMEDIATES)"; \
+	    $(RM) $(INTERMEDIATES); \
+	fi
 
 %.html: %.tex
 	latex2html -split 0 -html_version 4.0,latin1,unicode $<
 
 help:
-	@echo "- This ties to compile all .tex files including a \begin{document} statement"
+	@echo "- This tries to compile all .tex files including a \\\begin{document} statement"
 	@echo "  You may set a specific file: 'MAIN = your_master.tex' in your Makefile"
-	@echo "- Put your figure sources in the subdirectory './figures'."
-	@echo "- 'vclean' target will remove automatically converted images."
+	@echo "- Put your figure sources in the subdirectory './figures'"
+	@echo "- 'vclean' target will remove automatically converted images"
+	@echo "- If you want keep intermediate files (log, aux, etc.) define DIRTY env variable"
 	@echo
 
+clean:: SHELL=/bin/bash
 clean::
 	@echo "-- cleanning"
+#	$(RM) $(call GEN_ALL_INTERMEDIATES, .pdf)
+	$(RM) $(call GEN_INTERMEDIATES, $(TEX_MAIN), .pdf)
+
+#	$(RM) $(call GEN_ALL_INTERMEDIATES, .{$(TEX_OUT_EXTS)})
+	$(RM) $(call GEN_INTERMEDIATES, $(TEX_MAIN), .{$(TEX_OUT_EXTS)})
+
 	$(RM) *~
-	$(RM) $(PDF) $(BASE).aux $(BASE).log *.maf *.mtc *.lol *.lot *.lof *.out *.toc
-	$(RM) $(foreach tex, \
-		$(TEX_MAIN), \
-	        $(addprefix $(basename $(notdir $(tex))), .blg .bbl))
 
 vclean:: clean
 	$(RM) $(strip $(foreach figure, \

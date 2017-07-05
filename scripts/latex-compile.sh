@@ -43,12 +43,10 @@ run-bibtex
 run-latex 2
 run-latex 3
 
-echo "--"
-
 if check-result; then
-    echo -- ok
+    echo -e "-- ok\n"
 else
-    echo -- fail
+    echo -e "-- fail\n"
 fi
 
 rm -f $OUT $ERR
