@@ -15,8 +15,7 @@ TEX_FIGURES = $(foreach file, $(TEX_SOURCES), \
 
 export LATEX_ENGINE  ?= pdflatex
 
-TEX_OUT_EXTS = .aux .log .maf .mtc .lol .lot .out .toc .blg .bbl
-TEX_OUT_EXTS = aux,log,maf,mtc,lol,lot,out,toc,blg,bbl
+TEX_OUT_EXTS = aux,log,maf,mtc,lol,lot,out,toc,blg,bbl,idx
 
 define GEN_INTERMEDIATES
 $(foreach tex, \
@@ -37,7 +36,6 @@ $(PDF): $(TEX_SOURCES) $(TEX_FIGURES)
 
 	$(eval INTERMEDIATES := $(call GEN_INTERMEDIATES, $<, .{$(TEX_OUT_EXTS)}))
 	@if [ "X$$DIRTY" = "X" ]; then \
-#	    echo "rm $(INTERMEDIATES)"; \
 	    $(RM) $(INTERMEDIATES); \
 	fi
 
@@ -55,10 +53,7 @@ help:
 clean:: SHELL=/bin/bash
 clean::
 	@echo "-- cleanning"
-#	$(RM) $(call GEN_ALL_INTERMEDIATES, .pdf)
 	$(RM) $(call GEN_INTERMEDIATES, $(TEX_MAIN), .pdf)
-
-#	$(RM) $(call GEN_ALL_INTERMEDIATES, .{$(TEX_OUT_EXTS)})
 	$(RM) $(call GEN_INTERMEDIATES, $(TEX_MAIN), .{$(TEX_OUT_EXTS)})
 
 	$(RM) *~
