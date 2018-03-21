@@ -46,7 +46,7 @@ run-latex 3
 if check-result; then
     echo -e "-- ok\n"
 else
-    echo -e "-- fail\n"
+    echo -e "-- FAIL!\n"
 fi
 
 rm -f $OUT $ERR
