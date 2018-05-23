@@ -22,12 +22,14 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{arco-exam}[2012/03/16 class for student exercises]
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{exam}}
-\PassOptionsToClass{pdftex,10pt,a4paper,spanish,color}{exam}
+\PassOptionsToClass{pdftex,10pt,a4paper,color}{exam}
 \ProcessOptions\relax
 \LoadClass{exam}
 
 \RequirePackage{times}
 \RequirePackage{multicol}
+\RequirePackage{tikz}
+\RequirePackage{marginnote}
 
 \RequirePackage[margin=1.8cm,top=3cm,bottom=2cm]{geometry}
 
@@ -55,6 +57,7 @@
 \AfterBegin{document}{
   \pointname{p}
   \addpoints
+  \boxedpoints
 }
 
 \BeforeEnd{document}{
@@ -85,6 +88,24 @@
   \end{picture}
 }
 
+% localization
+\newcommand{\localeScore}{
+  \iflanguage{english}{score}{calificación}
+}
+
+\newcommand{\localeSurname}{
+  \iflanguage{english}{Surname:}{Apellidos:}
+}
+
+\newcommand{\localeFirstname}{
+  \iflanguage{english}{Firstname:}{Nombre:}
+}
+
+\newcommand{\localeGroup}{
+  \iflanguage{english}{Group:}{Grupo:}
+}
+
+
 \newcommand{\qualificationBox}{
   \setlength{\unitlength}{1cm}
   \begin{picture}(0,0)
@@ -92,10 +113,11 @@
       \makebox(0,0)[r]{%
         \parbox{0.7\textwidth}{
           \fcolorbox{gray50}{white}{%
-            \textcolor{gray50}{\hspace{.5cm}calificación}
+            \textcolor{gray50}{\hspace{.5cm}\localeScore}
             \rule{0cm}{2cm}
             \rule{0.3cm}{0cm}
-          }}}}
+          }}}
+    }
   \end{picture}
 }
 
@@ -139,10 +161,32 @@
   \setlength{\remaining}{0.15\textwidth}
   \noindent\underline{\hspace*{\remaining}#1\hspace*{\remaining}}}
 
+\newcommand\atmargin[1]{%
+\strut\vadjust{\kern-\dp\strutbox\llap{\smash{\parbox[t]{\marginparwidth}{\raggedleft#1}}\kern\marginparsep}}}
+
+
+\newcommand*\squared[1]{
+  \atmargin{
+  \tikz[baseline=(char.base)]{
+            \node[shape=rectangle,fill,inner sep=2pt] (char)
+            {\sffamily\bfseries\textcolor{white}{#1}};}}
+        }
+
+\newcommand{\atside}[1]{
+      \fboxsep=2pt%
+      \fcolorbox{black}{black}{%
+        \textcolor{white}{\sffamily\bfseries #1}%
+      }}
+
+\newcommand{\putsideindex}[2] {
+  \begin{textblock}{0}(#1,#2)
+    \atside{Q\,\arabic{questionIndex}}
+  \end{textblock}
+}
 
 \newcommand{\arcoExamStudentForm}{
   \noindent
-  Apellidos:
+  \localeSurname
   \ifprintanswers
   \undertitleline{\large SOLUCIÓN}
 %  \enspace\rule{0.15\textwidth}{.5pt}{\Large SOLUCIÓN}\rule{0.15\textwidth}{.5pt}
@@ -150,23 +194,47 @@
 %  \enspace\rule{0.44\textwidth}{.5pt} \enspace
   \underline{\hspace*{0.44\textwidth}}
   \fi
-  \enspace Nombre:    \underline{\hspace*{0.23\textwidth}}%
-  \enspace Grupo:     \underline{\hspace*{1cm}}
+  \enspace \localeFirstname    \underline{\hspace*{0.23\textwidth}}%
+  \enspace \localeGroup        \underline{\hspace*{1cm}}
   \mbox{}
   \medskip
 }
 
 \newcounter{choicecounter}
 
-\newenvironment{arcoQuestion}[1]{
+\newenvironment{simpleQuestion}[1]{
+  \setcounter{choicecounter}{0}
+  \stepcounter{questionIndex}
+  \putsideindex{-0.86}{0.04}
   \begin{minipage}{.95\textwidth}
     \question[#1]
 }
 {
   \end{minipage}
   \null \\[0.3cm]
-  \setcounter{choicecounter}{0}
 }
+
+\newenvironment{multiQuestion}{
+  \setcounter{choicecounter}{0}
+  \begin{minipage}{.95\textwidth}
+    \question
+}
+{
+  \end{minipage}
+  \null \\[0.3cm]
+}
+
+\newcounter{questionIndex}
+
+
+\newcommand{\subQuestion}[1][]{
+  \setcounter{choicecounter}{0}
+  \stepcounter{questionIndex}
+  \putsideindex{-1.32}{0.13}
+  \part[#1]
+  }
+
+
 
 \newcommand{\arcoAnswer}[1]{%
 \ifprintanswers #1 \else \phantom{88} \fi }

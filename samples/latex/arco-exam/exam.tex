@@ -1,9 +1,15 @@
-\documentclass{arco-exam}
+\documentclass[english]{arco-exam}
+
 \arcoTopic{Redes}
 \arcoExamDesc{Final de Febrero (Test eliminatorio)}
 \arcoExamDate{09 de febrero de 2006}
 
+
 % \printanswers
+
+\usepackage{calc}
+\usepackage{textpos}
+
 
 \begin{document}
 
@@ -16,10 +22,18 @@
 
 \arcoExamStudentForm
 
+
 \begin{questions}
 
-\begin{arcoQuestion}{8}
+\begin{simpleQuestion}{8}
   Enumere y explique la utilidad de los 6 flags que aparecen en la cabecera TCP.
+
+  \begin{listing}[style=pre]
+  dst/mask     - next hop  - iface
+  110.0.0.0/24 -   0.0.0.0 - e0
+  130.0.0.0/24 -   0.0.0.0 - e1
+  0.0.0.0/ 0   - 110.0.0.1 - e0
+  \end{listing}
 
   \arcoSolutionorbox{6}{
     \begin{itemize}
@@ -32,9 +46,9 @@
     \end{itemize}
   }
 
-\end{arcoQuestion}
+\end{simpleQuestion}
 
-\begin{arcoQuestion}{1}
+\begin{simpleQuestion}{1}
   El host `A' recibe un paquete del host `B', que se encuentra en una red
     diferente. ¿Cuál es la MAC origen de la trama recibida?
 
@@ -42,99 +56,83 @@
   \choice{La del host `A'}
   \correctChoice{La de la interfaz \emph{local} del enrutador}
   \choice{La de la interfaz \emph{remota} del enrutador}
-\end{arcoQuestion}
+\end{simpleQuestion}
 
-\begin{arcoQuestion}{1}
+\begin{simpleQuestion}{1}
   Marca la afirmación \textbf{falsa} en referencia al entramado:
 
   \choice{Es el proceso de encapsulación que se realiza en la capa de enlace.}
   \correctChoice{No requiere delimitar el comienzo de cada trama.}
   \choice{Consiste en dividir los paquetes en tramas.}
   \choice{Depende de la tecnología de enlace que se emplee.}
-\end{arcoQuestion}
-
-\begin{arcoQuestion}{5}
-  Dada la topología de la figura:
-
-  \begin{parts}
-    \part[2]
-    Indica las direcciones de red de cada nodo
-
-    \arcoSolutionorbox{3}{
-      DIRECCIONES
-    }
-
-    \part[3]
-    Escribe las tablas de rutas
-
-    \arcoSolutionorbox{3}{
-      TABLAS
-    }
-  \end{parts}
-
-\end{arcoQuestion}
+\end{simpleQuestion}
 
 
-\begin{arcoQuestion}{5}
-  Dada la topología de la figura:
+  \begin{multiQuestion}
+    Enunciado general.
 
-  \begin{parts}
-    \part[2]
-    Indica las direcciones de red de cada nodo
+    \begin{parts}
+    \subQuestion[1]
+      Choose a city:
 
-    \arcoSolutionorbox{3}{
-      DIRECCIONES
-    }
+      \choice{London}
+      \choice{Paris}
+      \correctChoice{Roma}
+      \choice{Oporto}
 
-    \part[3]
-    Escribe las tablas de rutas
+    \subQuestion[1]
+      Describe the effect on the aircraft industry.
 
-    \arcoSolutionorbox{3}{
-      TABLAS
-    }
-  \end{parts}
+      \choice{A}
+      \choice{B}
+      \correctChoice{C}
+      \choice{D}
+    \end{parts}
+  \end{multiQuestion}
 
-\end{arcoQuestion}
+  \begin{multiQuestion}
+    Dada la topología de la figura:
+
+    \begin{parts}
+      \subQuestion[2]
+      Indica las direcciones de red de cada nodo
+
+      \arcoSolutionorbox{3}{
+        DIRECCIONES
+      }
+
+      \subQuestion[3]
+      Escribe las tablas de rutas
+
+      \arcoSolutionorbox{3}{
+        TABLAS
+      }
+
+      \subQuestion[3]
+      Escribe otra cosa:
+
+      \arcoSolutionorbox{3}{
+        COSA
+      }
+
+      \subQuestion[3]
+      Y otra más:
+
+      \arcoSolutionorbox{3}{
+        OTRA
+      }
+    \end{parts}
+
+  \end{multiQuestion}
 
 
-\begin{arcoQuestion}{5}
-  Dada la topología de la figura:
-
-  \begin{parts}
-    \part[2]
-    Indica las direcciones de red de cada nodo
-
-    \arcoSolutionorbox{3}{
-      DIRECCIONES
-    }
-
-    \part[3]
-    Escribe las tablas de rutas
-
-    \arcoSolutionorbox{3}{
-      TABLAS
-    }
-  \end{parts}
-
-\end{arcoQuestion}
-
-
-\question
-Enunciado
-\begin{parts}
-\part[2]
-Describe the effect on the balloon industry.
-\part[3]
-Describe the effect on the aircraft industry.
-\end{parts}
-
-\begin{arcoQuestion}{5}
+\begin{simpleQuestion}{5}
   Una figura y su respuesta
 
 \arcoFigureWithAnswer{0.5}
                      {/usr/share/arco/figures/informatica_gray.pdf}
                      {/usr/share/arco/figures/uclm_logo.pdf}
-\end{arcoQuestion}
+\end{simpleQuestion}
 
 
 \end{questions}
