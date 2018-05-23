@@ -58,6 +58,7 @@
   \pointname{p}
   \addpoints
   \boxedpoints
+  \newcounter{questionMarginCounter}
 }
 
 \BeforeEnd{document}{
@@ -180,7 +181,7 @@
 
 \newcommand{\putsideindex}[2] {
   \begin{textblock}{0}(#1,#2)
-    \atside{Q\,\arabic{questionIndex}}
+    \atside{Q\,\arabic{questionMarginCounter}}
   \end{textblock}
 }
 
@@ -204,7 +205,7 @@
 
 \newenvironment{simpleQuestion}[1]{
   \setcounter{choicecounter}{0}
-  \stepcounter{questionIndex}
+  \stepcounter{questionMarginCounter}
   \putsideindex{-0.86}{0.04}
   \begin{minipage}{.95\textwidth}
     \question[#1]
@@ -224,12 +225,9 @@
   \null \\[0.3cm]
 }
 
-\newcounter{questionIndex}
-
-
 \newcommand{\subQuestion}[1][]{
   \setcounter{choicecounter}{0}
-  \stepcounter{questionIndex}
+  \stepcounter{questionMarginCounter}
   \putsideindex{-1.32}{0.13}
   \part[#1]
   }
