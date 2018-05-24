@@ -18,6 +18,8 @@
 \def\arcoExamDesc#1{\gdef\@arcoExamDesc{#1}}
 \gdef\@arcoExamDate{\texcmd{arcoExamDate}}
 \def\arcoExamDate#1{\gdef\@arcoExamDate{#1}}
+\gdef\@arcoExamCourse{\texcmd{arcoExamCourse}}
+\def\arcoExamCourse#1{\gdef\@arcoExamCourse{#1}}
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{arco-exam}[2012/03/16 class for student exercises]
@@ -28,8 +30,13 @@
 
 \RequirePackage{times}
 \RequirePackage{multicol}
+\setlength{\multicolsep}{4.0pt plus 1.5pt minus 1.0pt}% 50% of original values
+
 \RequirePackage{tikz}
 \RequirePackage{marginnote}
+\RequirePackage{textpos}
+% \usepackage{calc}
+
 
 \RequirePackage[margin=1.8cm,top=3cm,bottom=2cm]{geometry}
 
@@ -57,16 +64,17 @@
 \AfterBegin{document}{
   \pointname{p}
   \addpoints
-  \boxedpoints
-  \newcounter{questionMarginCounter}
+  \bracketedpoints
+  \newcounter{plainQuestionCounter}
 }
 
 \BeforeEnd{document}{
   \label{arco:lastpage}
 }
 
-\RequirePackage{arco-color}
 \RequirePackage{transparent}
+\RequirePackage{xifthen}
+\RequirePackage{arco-color}
 
 \newcommand{\ESIname}{\textbf{\textsf{Escuela Superior de Informática}}}
 
@@ -122,15 +130,19 @@
   \end{picture}
 }
 
+\newcommand{\examCourse} {
+  \iflanguage{english}{Course}{Curso} \@arcoExamCourse\ ::\
+}
+
 \newpagestyle{firstpage}[\small\sffamily]{
-  \sethead{\UCLMhead{\@arcoTopic}{\@arcoExamDesc}} %
+  \sethead{\UCLMhead{\@arcoTopic}{\examCourse \@arcoExamDesc}} %
           {\UclmWatermark} %
           {\qualificationBox}
   \setfoot{\@arcoExamDate}{}{\thepage{}/\numpages}
 }
 
 \newpagestyle{main}[\small\sffamily]{
-  \sethead{\UCLMhead{\@arcoTopic}{\@arcoExamDesc}} %
+  \sethead{\UCLMhead{\@arcoTopic}{\examCourse \@arcoExamDesc}} %
           {\UclmWatermark} %
           {}
   \setfoot{\@arcoExamDate}{}{\thepage{}/\numpages}
@@ -165,25 +177,40 @@
 \newcommand\atmargin[1]{%
 \strut\vadjust{\kern-\dp\strutbox\llap{\smash{\parbox[t]{\marginparwidth}{\raggedleft#1}}\kern\marginparsep}}}
 
+% question counters
 
-\newcommand*\squared[1]{
-  \atmargin{
-  \tikz[baseline=(char.base)]{
-            \node[shape=rectangle,fill,inner sep=2pt] (char)
-            {\sffamily\bfseries\textcolor{white}{#1}};}}
-        }
-
-\newcommand{\atside}[1]{
-      \fboxsep=2pt%
-      \fcolorbox{black}{black}{%
-        \textcolor{white}{\sffamily\bfseries #1}%
-      }}
-
-\newcommand{\putsideindex}[2] {
-  \begin{textblock}{0}(#1,#2)
-    \atside{Q\,\arabic{questionMarginCounter}}
-  \end{textblock}
+\newcommand{\boxed}[1] {
+    \fboxsep=2pt%
+    \fcolorbox{black}{black}{%
+      \textcolor{white}{\sffamily\bfseries #1}%
+    }
 }
+
+% \newcommand{\definePutQuestionCounter}[2] {
+%   \begin{textblock}{0}(#1,#2)
+%     \boxed{Q\,\arabic{plainQuestionCounter}}
+%   \end{textblock}
+% }
+
+\newcommand{\showQuestionLabel}{}
+\newcommand{\hideQuestionLabel}{}
+
+\newcommand{\usePlainQuestionCounter}{
+  \renewcommand{\showQuestionLabel} {
+    \renewcommand{\questionlabel} {
+      \boxed{\theplainQuestionCounter}
+    }
+  }
+
+  \renewcommand{\hideQuestionLabel} {
+    \renewcommand{\questionlabel} {E.}
+  }
+
+  \renewcommand{\partlabel} {
+    \boxed{\theplainQuestionCounter}
+  }
+}
+
 
 \newcommand{\arcoExamStudentForm}{
   \noindent
@@ -203,22 +230,27 @@
 
 \newcounter{choicecounter}
 
-\newenvironment{simpleQuestion}[1]{
+\newenvironment{simpleQuestion}[1][]{
   \setcounter{choicecounter}{0}
-  \stepcounter{questionMarginCounter}
-  \putsideindex{-0.86}{0.04}
+  \stepcounter{plainQuestionCounter}
+  \showQuestionLabel
   \begin{minipage}{.95\textwidth}
-    \question[#1]
+  \ifthenelse{\isempty{#1}}%
+    {\question}
+    {\question[#1]}
 }
 {
   \end{minipage}
   \null \\[0.3cm]
 }
 
-\newenvironment{multiQuestion}{
+\newenvironment{multiQuestion}[1][]{
   \setcounter{choicecounter}{0}
+  \hideQuestionLabel
   \begin{minipage}{.95\textwidth}
-    \question
+  \ifthenelse{\isempty{#1}}%
+    {\question}
+    {\question[#1]}
 }
 {
   \end{minipage}
@@ -227,11 +259,11 @@
 
 \newcommand{\subQuestion}[1][]{
   \setcounter{choicecounter}{0}
-  \stepcounter{questionMarginCounter}
-  \putsideindex{-1.32}{0.13}
-  \part[#1]
+  \stepcounter{plainQuestionCounter}
+  \ifthenelse{\isempty{#1}}%
+    {\part}
+    {\part[#1]}
   }
-
 
 
 \newcommand{\arcoAnswer}[1]{%
