@@ -5,9 +5,8 @@
 \arcoExamDate{May 16, 2006}
 \arcoExamCourse{17/18}
 
-% \printanswers
+ \printanswers
 \usePlainQuestionCounter  % for optical answer sheet
-
 
 \begin{document}
 
@@ -23,8 +22,26 @@
 
 \begin{questions}
 
+  \begin{simpleQuestion}[2]
+    Enunciado
+
+    \arcoSolutionorbox{1}{
+      respuesta
+
+      otra
+      }
+
+  \end{simpleQuestion}
+
+
 \begin{simpleQuestion}[8]
   Enumere y explique la utilidad de los 6 flags que aparecen en la cabecera TCP.
+
+  \begin{enumerate}
+  \item uno
+  \item dos
+  \item tres
+  \end{enumerate}
 
   \begin{listing}[style=pre]
   dst/mask     - next hop  - iface
@@ -150,6 +167,47 @@
 \end{simpleQuestion}
 
 
+\begin{simpleQuestion}[8]
+  ¿Cual es la tabla equivalente a la siguiente?
+
+  \begin{listing}[style=pre]
+  dst/mask     - next hop  - iface
+  110.0.0.0/24 -   0.0.0.0 - e0
+  130.0.0.0/24 -   0.0.0.0 - e1
+  0.0.0.0/ 0   - 110.0.0.1 - e0
+  \end{listing}
+
+  \begin{enumerate}[label=\alph*)]
+  \item
+  \begin{listing}[style=pre]
+dst/mask     - next hop  - iface
+110.0.0.0/24 -   0.0.0.0 - e0
+0.0.0.0  0   - 110.0.0.1 - e0
+\end{listing}
+
+\item
+  \begin{listing}[style=pre]
+dst/mask     - next hop  - iface
+110.0.0.0/24 -   0.0.0.0 - e0
+120.0.0.0/24 -   0.0.0.0 - e1
+130.0.0.0/24 -   0.0.0.0 - e2
+140.0.0.0/24 -   0.0.0.0 - e3
+\end{listing}
+\end{enumerate}
+
+
+\correctChoice{\mbox{}}
+\choice{\mbox{}}
+\end{simpleQuestion}
+
 \end{questions}
+
+\begin{enumerate}
+\item
+  \begin{lstlisting}
+    /* increment a by one */
+    a = a + 1
+  \end{lstlisting}
+\end{enumerate}
 
 \end{document}

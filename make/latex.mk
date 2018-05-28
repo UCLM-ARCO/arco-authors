@@ -1,9 +1,6 @@
 TOOLDIR=/usr/share/arco
 FIGDIR ?= figures
 
-# RUBBER_WARN ?= refs
-# RUBBER_ARGS=--texpath ~/.texmf --module hyperref --warn $(RUBBER_WARN) $(RUBBER_FLAGS)
-
 MAIN ?= $(shell grep -l "^[[:space:]]*\\\\begin{document}" *.tex | sort -V)
 TEX_MAIN ?= $(MAIN)
 BASE = $(basename $(MAIN))
@@ -13,7 +10,7 @@ TEX_SOURCES ?= $(shell $(TOOLDIR)/latex-parts.sh $(TEX_MAIN))
 TEX_FIGURES = $(foreach file, $(TEX_SOURCES), \
                   $(shell FIGDIR=$(FIGDIR) $(TOOLDIR)/latex-figures.sh $(file)))
 
-export LATEX_ENGINE  ?= pdflatex
+export LATEX_ENGINE ?= pdflatex
 
 TEX_OUT_EXTS = aux,log,maf,mtc,lol,lot,out,toc,blg,bbl,idx
 

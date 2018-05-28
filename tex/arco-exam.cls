@@ -72,6 +72,9 @@
   \label{arco:lastpage}
 }
 
+\RequirePackage{enumitem}
+\setlist{topsep=2pt, itemsep=-2pt}
+
 \RequirePackage{transparent}
 \RequirePackage{xifthen}
 \RequirePackage{arco-color}
@@ -163,19 +166,11 @@
 
 \usepackage{calc}
 
-% \newlength{\remaining}
-% \newcommand{\titleline}[1]{%
-%   \setlength{\remaining}{(\textwidth-\widthof{\textsc{#1}})/2}
-%   \noindent\underline{\hspace*{\remaining}#1\hspace*{\remaining}}\par}
-
 \newlength{\remaining}
 \newcommand{\undertitleline}[1]{%
 % \setlength{\remaining}{(\textwidth-\widthof{\textsc{#1}})/2}
   \setlength{\remaining}{0.15\textwidth}
   \noindent\underline{\hspace*{\remaining}#1\hspace*{\remaining}}}
-
-\newcommand\atmargin[1]{%
-\strut\vadjust{\kern-\dp\strutbox\llap{\smash{\parbox[t]{\marginparwidth}{\raggedleft#1}}\kern\marginparsep}}}
 
 % question counters
 
@@ -185,12 +180,6 @@
       \textcolor{white}{\sffamily\bfseries #1}%
     }
 }
-
-% \newcommand{\definePutQuestionCounter}[2] {
-%   \begin{textblock}{0}(#1,#2)
-%     \boxed{Q\,\arabic{plainQuestionCounter}}
-%   \end{textblock}
-% }
 
 \newcommand{\showQuestionLabel}{}
 \newcommand{\hideQuestionLabel}{}
@@ -210,6 +199,9 @@
     \boxed{\theplainQuestionCounter}
   }
 }
+
+
+\newcommand{\answerFormat}[1]{{\color{blue} #1}}
 
 
 \newcommand{\arcoExamStudentForm}{
@@ -267,7 +259,7 @@
 
 
 \newcommand{\arcoAnswer}[1]{%
-\ifprintanswers #1 \else \phantom{88} \fi }
+\ifprintanswers \answerFormat{#1} \else \phantom{88} \fi }
 
 \newcommand{\arcoChoiceMark}{$\square$}
 \newcommand{\arcoCorrectChoiceMark}{ %
@@ -288,16 +280,17 @@
 \addtolength{\altolinea}{5mm minus 2mm}
 
 \newcommand{\arcoSolutionorbox}[2]{
+  \vspace{0.5mm plus 0.5mm}
   \fcolorbox{gray90}{white}{
-    \transparent{0.5}
     \parbox{.97\textwidth}{
       \ifprintanswers
-      #2
+      \answerFormat{#2}
       \else
       \rule{0mm}{#1\altolinea}
       \rule{.9\textwidth}{0mm}
       \fi
     }}
+  \vspace{0.5mm plus 1.5mm minus 1.5mm}
 }
 
 \newcommand{\arcoFigureWithAnswer}[3]{
