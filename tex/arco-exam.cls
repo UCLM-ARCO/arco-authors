@@ -164,6 +164,14 @@
   \medskip
 }
 
+\renewcommand{\arcoExamAdvice}[1]{
+  \fbox{
+  \parbox{\textwidth}{
+    {\itshape #1}
+  }}
+  \medskip
+}
+
 \usepackage{calc}
 
 \newlength{\remaining}
