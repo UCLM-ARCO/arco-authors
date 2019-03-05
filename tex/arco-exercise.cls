@@ -11,8 +11,8 @@
 \RequirePackage{arco-internal}
 
 %% -- Variables de la clase ------------------------------------
-\gdef \docTopic   {FIXME: Set the ``topic'' redefining \texcmd{docTopic}}
-\gdef \docCourse  {FIXME: Set the ``course'' redefining \texcmd{docCourse}}
+\gdef \docTopic   {FIXME: Set the ``topic'' with \texcmd{def}\texcmd{docTopic}}
+\gdef \docCourse  {FIXME: Set the ``course'' with \texcmd{def}\texcmd{docCourse}}
 
 
 % \gdef\@docTopic{\texcmd{docTopic}}
