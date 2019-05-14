@@ -27,7 +27,7 @@ clean:
 	$(RM) compile.el tex/arco-book.cls tex/arco-report.cls tex/arco-article.cls
 
 vclean: clean
-	$(MAKE) -C samples clean
+	$(MAKE) -C examples clean
 
 install:
 	install -vd $(BASE)
@@ -50,7 +50,7 @@ install:
 	install -v -m 444 figures/* $(FIGURES)
 
 	install -vd $(DOCDIR)/arco-authors
-	tar cvfz $(DOCDIR)/arco-authors/samples.tgz --directory samples latex docbook
+	tar cvfz $(DOCDIR)/arco-authors/examples.tgz --directory examples latex docbook
 
 download-images:
 	@$(WGET) $(LOGOS)/esi.pdf              	  -O figures/esi.pdf

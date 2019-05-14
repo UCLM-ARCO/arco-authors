@@ -30,7 +30,7 @@ check-result() {
     grep --color Citation $LOG
     grep --color "multiply defined" $LOG
     grep "acronym Warning" $LOG | sort | uniq | grep --color "acronym Warning"
-    grep -n --color FIXME *.tex
+    find . -type f -name "*.tex" -exec grep -H --color FIXME {} \;
     return 0
 }
 
