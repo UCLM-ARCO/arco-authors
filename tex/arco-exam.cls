@@ -270,8 +270,8 @@
 \ifprintanswers \answerFormat{#1} \else \phantom{88} \fi }
 
 \newcommand{\arcoChoiceMark}{$\square$}
-\newcommand{\arcoCorrectChoiceMark}{ %
-\ifprintanswers $\blacksquare$ \hspace{-7.5pt} \else \arcoChoiceMark \fi }
+\newcommand{\arcoCorrectChoiceMark}{%
+\ifprintanswers $\blacksquare$ \hspace{-7.5pt} \else \arcoChoiceMark \fi}
 
 \newcommand{\arcoEmptyChoice}[2]{
   \stepcounter{choicecounter}

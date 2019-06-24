@@ -5,7 +5,7 @@
 \arcoExamDate{May 16, 2006}
 \arcoExamCourse{17/18}
 
- \printanswers
+\printanswers
 \usePlainQuestionCounter  % for optical answer sheet
 
 \begin{document}
@@ -73,10 +73,39 @@
   \choice{La de la interfaz \emph{remota} del enrutador}
 \end{simpleQuestion}
 
+
+\begin{simpleQuestion}
+  Esta es una pregunta con respuesta múltiple organizadas en 2
+  columnas.
+
+  \begin{multicols}{2}
+    \choice{respuesta 1}
+    \choice{respuesta 2}
+    \correctChoice{respuesta 3}
+    \choice{respuesta 4}
+  \end{multicols}
+\end{simpleQuestion}
+
+
+
+\begin{simpleQuestion}
+  Esta es una pregunta con respuesta múltiple organizadas en 4 columnas.
+
+  \begin{multicols}{4}
+    \choice{1}
+    \choice{2}
+    \choice{3}
+    \correctChoice{4}
+  \end{multicols}
+
+\end{simpleQuestion}
+
+
 \begin{simpleQuestion}[1]
   Marca la afirmación \textbf{falsa} en referencia al entramado:
 
-  \choice{Es el proceso de encapsulación que se realiza en la capa de enlace.}
+  \choice{Es el proceso de encapsulación que se realiza en la capa de
+    enlace. Es el proceso de encapsulación que se realiza en la capa de enlace.}
   \correctChoice{No requiere delimitar el comienzo de cada trama.}
   \choice{Consiste en dividir los paquetes en tramas.}
   \choice{Depende de la tecnología de enlace que se emplee.}
