@@ -182,9 +182,9 @@
 
 % question counters
 
-\newcommand{\boxed}[1] {
+\newcommand{\boxed}[2] {
     \fboxsep=2pt%
-    \fcolorbox{black}{black}{%
+    \fcolorbox{#2}{#2}{%
       \textcolor{white}{\sffamily\bfseries #1}%
     }
 }
@@ -195,7 +195,7 @@
 \newcommand{\usePlainQuestionCounter}{
   \renewcommand{\showQuestionLabel} {
     \renewcommand{\questionlabel} {
-      \boxed{\theplainQuestionCounter}
+      \boxed{\theplainQuestionCounter}{black}
     }
   }
 
@@ -204,7 +204,7 @@
   }
 
   \renewcommand{\partlabel} {
-    \boxed{\theplainQuestionCounter}
+    \boxed{\theplainQuestionCounter}{gray}
   }
 }
 
@@ -247,7 +247,7 @@
 \newenvironment{multiQuestion}[1][]{
   \setcounter{choicecounter}{0}
   \hideQuestionLabel
-  \begin{minipage}{.95\textwidth}
+  \begin{minipage}{.90\textwidth}
   \ifthenelse{\isempty{#1}}%
     {\question}
     {\question[#1]}
