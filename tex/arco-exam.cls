@@ -77,6 +77,7 @@
 
 \RequirePackage{transparent}
 \RequirePackage{xifthen}
+\RequirePackage[yyyymmdd,hhmmss]{datetime}
 \RequirePackage{arco-color}
 
 \newcommand{\ESIname}{\textbf{\textsf{Escuela Superior de Informática}}}
@@ -94,9 +95,11 @@
   \begin{picture}(0,0)
     \put(-1.3,0){\includegraphics[width=4cm]{%
         /usr/share/arco/figures/uclm_logomarca_1.pdf}}
+    \put(3,2.3){\scalebox{.3}{\today~\currenttime}}
     \put(3,1.6){\makebox(0,0)[l]{\textsf{\textbf{\Large #1}}}}
     \put(3,1.1){\makebox(0,0)[l]{#2}}
-    \put(3,0.14){\makebox(0,0)[l]{\textsf{\textbf{\large \textcolor{uclmred}{\ESIname}}}}}
+    \put(3,0.14){\makebox(0,0)[l]{\textsf{\textbf{\large
+            \textcolor{uclmred}{\ESIname}}}}}
   \end{picture}
 }
 
@@ -182,9 +185,9 @@
 
 % question counters
 
-\newcommand{\boxed}[2] {
+\newcommand{\boxed}[1] {
     \fboxsep=2pt%
-    \fcolorbox{#2}{#2}{%
+    \fcolorbox{black}{black}{%
       \textcolor{white}{\sffamily\bfseries #1}%
     }
 }
@@ -195,7 +198,7 @@
 \newcommand{\usePlainQuestionCounter}{
   \renewcommand{\showQuestionLabel} {
     \renewcommand{\questionlabel} {
-      \boxed{\theplainQuestionCounter}{black}
+      \boxed{\theplainQuestionCounter}
     }
   }
 
@@ -203,9 +206,7 @@
     \renewcommand{\questionlabel} {E.}
   }
 
-  \renewcommand{\partlabel} {
-    \boxed{\theplainQuestionCounter}{gray}
-  }
+  \renewcommand{\partlabel}{>\boxed{\theplainQuestionCounter}}
 }
 
 
