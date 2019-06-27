@@ -128,7 +128,7 @@
         \parbox{0.7\textwidth}{
           \fcolorbox{gray50}{white}{%
             \textcolor{gray50}{\hspace{1.66cm}}
-            \rule{0cm}{2cm}
+            \rule{0cm}{1.76cm}
             \rule{0.5cm}{0cm}
           }}}
     }
@@ -144,7 +144,7 @@
           {\UclmWatermark} %
           {\qualificationBox
             \begin{picture}(0,0)
-              \put(-1.95,2){\scalebox{.4}{\today~\currenttime}}
+              \put(-1.94,1.87){\scalebox{.4}{\today~\currenttime}}
             \end{picture}}
   \setfoot{\@arcoExamDate}{}{\thepage{}/\numpages}
 }
