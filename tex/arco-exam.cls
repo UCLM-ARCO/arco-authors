@@ -95,7 +95,6 @@
   \begin{picture}(0,0)
     \put(-1.3,0){\includegraphics[width=4cm]{%
         /usr/share/arco/figures/uclm_logomarca_1.pdf}}
-    \put(3,2.3){\scalebox{.3}{\today~\currenttime}}
     \put(3,1.6){\makebox(0,0)[l]{\textsf{\textbf{\Large #1}}}}
     \put(3,1.1){\makebox(0,0)[l]{#2}}
     \put(3,0.14){\makebox(0,0)[l]{\textsf{\textbf{\large
@@ -124,13 +123,13 @@
 \newcommand{\qualificationBox}{
   \setlength{\unitlength}{1cm}
   \begin{picture}(0,0)
-    \put(10,1.2){
+    \put(10.2,1.0){
       \makebox(0,0)[r]{%
         \parbox{0.7\textwidth}{
           \fcolorbox{gray50}{white}{%
-            \textcolor{gray50}{\hspace{.5cm}\localeScore}
+            \textcolor{gray50}{\hspace{1.66cm}}
             \rule{0cm}{2cm}
-            \rule{0.3cm}{0cm}
+            \rule{0.5cm}{0cm}
           }}}
     }
   \end{picture}
@@ -143,7 +142,10 @@
 \newpagestyle{firstpage}[\small\sffamily]{
   \sethead{\UCLMhead{\@arcoTopic}{\examCourse \@arcoExamDesc}} %
           {\UclmWatermark} %
-          {\qualificationBox}
+          {\qualificationBox
+            \begin{picture}(0,0)
+              \put(-1.95,2){\scalebox{.4}{\today~\currenttime}}
+            \end{picture}}
   \setfoot{\@arcoExamDate}{}{\thepage{}/\numpages}
 }
 
