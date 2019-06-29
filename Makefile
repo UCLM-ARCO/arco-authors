@@ -54,6 +54,7 @@ install:
 
 download-images:
 	@$(WGET) $(LOGOS)/esi.pdf              	  -O figures/esi.pdf
+	@$(WGET) $(LOGOS)/esi_logo.pdf            -O figures/esi_logo.pdf
 	@$(WGET) $(LOGOS)/uclm_logo.pdf        	  -O figures/uclm_logo.pdf
 	@$(WGET) $(LOGOS)/arco_white.pdf       	  -O figures/arco_entity.pdf
 	@$(WGET) $(LOGOS)/arco_watermark.pdf   	  -O figures/arco_watermark.pdf
