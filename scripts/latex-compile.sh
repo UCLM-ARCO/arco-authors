@@ -5,6 +5,7 @@ BASE=$(basename $MAIN .tex)
 BIBFILE=$BASE.bib
 LOG=$BASE.log
 ERR=$BASE-compile.err
+LATEX_ENGINE="${LATEX_ENGINE:-pdflatex}"
 
 run-latex() {
     $LATEX_ENGINE -interaction=nonstopmode $MAIN > /dev/null
@@ -43,10 +44,14 @@ run-bibtex
 run-latex 2
 run-latex 3
 
-if check-result; then
+check-result
+RETVAL=$?
+
+if [ $RETVAL ]; then
     echo -e "-- ok\n"
 else
     echo -e "-- FAIL!\n"
 fi
 
 rm -f $OUT $ERR
+exit $RETVAL
