@@ -1,4 +1,3 @@
-
 arco-authors
 ============
 
@@ -6,9 +5,9 @@ Las clases y estilos LaTeX de arco-authors están empaquetadas como paquete
 debian/ubuntu. Para descargar el paquete, añade el repo ejecutando lo siguiente (como
 root)::
 
-  # echo "deb http://babel.esi.uclm.es/arco sid main" > /etc/apt/sources.list.d/babel.list
-  # apt-get update
-  # apt-get install arco-archive-keyring
+  # apt-key adv --keyserver keyserver.ubuntu.com --recv-keys D917ABDD28380433
+  # echo "deb https://uclm-arco.github.io/debian/ sid main" > /etc/apt/sources.list.d/arco.list
+  # apt update
 
 E instala con::
 
