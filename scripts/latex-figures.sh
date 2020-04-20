@@ -1,7 +1,7 @@
 #!/bin/bash
 
 MAIN=${1:-main.tex}
-VALID_CHARS=":!#$&@%+.a-Z0-9_//\-"
+VALID_CHARS=":!#$&@%+.[:alnum:]_//\-"
 
 get_figure_paths() {
     [ -f $MAIN ] && grep -v "^ *%" $MAIN \

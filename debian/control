@@ -9,7 +9,6 @@ Standards-Version: 3.9.8
 Homepage: https://bitbucket.org/arco_group/arco-authors
 
 Package: arco-authors
-Recommends: unoconv
 Architecture: all
 Depends: ${misc:Depends},
 	 texlive-binaries,
@@ -22,10 +21,11 @@ Depends: ${misc:Depends},
 	 texlive-bibtex-extra,
  	 cm-super,
 	 inkscape,
-	 dblatex,
 	 netpbm,
-	 dia,
-	 aspell-en,
-	 noweb
+	 aspell-en
+Recommends: unoconv,
+            noweb,
+	    dblatex,
+	    dia
 Description: ARCO authors tools, styles and templates
  LaTeX and DocBook utilities and styles for Arco authors.
