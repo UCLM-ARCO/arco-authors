@@ -7,5 +7,5 @@ RUN apt-get update; \
     echo "deb https://uclm-arco.github.io/debian/ sid main" > /etc/apt/sources.list.d/arco.list; \
     apt-key adv --fetch-keys https://uclm-arco.github.io/debian/key.asc; \
     apt-get update; \
-    apt-get install --no-install-recommends -y arco-authors; \
+    apt-get install --no-install-recommends -y arco-authors dbus-run-session; \
     apt-get -y clean; apt-get -y autoclean; apt-get -y autoremove
