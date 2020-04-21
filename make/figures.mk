@@ -23,16 +23,16 @@ DPI?=$(PNGPPP)
 # DPI = <your quality>
 
 %.png: %.svg
-	inkscape -z --export-dpi $(DPI) --export-png $@ $<
+	dbus-run-session inkscape -z --export-dpi $(DPI) --export-png $@ $<
 
 %.300.png: %.svg
-	inkscape -z --export-dpi 300 --export-png $@ $<
+	dbus-run-session inkscape -z --export-dpi 300 --export-png $@ $<
 
 %.pdf: %.dia
-	inkscape -z --export-pdf $@ --export-text-to-path $<
+	dbus-run-session inkscape -z --export-pdf $@ --export-text-to-path $<
 
 %.pdf: %.svg
-	inkscape -z --export-pdf $@ --export-text-to-path $<
+	dbus-run-session inkscape -z --export-pdf $@ --export-text-to-path $<
 
 #-- blockdiag
 
