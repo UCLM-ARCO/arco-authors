@@ -22,10 +22,10 @@ Depends: ${misc:Depends},
  	 cm-super,
 	 inkscape,
 	 netpbm,
-	 aspell-en
+	 aspell-en,
+	 dblatex,
+	 dia
 Recommends: unoconv,
-            noweb,
-	    dblatex,
-	    dia
+            noweb
 Description: ARCO authors tools, styles and templates
  LaTeX and DocBook utilities and styles for Arco authors.

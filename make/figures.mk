@@ -14,6 +14,7 @@
 
 #-- inkscape -----------------------------------------------
 
+DISPLAY=
 PNGPPP?=150
 DPI?=$(PNGPPP)
 # If you want other quality put next in your Makefile:
@@ -22,16 +23,16 @@ DPI?=$(PNGPPP)
 # DPI = <your quality>
 
 %.png: %.svg
-	inkscape --export-dpi $(DPI) --export-png $@ $<
+	inkscape -z --export-dpi $(DPI) --export-png $@ $<
 
 %.300.png: %.svg
-	inkscape --export-dpi 300 --export-png $@ $<
+	inkscape -z --export-dpi 300 --export-png $@ $<
 
 %.pdf: %.dia
-	inkscape --export-pdf $@ --export-text-to-path $<
+	inkscape -z --export-pdf $@ --export-text-to-path $<
 
 %.pdf: %.svg
-	inkscape --export-pdf $@ --export-text-to-path $<
+	inkscape -z --export-pdf $@ --export-text-to-path $<
 
 #-- blockdiag
 
