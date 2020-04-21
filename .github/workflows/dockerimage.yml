@@ -1,0 +1,23 @@
+name: Docker image
+
+on: [push]
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        
+      - name: Build image
+        run: docker build . --file Dockerfile --tag image
+                
+      - name: login
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
+      
+      - name: push
+        run: |
+          IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/arco-authors
+          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
+          echo IMAGE_ID=$IMAGE_ID
+          docker tag image $IMAGE_ID:latest
+          docker push $IMAGE_ID:latest
