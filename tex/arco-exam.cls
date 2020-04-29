@@ -68,10 +68,6 @@
   \newcounter{plainQuestionCounter}
 }
 
-\BeforeEnd{document}{
-  \label{arco:lastpage}
-}
-
 \RequirePackage{enumitem}
 \setlist{topsep=2pt, itemsep=-2pt}
 
