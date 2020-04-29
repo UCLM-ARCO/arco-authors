@@ -60,11 +60,10 @@
           {\UCLMbglogo}
           {\gray25color{\docCourse}}
   \setfoot{}
-    %\gray25color{\today}}
-          {\gray25color{\thepage/\pageref{arco:lastpage}}}
-          {}
+  {\gray25color{\thepage/\pageref*{arco:lastpage}}}
+  {}
   \headrule
-%  \footrule
+% \footrule
 }
 \pagestyle{arcoStyle}
 
