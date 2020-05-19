@@ -37,8 +37,7 @@
 \RequirePackage{textpos}
 % \usepackage{calc}
 
-
-\RequirePackage[margin=1.8cm,top=3cm,bottom=2cm]{geometry}
+\RequirePackage[a4paper, inner=1.4cm,outer=1cm,top=3cm,bottom=1cm,footskip=0.7cm]{geometry}
 
 \RequirePackage{arco-basics}
 
@@ -208,7 +207,7 @@
 }
 
 
-\newcommand{\answerFormat}[1]{{\color{blue} #1}}
+\newcommand{\answerFormat}[1]{{\small\color{blue} #1}}
 
 
 \newcommand{\arcoExamStudentForm}{
@@ -233,7 +232,7 @@
   \setcounter{choicecounter}{0}
   \stepcounter{plainQuestionCounter}
   \showQuestionLabel
-  \begin{minipage}{.95\textwidth}
+  \begin{minipage}{\textwidth}
   \ifthenelse{\isempty{#1}}%
     {\question}
     {\question[#1]}
@@ -246,7 +245,7 @@
 \newenvironment{multiQuestion}[1][]{
   \setcounter{choicecounter}{0}
   \hideQuestionLabel
-  \begin{minipage}{.90\textwidth}
+  \begin{minipage}{.98\textwidth}
   \ifthenelse{\isempty{#1}}%
     {\question}
     {\question[#1]}
@@ -272,6 +271,9 @@
 \newcommand{\arcoCorrectChoiceMark}{%
 \ifprintanswers $\blacksquare$ \hspace{-7.5pt} \else \arcoChoiceMark \fi}
 
+\newcommand{\onlyInStatement}[1]{%
+\ifprintanswers \null \else #1 \fi}
+
 \newcommand{\arcoEmptyChoice}[2]{
   \stepcounter{choicecounter}
   {\fontsize{15pt}{15pt}\selectfont #1 }\hspace{2pt}
@@ -286,26 +288,38 @@
 \newlength{\altolinea}
 \addtolength{\altolinea}{5mm minus 2mm}
 
-\newcommand{\arcoSolutionorbox}[2]{
+
+\newcommand{\printsolution}[1]{%
   \vspace{0.5mm plus 0.5mm}
   \fcolorbox{gray90}{white}{
     \parbox{.97\textwidth}{
-      \ifprintanswers
-      \answerFormat{#2}
-      \else
-      \rule{0mm}{#1\altolinea}
-      \rule{.9\textwidth}{0mm}
-      \fi
+      \answerFormat{#1}
     }}
   \vspace{0.5mm plus 1.5mm minus 1.5mm}
 }
 
-\newcommand{\arcoFigureWithAnswer}[3]{
+\newcommand{\arcoSolutionorbox}[2]{
+%  lines:#1- \\
   \ifprintanswers
+  \printsolution{#2}
+  \else
+  \ifthenelse{\not\isempty{#1}}{%
+    \printsolution{
+      \rule{0mm}{#1\altolinea}
+      \rule{.9\textwidth}{0mm}
+    }
+  }
+  \fi
+}
+
+\newcommand{\arcoFigureWithAnswer}[3]{
+\begin{center}
+   \ifprintanswers
   \includegraphics[width=#1\textwidth]{#3}
   \else
   \includegraphics[width=#1\textwidth]{#2}
   \fi
+\end{center}
 }
 
 \RequirePackage{arco-listings}
