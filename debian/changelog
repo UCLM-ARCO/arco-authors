@@ -1,3 +1,10 @@
+arco-authors (0.20200722-1) unstable; urgency=low
+
+  * New release
+  * add atbeginend to arco-basics
+
+ -- David Villa Alises <David.Villa@gmail.com>  Wed, 22 Jul 2020 11:01:26 +0200
+
 arco-authors (0.20200617-1) unstable; urgency=low
 
   * New release
