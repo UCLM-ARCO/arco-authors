@@ -19,7 +19,7 @@ all:
 	sed s/CLASS/book/g tex/arco.cls.in > tex/arco-book.cls
 	sed s/CLASS/report/g tex/arco.cls.in > tex/arco-report.cls
 	sed s/CLASS/article/g tex/arco.cls.in > tex/arco-article.cls
-	inkscape --export-pdf figures/placeholder_entity.pdf --export-text-to-path figures/placeholder_entity.svg
+	# inkscape --export-pdf figures/placeholder_entity.pdf --export-text-to-path figures/placeholder_entity.svg
 
 clean:
 	$(RM) $(shell find -name *~)
