@@ -1,0 +1,22 @@
+#!/bin/bash --
+
+if [ "$#" -lt 2 ]; then
+    echo "usge: arco-svg2png <svg> <png> [dpi]"
+    exit
+fi
+
+svg="$1"
+png="$2"
+dpi="${3:-150}"
+
+unset DISPLAY
+
+newver="1.0.0"
+currentver="$(inkscape --version 2> /dev/null | awk '{print $2}')"
+echo inkscape version: $currentver
+
+if printf '%s\n%s\n' "$currentver" "$newver" | sort -V -C; then
+    inkscape -z --export-dpi $dpi --export-png $png $svg
+else
+    inkscape --export-dpi $dpi --export-filename $png $svg
+fi
