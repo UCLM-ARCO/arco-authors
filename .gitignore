@@ -1,0 +1,8 @@
+debian/arco-authors.debhelper.log
+debian/debhelper-build-stamp
+debian/arco-authors.substvars
+debian/.debhelper
+debian/arco-authors/*
+missing.png
+examples/latex/arco-exam/arco-exam.cls
+debian/arco-authors.postinst

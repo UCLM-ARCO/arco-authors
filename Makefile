@@ -28,6 +28,7 @@ clean:
 
 vclean: clean
 	$(MAKE) -C examples clean
+	$(RM) missing.png
 
 install:
 	install -vd $(BASE)
