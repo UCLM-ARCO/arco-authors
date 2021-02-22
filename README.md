@@ -9,7 +9,7 @@ E instala con:
 
     # apt-get install arco-authors
 
-El makefile `latex.mk` y scripts asociados proporcionan grandes ventajas para compilar
+El makefile `latex.mk` y scripts asociados proporcionan ventajas para compilar
 documentos LaTeX:
 
 * Automáticamente convierte las figuras al formato que pongas en tus \includegraphics
