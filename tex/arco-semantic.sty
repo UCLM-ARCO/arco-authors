@@ -3,10 +3,12 @@
 
 
 \def\id    #1{\hypetexttt{#1}}   % identificador
+\def\lit   #1{«\texttt{#1}»}     % literal de cadena
 \def\code  #1{\hypetexttt{#1}}   % trozo pequeño de código fuente
-\def\iface #1{\textit{#1}}   % interfaz
-\def\kw    #1{\texttt{#1}}   % keyword, palabra reservada
-\def\fg    #1{\textit{#1}}   % foreign, una palabra en inglés
+\def\iface #1{\textit{#1}}       % interfaz
+\def\lib   #1{\filename{#1}}     % librería o módulo                  Ej: disponible en \lib{math}
+\def\kw    #1{\texttt{#1}}       % keyword, palabra reservada
+\def\fg    #1{\textit{#1}}       % foreign, una palabra en inglés
 \def\app   #1{\hypetexttt{#1}}   % aplicación, programa
 
 % Por conveniencia, estos nombres corresponden con elementos DocBook equivalentes
