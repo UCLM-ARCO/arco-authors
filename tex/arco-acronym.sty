@@ -1,6 +1,10 @@
 % \ac{IP}   default command: first time per chapter means \acf, then \acs
-% \acs{IP}  short: IP
-% \acl{IP}  large: Internet Protocol
+% \acs{IP}  short:       IP
+% \acl{IP}  large:       Internet Protocol
+% \acsl{IP} short-large: IP (Internet Protocol)
+% \acls{IP} large-short: Internet Protocol (IP)
+
+% DEPRECATED
 % \acf{IP}  full:  Internet Protocol (IP)
 % \acx{IP}  both:  IP (Internet Protocol)
 
@@ -23,5 +27,7 @@
   \nolinebreak[3] %
   (\acl{#1})\acused{#1}}
 
+\newcommand{\acsl}[1]{\acs{#1}\nolinebreak[3] (\acl{#1})\acused{#1}}
+\newcommand{\acls}[1]{\acl{#1}\nolinebreak[3] (\acs{#1})\acused{#1}}
 
 \newcommand{\Acro}[2]{\acro{#1}{#2}\acused{#1}}

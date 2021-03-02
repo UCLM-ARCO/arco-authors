@@ -22,15 +22,15 @@ run-bibtex() {
 }
 
 check-result() {
-    if grep --color -A2 "^!" $LOG > $ERR; then
-	cat $ERR
-	echo "-- see '$BASE.log' for details"
-	return 1
+    if grep --text --color -A3 "^!" $LOG > $ERR; then
+        cat $ERR
+        echo "-- see '$LOG' for details"
+        return 1
     fi
-    grep --color Reference $LOG
-    grep --color Citation $LOG
-    grep --color "multiply defined" $LOG
-    grep "acronym Warning" $LOG | sort | uniq | grep --color "acronym Warning"
+    grep --text --color Reference $LOG
+    grep --text --color Citation $LOG
+    grep --text --color "multiply defined" $LOG
+    grep --text "acronym Warning" $LOG | sort | uniq | grep --color "acronym Warning"
     find . -type f -name "*.tex" -exec grep -H --color FIXME {} \;
     return 0
 }
@@ -47,11 +47,11 @@ run-latex 3
 check-result
 RETVAL=$?
 
-if [ $RETVAL ]; then
+if [ $RETVAL -eq 0 ]; then
     echo -e "-- ok\n"
 else
     echo -e "-- FAIL!\n"
 fi
 
-rm -f $OUT $ERR
+rm -f $ERR
 exit $RETVAL

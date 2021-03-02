@@ -12,7 +12,7 @@ TEX_FIGURES = $(foreach file, $(TEX_SOURCES), \
 
 export LATEX_ENGINE ?= pdflatex
 
-TEX_OUT_EXTS = aux,log,maf,mtc,lol,lot,lof,out,toc,blg,bbl,idx
+TEX_OUT_EXTS = aux,maf,mtc,lol,lot,lof,out,toc,blg,bbl,idx
 
 define GEN_INTERMEDIATES
 $(foreach tex, \
