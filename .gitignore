@@ -6,3 +6,7 @@ debian/debhelper-build-stamp
 debian/.debhelper
 examples/latex/arco-exam/arco-exam.cls
 missing.png
+tex/arco-article.cls
+debian/files
+tex/arco-book.cls
+tex/arco-report.cls
