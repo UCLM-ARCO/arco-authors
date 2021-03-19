@@ -37,7 +37,7 @@
 \RequirePackage{textpos}
 % \usepackage{calc}
 
-\RequirePackage[a4paper, inner=1.4cm,outer=1cm,top=3cm,bottom=1cm,footskip=0.7cm]{geometry}
+\RequirePackage[a4paper,inner=1.4cm,outer=1.5cm,top=3cm,bottom=1.5cm,footskip=0.7cm]{geometry}
 
 \RequirePackage{arco-basics}
 
