@@ -19,13 +19,13 @@ documentos LaTeX:
 
 Primero debes hacer login para poder descargar la imagen docker:
 
-    cat ~/.github-token-packages | docker login docker.pkg.github.com -u <username> --password-stdin  
+    $ cat ~/.github-token-packages | docker login docker.pkg.github.com -u <username> --password-stdin  
    
 Para obtener el token mira https://docs.github.com/es/packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages   
 
 
 Y para compilar, cambia al directorio dónde tienes el documento y ejecuta:
 
-    docker run -v$PWD:/host -w /host docker.pkg.github.com/uclm-arco/arco-authors/arco-authors:latest make
+    $ docker run -v$PWD:/host -w /host docker.pkg.github.com/uclm-arco/arco-authors/arco-authors:latest make
 
 
