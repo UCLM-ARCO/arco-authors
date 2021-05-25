@@ -21,3 +21,4 @@ push: build login
 
 version:
 	docker run -v $(shell dirname $$PWD):/github/workspace arco-authors dpkg -l arco-authors
+	docker run -v $(shell dirname $$PWD):/github/workspace arco-authors dpkg -l xelatex
