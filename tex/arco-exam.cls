@@ -191,6 +191,8 @@
 
 \newcommand{\showQuestionLabel}{}
 \newcommand{\hideQuestionLabel}{}
+\newcounter{dummyQuestionCounter}
+\setcounter{dummyQuestionCounter}{1}
 
 \newcommand{\usePlainQuestionCounter}{
   \renewcommand{\showQuestionLabel} {
@@ -200,11 +202,15 @@
   }
 
   \renewcommand{\hideQuestionLabel} {
-    \renewcommand{\questionlabel} {E.}
+    \renewcommand{\questionlabel} {
+      \boxed{\Alph{dummyQuestionCounter}}
+      \stepcounter{dummyQuestionCounter}
+    }
   }
 
   \renewcommand{\partlabel}{>\boxed{\theplainQuestionCounter}}
 }
+
 
 
 \newcommand{\answerFormat}[1]{{\small\color{blue} #1}}
