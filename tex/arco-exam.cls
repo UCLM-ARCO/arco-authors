@@ -20,6 +20,8 @@
 \def\arcoExamDate#1{\gdef\@arcoExamDate{#1}}
 \gdef\@arcoExamCourse{\texcmd{arcoExamCourse}}
 \def\arcoExamCourse#1{\gdef\@arcoExamCourse{#1}}
+\gdef\@arcoFaculty{\textbf{\textsf{Escuela Superior de Informática}}}
+\def\arcoFaculty#1{\gdef\@arcoFaculty{#1}}
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{arco-exam}[2012/03/16 class for student exercises]
@@ -75,7 +77,7 @@
 \RequirePackage[yyyymmdd,hhmmss]{datetime}
 \RequirePackage{arco-color}
 
-\newcommand{\ESIname}{\textbf{\textsf{Escuela Superior de Informática}}}
+
 
 \newcommand{\UclmWatermark}{%
   \begin{picture}(0,0)
@@ -93,7 +95,7 @@
     \put(3,1.6){\makebox(0,0)[l]{\textsf{\textbf{\Large #1}}}}
     \put(3,1.1){\makebox(0,0)[l]{#2}}
     \put(3,0.14){\makebox(0,0)[l]{\textsf{\textbf{\large
-            \textcolor{uclmred}{\ESIname}}}}}
+            \textcolor{uclmred}{\@arcoFaculty}}}}}
   \end{picture}
 }
 
