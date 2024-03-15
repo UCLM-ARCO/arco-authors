@@ -247,7 +247,8 @@
 }
 {
   \end{minipage}
-  \null \\[0.3cm]
+  \null
+  \vspace{3mm plus 1.5mm minus 1mm}
 }
 
 \newenvironment{multiQuestion}[1][]{
@@ -260,7 +261,8 @@
 }
 {
   \end{minipage}
-  \null \\[0.3cm]
+  \null
+  \vspace{3mm plus 1.5mm minus 1mm}
 }
 
 \newcommand{\subQuestion}[1][]{
