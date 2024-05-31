@@ -78,7 +78,7 @@
   % numbers
   numbers            = left,
   numbersep          = 15pt,
-  numberstyle        = \tiny\color{gray45},
+  numberstyle        = \tiny\ttfamily\color{gray45},
   numberfirstline    = false,
   %
   breaklines         = true,
@@ -88,7 +88,8 @@
 \lstdefinestyle{codeStyle}{style=baseCodeStyle}
 
 \lstdefinestyle{baseConsoleStyle}{
-  basicstyle=\scriptsize\bf\lstfont,
+  % basicstyle=\scriptsize\bf\lstfont,
+  basicstyle=\fontsize{7pt}{7pt}\selectfont\bf\ttfamily,
   backgroundcolor=\color{gray75},
   numbers=none,
   frame=single,
