@@ -2,25 +2,26 @@
 \newcommand\hypetexttt[1]{\texttt{\hyphenchar\font=45\relax #1}}
 
 
-\def\id    #1{\hypetexttt{#1}}          % identificador                      Ej: campo \id{checksum} de la cabecera
-\def\token #1{`\texttt{#1}'}            % literal, constante simbólica       Ej: \token{MAX}
-\def\code  #1{\hypetexttt{#1}}          % trozo pequeño de código fuente     Ej: \code{a = max()}
-\def\iface #1{\textit{#1}}              % interfaz                           Ej: \iface{Locator}
-\def\lib   #1{\filename{#1}}            % librería o módulo                  Ej: disponible en \lib{math}
-\def\kw    #1{\texttt{#1}}              % keyword, palabra reservada         Ej: \kw{for}
-\def\fg    #1{\textit{#1}}              % foreign, una palabra en inglés     Ej: \fg{chat}
-\def\app   #1{\hypetexttt{#1}}          % aplicación, programa               Ej: \app{emacs}
-\def\host  #1{\texttt{#1}}              % un computador o servidor           Ej: \host{arco}
+\def\id    #1{\hypetexttt{#1}}          % identificador                    Ej: campo \id{checksum} de la cabecera
+\def\token #1{`\texttt{#1}'}            % literal, constante simbólica     Ej: \token{MAX}
+\def\code  #1{\hypetexttt{#1}}          % trozo pequeño de código fuente   Ej: \code{a = max()}
+\def\iface #1{\textit{#1}}              % interfaz                         Ej: \iface{Locator}
+\def\lib   #1{\filename{#1}}            % librería o módulo                Ej: disponible en \lib{math}
+\def\kw    #1{\texttt{#1}}              % keyword, palabra reservada       Ej: \kw{for}
+\def\fg    #1{\textit{#1}}              % foreign, una palabra en inglés   Ej: \fg{chat}
+\def\app   #1{\hypetexttt{#1}}          % aplicación, programa             Ej: \app{emacs}
+\def\host  #1{\texttt{#1}}              % un computador o servidor         Ej: \host{arco}
 
 % Por conveniencia, estos nombres corresponden con elementos DocBook equivalentes
-\def\command     #1{\texttt{#1}}        % comando                            Ej: \command{ls | sort}
-\def\filename    #1{\hypetexttt{#1}}    %                                    Ej: \filename{/etc}
-\def\function    #1{\hypetexttt{#1()}}  %                                    Ej: \function{printf}
-\def\guilabel    #1{\emph{#1}}          % una equiqueta en una GUI.          Ej: En \guilabel{password} introduzca...
-\def\guimenuitem #1{\emph{#1}}          % una opción de un menú en una GUI.  Ej: \guimenuitem{Open}
+\def\command     #1{\texttt{#1}}        % comando                          Ej: \command{ls | sort}
+\def\filename    #1{\hypetexttt{#1}}    %                                  Ej: \filename{/etc/shadow}
+\def\dirname     #1{\hypetexttt{#1}}    %                            Ej: \filename{/etc}
+\def\function    #1{\hypetexttt{#1()}}  %                                  Ej: \function{printf}
+\def\guilabel    #1{\emph{#1}}          % una equiqueta en una GUI.        Ej: En \guilabel{password} introduzca...
+\def\guimenuitem #1{\emph{#1}}          % una opción de un menú en una GUI.Ej: \guimenuitem{Open}
 \def\type        #1{\hypetexttt{#1}}    % tipo de dato o clase
 \def\varname     #1{\hypetexttt{#1}}    % un nombre de una variable
-\def\line        #1{línea #1}           %                                    Ej: \line{12}
+\def\line        #1{línea #1}           %                                  Ej: \line{12}
 
 \usepackage{fancybox}
 \def\guibutton#1{%
