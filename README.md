@@ -1,6 +1,6 @@
 ## arco-authors
 
-![Docker image](https://github.com/UCLM-ARCO/arco-authors/workflows/Docker%20image/badge.svg)
+[![docker image](https://github.com/UCLM-ARCO/arco-authors/actions/workflows/dockerimage.yml/badge.svg)](https://github.com/UCLM-ARCO/arco-authors/actions/workflows/dockerimage.yml)
 
 Las clases y estilos LaTeX de arco-authors están empaquetadas como paquete
 debian/ubuntu. Para descargar el paquete, añade el repo https://uclm-arco.github.io/debian/.
