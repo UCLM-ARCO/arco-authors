@@ -5,9 +5,11 @@ export GITHUB_TOKEN_FILE
 HUB=docker.pkg.github.com
 HUB=ghcr.io
 VERSION=latest
+ORG=uclm-arco
+REPO=arco-authors
 NAME=arco-authors
-IMAGE=${HUB}/uclm-arco/arco-authors/${NAME}:${VERSION}
-API=https://api.github.com/orgs/uclm-arco/packages/container
+IMAGE=${HUB}/${ORG}/${REPO}/${NAME}:${VERSION}
+API=https://api.github.com/orgs/${ORG}/packages/container
 
 
 login:
@@ -16,15 +18,14 @@ login:
 	@cat "$(GITHUB_TOKEN_FILE)" | docker login ${HUB} -u ${GITHUB_USERNAME} --password-stdin
 
 build:
-	docker build . -t uclm-arco/${NAME}:${VERSION}
+	docker build --no-cache -t ${ORG}/${NAME}:${VERSION} .
 
 push: login
-	docker tag uclm-arco/${NAME}:${VERSION} ${IMAGE}
+	docker tag ${ORG}/${NAME}:${VERSION} ${IMAGE}
 	docker push ${IMAGE}
 
 versions:
-	docker run -v $(shell dirname $$PWD):/github/workspace arco-authors \
-		dpkg -l arco-authors texlive-xetex
+	docker run ${ORG}/${NAME} dpkg -l arco-authors texlive-xetex
 
 list-images:
 	curl -s -H "Authorization: token $$(cat $$GITHUB_TOKEN_FILE)" \
