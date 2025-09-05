@@ -31,8 +31,6 @@
 
 \RequirePackage{datetime}
 
-% FIXME: quitar del estilo (específico de documento)
-\RequirePackage{tikz-uml}
 
 %%-- class config --
 
@@ -63,7 +61,7 @@
 \def\line#1{{\bfseries línea\,#1}}
 \def\lines#1{{\bfseries líneas~#1}}
 
-\captionsetup{margin=10pt}
+\captionsetup{justification=centering}
 \setcounter{secnumdepth}{3}
 
 

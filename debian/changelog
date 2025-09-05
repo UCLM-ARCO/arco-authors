@@ -1,3 +1,10 @@
+arco-authors (0.20250905-1) unstable; urgency=low
+
+  * New release
+  * remove tikz-uml
+
+ -- David Villa Alises <David.Villa@gmail.com>  Fri, 05 Sep 2025 22:20:42 +0200
+
 arco-authors (0.20250625-1) unstable; urgency=low
 
   * New release
