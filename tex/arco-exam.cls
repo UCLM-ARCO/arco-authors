@@ -286,7 +286,7 @@
 
 \newcommand{\arcoEmptyChoice}[2]{
   \stepcounter{choicecounter}
-  {\fontsize{15pt}{15pt}\selectfont #1 }\hspace{2pt}
+  {\fontsize{15pt}{15pt}\selectfont #1 }\hspace{0pt}
   \textbf{\alph{choicecounter}})\hspace{4pt}\parbox[t]{.9\textwidth}{#2\\[-.3cm]}%
   % DO NOT REMOVE THESE LINES
 
