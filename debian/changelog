@@ -1,3 +1,10 @@
+arco-authors (0.20260915-1) unstable; urgency=low
+
+  * replace unoconv with soffice
+  * add manual pages and fix lintian issues
+
+ -- David Villa Alises <David.Villa@gmail.com>  Tue, 15 Sep 2026 14:12:51 +0200
+
 arco-authors (0.20260317-1) unstable; urgency=low
 
   * New release

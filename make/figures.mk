@@ -55,16 +55,18 @@ DOTENGINE?=fdp
 
 #-- libreoffice -----------------------------------------------
 
+include arco/soffice.mk
+
 %.jpg: %.ods
-	unoconv --format html $<
+	$(call soffice-convert,html,$*.html)
 	mv $*_html_*.jpg $@
 	rm $*.html
 
 %.pdf: %.odg
-	unoconv $<
+	$(call soffice-convert,pdf,$@)
 
 %.png: %.odg
-	unoconv -o $@ $<
+	$(call soffice-convert,png,$@)
 
 
 

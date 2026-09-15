@@ -1,0 +1,22 @@
+.TH ARCO-SVG2PNG 1 "September 2026" "arco-authors" "ARCO authors tools"
+.SH NAME
+arco-svg2png \- convert an SVG file to PNG with Inkscape
+.SH SYNOPSIS
+.B arco-svg2png
+.I svg-file
+.I png-file
+.RI [ dpi ]
+.SH DESCRIPTION
+.B arco-svg2png
+converts
+.I svg-file
+to
+.I png-file
+using
+.BR inkscape (1)
+at the given resolution. The default
+.I dpi
+is 150. It works with Inkscape versions before and after 1.0.
+.SH SEE ALSO
+.BR arco-svg2pdf (1),
+.BR inkscape (1)

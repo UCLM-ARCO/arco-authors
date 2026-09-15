@@ -50,8 +50,8 @@ install:
 	install -vd $(FIGURES)
 	install -v -m 444 figures/* $(FIGURES)
 
-	install -vd $(DOCDIR)/arco-authors
-	tar cvfz $(DOCDIR)/arco-authors/examples.tgz --directory examples latex docbook
+	install -vd $(DOCDIR)/arco-authors/examples
+	cp -rv examples/latex examples/docbook $(DOCDIR)/arco-authors/examples/
 
 download-images:
 	@$(WGET) $(LOGOS)/esi.pdf              	  -O figures/esi.pdf

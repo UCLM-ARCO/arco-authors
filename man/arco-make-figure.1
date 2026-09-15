@@ -1,0 +1,28 @@
+.TH ARCO-MAKE-FIGURE 1 "September 2026" "arco-authors" "ARCO authors tools"
+.SH NAME
+arco-make-figure \- build a figure using the ARCO figure conversion rules
+.SH SYNOPSIS
+.B arco-make-figure
+.I target
+.SH DESCRIPTION
+.B arco-make-figure
+runs
+.BR make (1)
+with
+.I /usr/include/arco/figures.mk
+to build
+.IR target .
+The source file is chosen from the target extension, for example
+.I fig.pdf
+from
+.IR fig.svg ,
+.IR fig.dot ,
+.I fig.odg
+or
+.IR fig.dia .
+.SH FILES
+.I /usr/include/arco/figures.mk
+.SH SEE ALSO
+.BR make (1),
+.BR arco-svg2pdf (1),
+.BR arco-svg2png (1)

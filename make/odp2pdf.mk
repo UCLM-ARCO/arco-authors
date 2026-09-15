@@ -1,10 +1,11 @@
 # -*- mode:makefile -*-
 # ----------------------------------------------------------------------
-# Required pkgs: unovonv
+# Required pkgs: libreoffice-impress
 # Optional vars: ODP ODP-IGNORE
 # ----------------------------------------------------------------------
 
 include arco/pdfjam.mk
+include arco/soffice.mk
 
 ODP ?= $(filter-out $(ODP-IGNORE), $(wildcard *.odp))
 
@@ -17,7 +18,7 @@ PDF=$(PDF1) $(PDF3) $(PDFM)
 all::  $(PDF)
 
 %.pdf: %.odp
-	odp2pdf $<
+	$(call soffice-convert,pdf,$@)
 
 clean::
 	$(RM) temp *~ $(PDF)

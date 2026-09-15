@@ -1,0 +1,21 @@
+.TH ARCO-PDF-2X1 1 "September 2026" "arco-authors" "ARCO authors tools"
+.SH NAME
+arco-pdf-2x1 \- put two PDF pages on each landscape sheet
+.SH SYNOPSIS
+.B arco-pdf-2x1
+.I file.pdf
+.SH DESCRIPTION
+.B arco-pdf-2x1
+builds
+.I file.2x1.pdf
+from
+.IR file.pdf ,
+with two pages side by side on each landscape A4 sheet. It runs
+.BR make (1)
+with
+.IR /usr/include/arco/pdfjam.mk .
+.SH FILES
+.I /usr/include/arco/pdfjam.mk
+.SH SEE ALSO
+.BR pdfjam-slides-morci (1),
+.BR pdfjam (1)

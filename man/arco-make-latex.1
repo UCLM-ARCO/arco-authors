@@ -1,0 +1,32 @@
+.TH ARCO-MAKE-LATEX 1 "September 2026" "arco-authors" "ARCO authors tools"
+.SH NAME
+arco-make-latex \- build a LaTeX document using the ARCO make rules
+.SH SYNOPSIS
+.B arco-make-latex
+.RB [ all | clean | vclean |
+.IR pdf-file ]
+.SH DESCRIPTION
+.B arco-make-latex
+runs
+.BR make (1)
+with
+.I /usr/include/arco/latex.mk
+on the given target in the current directory.
+.SH TARGETS
+.TP
+.B all
+Build the document.
+.TP
+.B clean
+Remove intermediate files.
+.TP
+.B vclean
+Remove intermediate and generated files.
+.TP
+.I pdf-file
+Build that PDF file from its LaTeX source.
+.SH FILES
+.I /usr/include/arco/latex.mk
+.SH SEE ALSO
+.BR make (1),
+.BR pdflatex (1)

@@ -1,17 +1,18 @@
 # -*- mode:makefile -*-
 # ----------------------------------------------------------------------
-# Required pkgs: unovonv
+# Required pkgs: libreoffice-writer
 # Optional vars: ODT
 # ----------------------------------------------------------------------
 
 include arco/pdfjam.mk
+include arco/soffice.mk
 
 ODT ?= $(wildcard *.odt)
 
 all::  $(PDF)
 
 %.pdf: %.odt
-	odt2pdf $<
+	$(call soffice-convert,pdf,$@)
 
 clean::
 	$(RM) temp *~ $(PDF)

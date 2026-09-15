@@ -1,0 +1,3 @@
+# Logos and watermarks included by the LaTeX classes and user documents
+# through absolute paths; they are not documentation.
+arco-authors: package-contains-documentation-outside-usr-share-doc [usr/share/arco/figures/*.pdf]

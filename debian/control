@@ -1,12 +1,13 @@
 Source: arco-authors
 Section: shells
-Priority: extra
 Maintainer: ARCO Research Group <sysadm@arco.esi.uclm.es>
 Uploaders: David Villa Alises <David.Villa@gmail.com>,
 	   Oscar Aceña Herrera <oscaracena@gmail.com>
-Build-Depends: debhelper (>= 7.0.50~)
-Standards-Version: 3.9.8
-Homepage: https://bitbucket.org/arco_group/arco-authors
+Build-Depends: debhelper-compat (= 14)
+Standards-Version: 4.7.4
+Homepage: https://github.com/UCLM-ARCO/arco-authors
+Vcs-Browser: https://github.com/UCLM-ARCO/arco-authors
+Vcs-Git: https://github.com/UCLM-ARCO/arco-authors.git
 
 Package: arco-authors
 Architecture: all
@@ -25,7 +26,19 @@ Depends: ${misc:Depends},
 	 aspell-en,
 	 dblatex,
 	 dia
-Recommends: unoconv,
+Recommends: libreoffice-impress,
+            libreoffice-draw,
+            libreoffice-calc,
+            libreoffice-writer,
             noweb
 Description: ARCO authors tools, styles and templates
  LaTeX and DocBook utilities and styles for Arco authors.
+ .
+ This package provides:
+  * LaTeX classes and styles for articles, reports, books and exams.
+  * Makefile rules (installed in /usr/include/arco) to build LaTeX and
+    DocBook documents and to convert figures from SVG, Dia, Graphviz and
+    LibreOffice formats.
+  * Command line tools to build figures, arrange PDF pages for printing
+    and edit PDF metadata.
+  * Logos and watermarks used by the document templates.

@@ -1,0 +1,23 @@
+.TH PDFTITLE 1 "September 2026" "arco-authors" "ARCO authors tools"
+.SH NAME
+pdftitle \- show or change the title of a PDF file
+.SH SYNOPSIS
+.B pdftitle
+.RB [ \-\-gui ]
+.I file.pdf
+.RI [ new-title ]
+.SH DESCRIPTION
+.B pdftitle
+prints the title stored in the metadata of
+.IR file.pdf .
+If
+.I new-title
+is given, it sets the title to that value.
+.SH OPTIONS
+.TP
+.B \-\-gui
+Ask for the new title in a
+.BR zenity (1)
+dialog, filled in with the current title.
+.SH SEE ALSO
+.BR exiftool (1p)

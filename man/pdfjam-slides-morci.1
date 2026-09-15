@@ -1,0 +1,23 @@
+.TH PDFJAM-SLIDES-MORCI 1 "September 2026" "arco-authors" "ARCO authors tools"
+.SH NAME
+pdfjam-slides-morci \- put eight slides on each PDF sheet
+.SH SYNOPSIS
+.B pdfjam-slides-morci
+.I file.pdf
+.SH DESCRIPTION
+.B pdfjam-slides-morci
+builds
+.I file.2x4.pdf
+from
+.IR file.pdf ,
+for printing slides. The first slide is placed alone and the rest in
+framed groups of four; two of those groups go on each portrait A4
+sheet, so most sheets hold eight slides. It runs
+.BR make (1)
+with
+.IR /usr/include/arco/pdfjam.mk .
+.SH FILES
+.I /usr/include/arco/pdfjam.mk
+.SH SEE ALSO
+.BR arco-pdf-2x1 (1),
+.BR pdfjam (1)
