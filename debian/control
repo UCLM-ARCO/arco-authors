@@ -3,7 +3,7 @@ Section: shells
 Maintainer: ARCO Research Group <sysadm@arco.esi.uclm.es>
 Uploaders: David Villa Alises <David.Villa@gmail.com>,
 	   Oscar Aceña Herrera <oscaracena@gmail.com>
-Build-Depends: debhelper-compat (= 14)
+Build-Depends: debhelper-compat (= 13)
 Standards-Version: 4.7.4
 Homepage: https://github.com/UCLM-ARCO/arco-authors
 Vcs-Browser: https://github.com/UCLM-ARCO/arco-authors

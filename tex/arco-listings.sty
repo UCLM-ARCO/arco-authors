@@ -167,13 +167,18 @@
 \lstloadlanguages{}
 
 \lstdefinelanguage{Slice}{%
-  morekeywords=[2]{void, bool, byte, short, int, float, sequence, string,
-    dictionary, Object},
-  morekeywords=[3]{module, interface, struct, class, exception,
-    throws, extends, idempotent},
-  morekeywords=[4]{in, out},
-  morekeywords=[5]{include},
-  sensitive=false
+  morekeywords={module, interface, class, struct, exception, enum,
+    sequence, dictionary, const, extends, implements, throws,
+    idempotent, optional, local, out, true, false,
+    void, bool, byte, short, int, long, float, double, string,
+    Object, Value, LocalObject},
+  sensitive=true,
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]",
+  alsoletter=\#,
+  morekeywords=[2]{\#include, \#pragma, \#ifndef, \#define, \#endif},
+  keywordstyle=[2]\bfseries,
   }
 
 
