@@ -1,5 +1,6 @@
 debian/arco-authors/*
 debian/arco-authors.substvars
+debian/*.debhelper
 debian/arco-authors.debhelper.log
 debian/arco-authors.postinst
 debian/debhelper-build-stamp

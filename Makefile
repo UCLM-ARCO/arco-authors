@@ -6,7 +6,8 @@ DESTDIR?=~
 FINAL=/usr/share/arco
 BASE=$(DESTDIR)$(FINAL)
 MK=$(DESTDIR)/usr/include/arco
-LATEXSITE=$(DESTDIR)/usr/share/texmf/tex/latex/arco
+TEXMF=$(DESTDIR)/usr/share/texmf
+LATEXSITE=$(TEXMF)/tex/latex/arco
 BIBDIR=$(DESTDIR)/usr/share/texlive/texmf-dist/bibtex/bst/es-bib
 FIGURES=$(DESTDIR)/$(FINAL)/figures
 DOCDIR=$(DESTDIR)/usr/share/doc
@@ -40,6 +41,7 @@ install:
 	install -vd $(LATEXSITE)
 	install -v -m 444 tex/*.cls $(LATEXSITE)
 	install -v -m 444 tex/*.sty $(LATEXSITE)
+	for f in $$(cd texmf && find . -type f); do install -v -D -m 444 texmf/$$f $(TEXMF)/$$f; done
 
 	install -vd $(BIBDIR)
 	install -v -m 444 tex/*.bst $(BIBDIR)

@@ -1,3 +1,11 @@
 # Logos and watermarks included by the LaTeX classes and user documents
 # through absolute paths; they are not documentation.
 arco-authors: package-contains-documentation-outside-usr-share-doc [usr/share/arco/figures/*.pdf]
+
+# Bera and Inconsolata Type 1 fonts copied unmodified from texlive-fonts-extra,
+# which overrides the same false positive (see debian/copyright).
+arco-authors: license-problem-font-adobe-copyrighted-fragment [usr/share/texmf/fonts/type1/public/*.pfb]
+
+# Upstream Inconsolata bold fonts (Apache-2.0) allow editable embedding only,
+# which is enough for TeX engines to embed them in PDF documents.
+arco-authors: opentype-font-prohibits-installable-embedding (edit only) [usr/share/texmf/fonts/opentype/public/inconsolata/*-Bold.otf]
