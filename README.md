@@ -19,9 +19,9 @@ documentos LaTeX:
 
 Primero debes hacer login para poder descargar la imagen docker:
 
-    $ cat ~/.github-token-packages | docker login docker.pkg.github.com -u <username> --password-stdin
+    $ cat ~/.github-token-packages | docker login ghcr.io -u <username> --password-stdin
 
-Para obtener el token mira https://docs.github.com/es/packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages
+Para obtener el token mira https://docs.github.com/es/packages/working-with-a-github-packages-registry/working-with-the-container-registry
 
 
 Y para compilar, cambia al directorio dónde tienes el documento y ejecuta:

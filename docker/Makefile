@@ -1,8 +1,7 @@
 MAKEFLAGS += --warn-undefined-variables
-HOW_TO_LOGIN=https://docs.github.com/es/packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages
+HOW_TO_LOGIN=https://docs.github.com/es/packages/working-with-a-github-packages-registry/working-with-the-container-registry
 export GITHUB_TOKEN_FILE
 
-HUB=docker.pkg.github.com
 HUB=ghcr.io
 VERSION=latest
 ORG=uclm-arco
@@ -14,13 +13,13 @@ API=https://api.github.com/orgs/${ORG}/packages/container
 
 login:
 	@test ! -z "${GITHUB_USERNAME}" || (echo "ERROR: Define var GITHUB_USERNAME"; false)
-	@test -f $(GITHUB_TOKEN_FILE) || (echo "ERROR: Need a token. See ${HOW_TO_LOGIN}"; false)
+	@test -f "$(GITHUB_TOKEN_FILE)" || (echo "ERROR: Need a token. See ${HOW_TO_LOGIN}"; false)
 	@cat "$(GITHUB_TOKEN_FILE)" | docker login ${HUB} -u ${GITHUB_USERNAME} --password-stdin
 
 build:
 	docker build --no-cache -t ${ORG}/${NAME}:${VERSION} .
 
-push: login
+push: login build
 	docker tag ${ORG}/${NAME}:${VERSION} ${IMAGE}
 	docker push ${IMAGE}
 

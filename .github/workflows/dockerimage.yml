@@ -6,19 +6,22 @@ jobs:
   push:
     runs-on: ubuntu-latest
     if: "contains(github.event.head_commit.message, 'new-release')"
-    
+    permissions:
+      contents: read
+      packages: write
+
     steps:
-      - uses: actions/checkout@v2
-        
+      - uses: actions/checkout@v7
+
       - name: Build image
         run: docker build docker --tag image
-                
+
       - name: login
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
-      
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
       - name: push
         run: |
-          IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/arco-authors
+          IMAGE_ID=ghcr.io/${{ github.repository }}/arco-authors
           IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
           echo IMAGE_ID=$IMAGE_ID
           docker tag image $IMAGE_ID:latest
