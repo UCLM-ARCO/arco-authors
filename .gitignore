@@ -12,4 +12,3 @@ debian/files
 tex/arco-book.cls
 tex/arco-report.cls
 examples/latex/arco-exam/exam.log
-texmf/

@@ -41,7 +41,6 @@ install:
 	install -vd $(LATEXSITE)
 	install -v -m 444 tex/*.cls $(LATEXSITE)
 	install -v -m 444 tex/*.sty $(LATEXSITE)
-	for f in $$(cd texmf && find . -type f); do install -v -D -m 444 texmf/$$f $(TEXMF)/$$f; done
 
 	install -vd $(BIBDIR)
 	install -v -m 444 tex/*.bst $(BIBDIR)

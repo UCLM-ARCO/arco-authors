@@ -4,8 +4,7 @@ Priority: optional
 Maintainer: ARCO Research Group <sysadm@arco.esi.uclm.es>
 Uploaders: David Villa Alises <David.Villa@gmail.com>,
 	   Oscar Aceña Herrera <oscaracena@gmail.com>
-Build-Depends: debhelper-compat (= 13),
-               dh-sequence-tex
+Build-Depends: debhelper-compat (= 13)
 Standards-Version: 4.7.2
 Homepage: https://github.com/UCLM-ARCO/arco-authors
 Vcs-Browser: https://github.com/UCLM-ARCO/arco-authors
@@ -20,14 +19,14 @@ Depends: ${misc:Depends},
 	 texlive-latex-recommended,
 	 texlive-extra-utils,
 	 texlive-fonts-recommended,
+	 texlive-fonts-extra-essential,
 	 texlive-bibtex-extra,
  	 cm-super,
 	 inkscape,
 	 netpbm,
 	 aspell-en,
 	 dia
-Recommends: texlive-fonts-extra,
-            dblatex,
+Recommends: dblatex,
             libreoffice-impress,
             libreoffice-draw,
             libreoffice-calc,
@@ -44,4 +43,3 @@ Description: ARCO authors tools, styles and templates
   * Command line tools to build figures, arrange PDF pages for printing
     and edit PDF metadata.
   * Logos and watermarks used by the document templates.
-  * The Bera and Inconsolata fonts for LaTeX.
