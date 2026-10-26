@@ -17,7 +17,7 @@ login:
 	@cat "$(GITHUB_TOKEN_FILE)" | docker login ${HUB} -u ${GITHUB_USERNAME} --password-stdin
 
 build:
-	docker build --no-cache -t ${ORG}/${NAME}:${VERSION} .
+	docker build --no-cache -f Dockerfile -t ${ORG}/${NAME}:${VERSION} ..
 
 push: login build
 	docker tag ${ORG}/${NAME}:${VERSION} ${IMAGE}

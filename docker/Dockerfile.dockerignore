@@ -1,0 +1,7 @@
+.git
+debian/arco-authors
+debian/.debhelper
+debian/files
+debian/*.debhelper.log
+debian/*.substvars
+debian/debhelper-build-stamp
