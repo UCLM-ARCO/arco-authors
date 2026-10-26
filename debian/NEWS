@@ -1,0 +1,16 @@
+arco-authors (0.20261026-1) unstable; urgency=low
+
+  arco-authors no longer recommends texlive-fonts-extra (about 1.6 GB).
+  The fonts it uses (Bera, Inconsolata and the fontawesome 3.1.1 LaTeX
+  package), together with Font Awesome 5 and bbm, are now provided by the
+  new package texlive-fonts-extra-essential (about 4 MB).
+
+  If texlive-fonts-extra was installed automatically, apt now reports it
+  as no longer required and "apt autoremove" will remove it. If your
+  documents use other fonts from texlive-fonts-extra, keep it with:
+
+    apt-mark manual texlive-fonts-extra
+
+  Otherwise you can remove it to free disk space.
+
+ -- David Villa Alises <David.Villa@gmail.com>  Mon, 26 Oct 2026 09:53:56 +0100
