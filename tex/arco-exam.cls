@@ -132,6 +132,20 @@
   \end{picture}
 }
 
+% \arcoExamDateISO{YYYY-MM-DD}: the date of the exam, written in the language of the
+% document when the page is made ("March 11, 2019", "11 de marzo de 2019")
+\def\@arcoMonthName#1{%
+  \iflanguage{english}%
+    {\ifcase#1\or January\or February\or March\or April\or May\or June\or July\or
+      August\or September\or October\or November\or December\fi}%
+    {\ifcase#1\or enero\or febrero\or marzo\or abril\or mayo\or junio\or julio\or
+      agosto\or septiembre\or octubre\or noviembre\or diciembre\fi}}
+\def\@arcoFormatDate#1-#2-#3\@nil{%
+  \iflanguage{english}%
+    {\@arcoMonthName{\number#2} \number#3, #1}%
+    {\number#3{} de \@arcoMonthName{\number#2} de #1}}
+\def\arcoExamDateISO#1{\gdef\@arcoExamDate{\@arcoFormatDate#1\@nil}}
+
 \newcommand{\examCourse} {
   \iflanguage{english}{Course}{Curso} \@arcoExamCourse\ ::\
 }
