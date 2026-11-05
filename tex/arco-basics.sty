@@ -5,7 +5,10 @@
 
 \usepackage[T1]{fontenc}
 \usepackage[spanish,english]{babel}
+% babel makes the last of its languages (english) the one of the document when it begins, whatever
+% \selectlanguage said before: the language of the document is chosen again then, after it
 \selectlanguage{\@docLanguage}
+\AtBeginDocument{\selectlanguage{\@docLanguage}}
 
 \usepackage{ifxetex}
 \ifxetex
