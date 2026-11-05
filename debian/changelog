@@ -1,3 +1,9 @@
+arco-authors (0.20261105-1) unstable; urgency=low
+
+  * orig with only the files in git
+
+ -- David Villa Alises <David.Villa@gmail.com>  Thu, 05 Nov 2026 00:50:30 +0100
+
 arco-authors (0.20261026.2-1) unstable; urgency=low
 
   * New release
