@@ -300,6 +300,7 @@
 \newenvironment{multiQuestion}[1][]{
   \setcounter{choicecounter}{0}
   \hideQuestionLabel
+  \@beginparpenalty\@M  % no page break where its parts begin: after its statement
   \arco@beginquestion{.98\textwidth}
   \ifthenelse{\isempty{#1}}%
     {\question}
@@ -309,6 +310,24 @@
   \arco@endquestion
   \vspace{3mm plus 1.5mm minus 1mm}
 }
+
+% Parts of a question that are not broken across pages, even if the question is (see above), so
+% that a question taller than a page breaks between them: questionStatement, the statement of a
+% multiQuestion (with its figure), that stays with its first subquestion; questionBlock, each
+% subquestion (or any other part):
+%   \begin{multiQuestion}[6]
+%   \begin{questionStatement} statement \end{questionStatement}
+%   \begin{parts}
+%   \subQuestion[2] \begin{questionBlock} subquestion \end{questionBlock}
+%   ...
+%   \end{parts}
+%   \end{multiQuestion}
+\newenvironment{questionBlock}
+  {\begin{minipage}[t]{\linewidth}}
+  {\end{minipage}}
+\newenvironment{questionStatement}
+  {\begin{questionBlock}}
+  {\end{questionBlock}\par\nopagebreak[4]}
 
 \newcommand{\subQuestion}[1][]{
   \setcounter{choicecounter}{0}

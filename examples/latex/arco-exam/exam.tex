@@ -110,41 +110,49 @@
 \end{simpleQuestion}
 
 
+  % statement and subquestions in blocks: if the question does not fit in a page, it breaks
+  % between them, not inside one, and the statement stays with the first subquestion
   \begin{multiQuestion}[12]
+    \begin{questionStatement}
     Enunciado general.
+    \end{questionStatement}
 
     \begin{parts}
-    \subQuestion[]
+    \subQuestion[] \begin{questionBlock}
       Choose a city:
 
       \choice{London}
       \choice{Paris}
       \correctChoice{Roma}
       \choice{Oporto}
+    \end{questionBlock}
 
-    \subQuestion[]
+    \subQuestion[] \begin{questionBlock}
       Describe the effect on the aircraft industry.
 
       \choice{A}
       \choice{B}
       \correctChoice{C}
       \choice{D}
+    \end{questionBlock}
 
-    \subQuestion[]
+    \subQuestion[] \begin{questionBlock}
       Describe the effect on the aircraft industry.
 
       \choice{A}
       \choice{B}
       \correctChoice{C}
       \choice{D}
+    \end{questionBlock}
 
-    \subQuestion[]
+    \subQuestion[] \begin{questionBlock}
       Describe the effect on the aircraft industry.
 
       \choice{A}
       \choice{B}
       \correctChoice{C}
       \choice{D}
+    \end{questionBlock}
 
     \end{parts}
   \end{multiQuestion}
