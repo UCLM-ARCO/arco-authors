@@ -16,8 +16,18 @@
 \def\arcoTopic#1{\gdef\@arcoTopic{#1}}
 \gdef\@arcoExamDesc{\texcmd{arcoExamDesc}}
 \def\arcoExamDesc#1{\gdef\@arcoExamDesc{#1}}
-\gdef\@arcoExamDate{\texcmd{arcoExamDate}}
-\def\arcoExamDate#1{\gdef\@arcoExamDate{#1}}
+\gdef\@arcoExamDate{\texcmd{arcoExamDateISO}}
+% \arcoExamDate{text}: deprecated, the date as it is written; \arcoExamDateISO{YYYY-MM-DD} (below)
+% writes it in the language of the document. It is warned in the log and, after the date, in the PDF
+\def\arcoExamDate#1{%
+  \ClassWarningNoLine{arco-exam}{\string\arcoExamDate\space is deprecated:\MessageBreak use
+    \string\arcoExamDateISO{YYYY-MM-DD}, which writes\MessageBreak the date in the language of
+    the document}%
+  \gdef\@arcoExamDate{#1\arco@deprecatedDate}}
+\def\arco@deprecatedDate{%
+  \space{\color{red}\scriptsize[\texttt{\textbackslash arcoExamDate}
+    \iflanguage{english}{is deprecated: use}{está obsoleta: use}
+    \texttt{\textbackslash arcoExamDateISO\{YYYY-MM-DD\}}]}}
 \gdef\@arcoExamCourse{\texcmd{arcoExamCourse}}
 \def\arcoExamCourse#1{\gdef\@arcoExamCourse{#1}}
 \gdef\@arcoFaculty{\textbf{\textsf{Escuela Superior de Informática}}}
@@ -250,32 +260,53 @@
 
 \newcounter{choicecounter}
 
+% A question is not broken across pages: it is set in a box, like a minipage of the given width,
+% that goes whole to the next page if it does not fit at the end of this one. Only a question
+% taller than a page (which would go off it) is unboxed, so that it may break across pages.
+\newsavebox\arco@questionbox
+\newcommand\arco@beginquestion[1]{%
+  \par
+  \setbox\arco@questionbox\vbox\bgroup
+    \color@begingroup
+    \hsize#1\relax \textwidth\hsize \columnwidth\hsize
+    \@parboxrestore
+    \let\@listdepth\@mplistdepth \@mplistdepth\z@
+    \@minipagerestore
+    \@setminipage}
+\newcommand\arco@endquestion{%
+    \par\unskip
+    \color@endgroup
+  \egroup
+  \ifdim\dimexpr\ht\arco@questionbox+\dp\arco@questionbox\relax>\textheight
+    \unvbox\arco@questionbox
+  \else
+    \leavevmode$\vcenter{\box\arco@questionbox}$ \null
+  \fi}
+
 \newenvironment{simpleQuestion}[1][]{
   \setcounter{choicecounter}{0}
   \stepcounter{plainQuestionCounter}
   \showQuestionLabel
-  \begin{minipage}{\textwidth}
+  \arco@beginquestion{\textwidth}
   \ifthenelse{\isempty{#1}}%
     {\question}
     {\question[#1]}
 }
 {
-  \end{minipage}
-  \null
+  \arco@endquestion
   \vspace{3mm plus 1.5mm minus 1mm}
 }
 
 \newenvironment{multiQuestion}[1][]{
   \setcounter{choicecounter}{0}
   \hideQuestionLabel
-  \begin{minipage}{.98\textwidth}
+  \arco@beginquestion{.98\textwidth}
   \ifthenelse{\isempty{#1}}%
     {\question}
     {\question[#1]}
 }
 {
-  \end{minipage}
-  \null
+  \arco@endquestion
   \vspace{3mm plus 1.5mm minus 1mm}
 }
 
