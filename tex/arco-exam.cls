@@ -34,7 +34,7 @@
 \def\arcoFaculty#1{\gdef\@arcoFaculty{#1}}
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{arco-exam}[2012/03/16 class for student exercises]
+\ProvidesClass{arco-exam}[2026/11/06 class for student exercises]
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{exam}}
 \PassOptionsToClass{pdftex,10pt,a4paper,color}{exam}
 \ProcessOptions\relax
